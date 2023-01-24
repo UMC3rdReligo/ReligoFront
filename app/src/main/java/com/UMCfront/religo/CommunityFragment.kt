@@ -8,6 +8,7 @@ import android.view.ViewGroup
 
 
 class CommunityFragment : Fragment() {
+    //dddddwq
 
 
     override fun onCreateView(
