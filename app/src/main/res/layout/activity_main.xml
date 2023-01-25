@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
     <FrameLayout
-        android:id="@+id/frameLayout"
+        android:id="@+id/mainFrameLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
@@ -23,6 +23,7 @@
         app:itemIconSize="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/bottom_menu" />
+
 
 
 

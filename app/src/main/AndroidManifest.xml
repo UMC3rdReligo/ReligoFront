@@ -90,6 +90,7 @@
         </activity>
         <activity
             android:name=".SplashActivity"
+            android:name=".CommunityChurchActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
