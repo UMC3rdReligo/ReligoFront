@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="180dp"
+    android:background="@drawable/community_list_grid"
+    android:layout_height="140dp">
+    <TextView
+        android:id="@+id/community_rv_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="제목입니당">
+
+    </TextView>
+</LinearLayout>

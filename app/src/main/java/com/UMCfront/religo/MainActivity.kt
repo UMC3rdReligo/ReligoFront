@@ -1,6 +1,7 @@
 package com.UMCfront.religo
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
@@ -19,6 +20,9 @@ class MainActivity : AppCompatActivity() {
     private val eventFragment by lazy {EventFragment()}
 
     private val searchFragment by lazy {SearchFragment()}
+
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,6 +66,8 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.mainFrameLayout, fragment)
             .commit()
     }
+
+
 }
 
 
