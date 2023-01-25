@@ -1,8 +1,9 @@
-package com.UMCfront.religo
+package com.UMCfront.religo.ui.user
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.UMCfront.religo.R
 import com.UMCfront.religo.databinding.ActivityUserSurvey3Binding
 
 class UserSurveyActivity3 : AppCompatActivity() {

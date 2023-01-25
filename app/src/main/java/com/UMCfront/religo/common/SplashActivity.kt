@@ -1,10 +1,10 @@
-package com.UMCfront.religo
+package com.UMCfront.religo.common
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import com.UMCfront.religo.common.MainActivity
+import com.UMCfront.religo.R
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

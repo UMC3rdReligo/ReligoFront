@@ -1,10 +1,11 @@
-package com.UMCfront.religo
+package com.UMCfront.religo.ui.user
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.UMCfront.religo.R
+import com.UMCfront.religo.common.WelcomePageActivity
 import com.UMCfront.religo.databinding.ActivityUserSurvey6Binding
-import com.UMCfront.religo.ui.login.LoginViewModel
 
 class UserSurveyActivity6 : AppCompatActivity() {
 

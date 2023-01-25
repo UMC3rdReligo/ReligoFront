@@ -6,9 +6,6 @@ import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.UMCfront.religo.R
-import com.UMCfront.religo.SearchFragment
-import com.UMCfront.religo.common.CommunityFragment
-import com.UMCfront.religo.common.HomeFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
