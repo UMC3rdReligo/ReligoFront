@@ -1,16 +1,19 @@
 package com.UMCfront.religo
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 
 class CommunityFragment : Fragment() {
-    //dddddwq
 
 
     override fun onCreateView(
@@ -19,6 +22,18 @@ class CommunityFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view=inflater.inflate(R.layout.fragment_community, container, false)
+
+        val churchEntrance=view.findViewById<ImageView>(R.id.community_entrance)
+
+
+        churchEntrance!!.setOnClickListener {
+            activity?.let{
+                val intent = Intent(context, CommunityChurchActivity::class.java)
+                startActivity(intent)
+            }
+
+
+        }
 
         var communityAllList= mutableListOf<String>()
         communityAllList.add("안녕하세요 이번에 새로 가입했습니다.")
@@ -58,7 +73,6 @@ class CommunityFragment : Fragment() {
         platRv.adapter=platformAdapter
 
 
-
         return view
     }
 
@@ -68,4 +82,6 @@ class CommunityFragment : Fragment() {
             return CommunityFragment()
         }
     }
+
+
 }
