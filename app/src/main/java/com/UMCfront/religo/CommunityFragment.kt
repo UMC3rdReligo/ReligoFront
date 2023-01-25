@@ -37,6 +37,7 @@ class CommunityFragment : Fragment() {
 
         rv.layoutManager= LinearLayoutManager(this.context)
 
+        //
         var communityPlatformList= mutableListOf<String>()
         communityPlatformList.add("안녕하세용~~~")
         communityPlatformList.add("안녕하세용~~~")
