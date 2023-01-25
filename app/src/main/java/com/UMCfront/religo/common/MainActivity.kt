@@ -1,11 +1,14 @@
-package com.UMCfront.religo
+package com.UMCfront.religo.common
 
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.UMCfront.religo.R
+import com.UMCfront.religo.SearchFragment
+import com.UMCfront.religo.common.CommunityFragment
+import com.UMCfront.religo.common.HomeFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -13,13 +16,13 @@ class MainActivity : AppCompatActivity() {
     private val fl: FrameLayout by lazy {
         findViewById(R.id.mainFrameLayout)
     }
-    private val communityFragment by lazy {CommunityFragment()}
+    private val communityFragment by lazy { CommunityFragment() }
 
-    private val homeFragment by lazy {HomeFragment()}
+    private val homeFragment by lazy { HomeFragment() }
 
     private val eventFragment by lazy {EventFragment()}
 
-    private val searchFragment by lazy {SearchFragment()}
+    private val searchFragment by lazy { SearchFragment() }
 
 
 
@@ -43,13 +46,13 @@ class MainActivity : AppCompatActivity() {
                     R.id.nav_group -> {
                         changeFragment(communityFragment)
                     }
-                    R.id.nav_home->{
+                    R.id.nav_home ->{
                         changeFragment(homeFragment)
                     }
-                    R.id.nav_celebration->{
+                    R.id.nav_celebration ->{
                         changeFragment(eventFragment)
                     }
-                    R.id.nav_search->{
+                    R.id.nav_search ->{
                         changeFragment(searchFragment)
                     }
 
