@@ -1,11 +1,14 @@
-package com.UMCfront.religo.common
+package com.UMCfront.religo
 
 
 import android.os.Bundle
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.UMCfront.religo.R
+import com.UMCfront.religo.common.CommunityFragment
+import com.UMCfront.religo.common.EventFragment
+import com.UMCfront.religo.common.HomeFragment
+import com.UMCfront.religo.common.SearchFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -17,7 +20,7 @@ class MainActivity : AppCompatActivity() {
 
     private val homeFragment by lazy { HomeFragment() }
 
-    private val eventFragment by lazy {EventFragment()}
+    private val eventFragment by lazy { EventFragment() }
 
     private val searchFragment by lazy { SearchFragment() }
 
