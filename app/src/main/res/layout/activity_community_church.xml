@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/community_background"
-    tools:context=".ui.community.CommunityChurchActivity">
+    tools:context=".src.main.community.CommunityChurchActivity">
     <TextView
         android:id="@+id/religoText"
         android:layout_width="match_parent"

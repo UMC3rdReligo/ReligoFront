@@ -3,12 +3,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".common.HomeFragment">
+    android:background="@drawable/community_background"
+    tools:context=".src.main.home.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+
     <TextView
+        android:id="@+id/homereligo"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:textSize="30sp"
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="Religo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/homeviewpager2"
+        android:layout_marginTop="70dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="HomeFragment" />
+
+        />
+
 
 </FrameLayout>

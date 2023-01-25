@@ -15,7 +15,7 @@
         android:theme="@style/Theme.Religo"
         tools:targetApi="31">
         <activity
-            android:name=".common.WelcomePageActivity"
+            android:name=".src.survey.WelcomePageActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -23,7 +23,7 @@
         </activity>
 
         <activity
-            android:name=".ui.user.UserSurveyActivity6"
+            android:name=".src.survey.UserSurveyActivity6"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -31,56 +31,56 @@
         </activity>
 
         <activity
-            android:name=".ui.user.UserSurveyActivity5"
+            android:name=".src.survey.UserSurveyActivity5"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.user.UserSurveyActivity4"
+            android:name=".src.survey.UserSurveyActivity4"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.user.UserSurveyActivity3"
+            android:name=".src.survey.UserSurveyActivity3"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.user.UserSurveyActivity2"
+            android:name=".src.survey.UserSurveyActivity2"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.user.UserSurveyActivity"
+            android:name=".src.survey.UserSurveyActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.user.UserLoginActivity"
+            android:name=".src.survey.UserLoginActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.user.UserJoinActivity"
+            android:name=".src.survey.UserJoinActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".common.SplashActivity"
+            android:name=".src.survey.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -92,7 +92,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.community.CommunityChurchActivity"
+            android:name=".src.main.community.CommunityChurchActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -100,7 +100,7 @@
         </activity>
 
         <activity
-            android:name=".MainActivity"
+            android:name=".src.main.MainActivity"
             android:exported="true">
 
 
