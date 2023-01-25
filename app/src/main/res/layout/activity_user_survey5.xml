@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserSurveyActivity5">
+    tools:context=".ui.user.UserSurveyActivity5">
 
     <TextView
         android:id="@+id/textView9"
@@ -16,7 +16,8 @@
         android:textSize="24sp"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="117dp"
-        tools:layout_editor_absoluteY="393dp" />
+        tools:layout_editor_absoluteY="393dp"
+        tools:ignore="MissingConstraints" />
 
     <RadioButton
         android:id="@+id/radioButton10"
@@ -25,7 +26,8 @@
         android:background="@drawable/radiobutton"
         android:button="@android:color/transparent"
         tools:layout_editor_absoluteX="321dp"
-        tools:layout_editor_absoluteY="515dp" />
+        tools:layout_editor_absoluteY="515dp"
+        tools:ignore="MissingConstraints" />
 
     <RadioButton
         android:id="@+id/radioButton7"
@@ -34,7 +36,8 @@
         android:background="@drawable/radiobutton"
         android:button="@android:color/transparent"
         tools:layout_editor_absoluteX="37dp"
-        tools:layout_editor_absoluteY="515dp" />
+        tools:layout_editor_absoluteY="515dp"
+        tools:ignore="MissingConstraints" />
 
     <RadioButton
         android:id="@+id/radioButton8"
@@ -43,7 +46,8 @@
         android:background="@drawable/radiobutton"
         android:button="@android:color/transparent"
         tools:layout_editor_absoluteX="126dp"
-        tools:layout_editor_absoluteY="523dp" />
+        tools:layout_editor_absoluteY="523dp"
+        tools:ignore="MissingConstraints" />
 
     <RadioButton
         android:id="@+id/radioButton9"
@@ -52,7 +56,8 @@
         android:background="@drawable/radiobutton"
         android:button="@android:color/transparent"
         tools:layout_editor_absoluteX="250dp"
-        tools:layout_editor_absoluteY="523dp" />
+        tools:layout_editor_absoluteY="523dp"
+        tools:ignore="MissingConstraints" />
 
     <RadioButton
         android:id="@+id/radioButton11"
@@ -61,7 +66,8 @@
         android:background="@drawable/radiobutton"
         android:button="@android:color/transparent"
         tools:layout_editor_absoluteX="196dp"
-        tools:layout_editor_absoluteY="531dp" />
+        tools:layout_editor_absoluteY="531dp"
+        tools:ignore="MissingConstraints" />
 
     <View
         android:layout_width="380dp"
@@ -69,7 +75,8 @@
         android:layout_centerInParent="true"
         android:background="#AAAAAA"
         tools:layout_editor_absoluteX="21dp"
-        tools:layout_editor_absoluteY="330dp" />
+        tools:layout_editor_absoluteY="330dp"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/btn_next_userSurvey5"
@@ -81,7 +88,8 @@
         android:textSize="20sp"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="627dp" />
+        tools:layout_editor_absoluteY="627dp"
+        tools:ignore="MissingConstraints" />
 
     <RadioButton
         android:layout_width="60dp"
@@ -89,7 +97,8 @@
         android:background="@drawable/radiobutton"
         android:button="@android:color/transparent"
         tools:layout_editor_absoluteX="37dp"
-        tools:layout_editor_absoluteY="192dp" />
+        tools:layout_editor_absoluteY="192dp"
+        tools:ignore="MissingConstraints" />
 
     <RadioButton
         android:layout_width="45dp"
@@ -97,7 +106,8 @@
         android:background="@drawable/radiobutton"
         android:button="@android:color/transparent"
         tools:layout_editor_absoluteX="250dp"
-        tools:layout_editor_absoluteY="200dp" />
+        tools:layout_editor_absoluteY="200dp"
+        tools:ignore="MissingConstraints" />
 
     <RadioButton
         android:layout_width="30dp"
@@ -105,7 +115,8 @@
         android:background="@drawable/radiobutton"
         android:button="@android:color/transparent"
         tools:layout_editor_absoluteX="196dp"
-        tools:layout_editor_absoluteY="208dp" />
+        tools:layout_editor_absoluteY="208dp"
+        tools:ignore="MissingConstraints" />
 
     <RadioButton
         android:layout_width="45dp"
@@ -113,7 +124,8 @@
         android:background="@drawable/radiobutton"
         android:button="@android:color/transparent"
         tools:layout_editor_absoluteX="126dp"
-        tools:layout_editor_absoluteY="200dp" />
+        tools:layout_editor_absoluteY="200dp"
+        tools:ignore="MissingConstraints" />
 
     <RadioButton
         android:layout_width="60dp"
@@ -121,7 +133,8 @@
         android:background="@drawable/radiobutton"
         android:button="@android:color/transparent"
         tools:layout_editor_absoluteX="321dp"
-        tools:layout_editor_absoluteY="192dp" />
+        tools:layout_editor_absoluteY="192dp"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView7"
@@ -133,6 +146,7 @@
         android:textSize="24sp"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="131dp"
-        tools:layout_editor_absoluteY="84dp" />
+        tools:layout_editor_absoluteY="84dp"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

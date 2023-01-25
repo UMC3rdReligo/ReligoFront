@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserJoinActivity">
+    tools:context=".ui.user.UserJoinActivity">
 
     <TextView
         android:id="@+id/textView"
@@ -15,7 +15,8 @@
         android:textSize="24sp"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="42dp"
-        tools:layout_editor_absoluteY="79dp" />
+        tools:layout_editor_absoluteY="79dp"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/button3"
@@ -28,7 +29,8 @@
         android:textSize="20sp"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="80dp"
-        tools:layout_editor_absoluteY="260dp" />
+        tools:layout_editor_absoluteY="260dp"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/button9"
@@ -39,7 +41,8 @@
         android:textColor="#000000"
         android:textSize="12sp"
         tools:layout_editor_absoluteX="313dp"
-        tools:layout_editor_absoluteY="148dp" />
+        tools:layout_editor_absoluteY="148dp"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/editTextTextPersonName"
@@ -48,6 +51,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         tools:layout_editor_absoluteX="33dp"
-        tools:layout_editor_absoluteY="141dp" />
+        tools:layout_editor_absoluteY="141dp"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

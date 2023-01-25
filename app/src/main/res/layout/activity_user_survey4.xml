@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserSurveyActivity4">
+    tools:context=".ui.user.UserSurveyActivity4">
 
     <TextView
         android:id="@+id/questionMsg1"
@@ -15,7 +15,8 @@
         android:textSize="12sp"
         android:textStyle="normal"
         tools:layout_editor_absoluteX="58dp"
-        tools:layout_editor_absoluteY="107dp" />
+        tools:layout_editor_absoluteY="107dp"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/welcomeMsg"
@@ -26,7 +27,8 @@
         android:textSize="20sp"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="58dp"
-        tools:layout_editor_absoluteY="55dp" />
+        tools:layout_editor_absoluteY="55dp"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/btn_next_userSurvey4"
@@ -38,7 +40,8 @@
         android:textSize="20sp"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="135dp"
-        tools:layout_editor_absoluteY="631dp" />
+        tools:layout_editor_absoluteY="631dp"
+        tools:ignore="MissingConstraints" />
 
     <LinearLayout
         android:layout_width="408dp"
@@ -47,7 +50,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="157dp">
+        tools:layout_editor_absoluteY="157dp"
+        tools:ignore="MissingConstraints">
 
         <Button
             android:id="@+id/button5"

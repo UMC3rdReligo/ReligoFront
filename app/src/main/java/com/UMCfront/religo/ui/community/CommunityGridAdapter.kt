@@ -1,10 +1,11 @@
-package com.UMCfront.religo
+package com.UMCfront.religo.ui.community
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.UMCfront.religo.R
 
 class CommunityGridAdapter(val items:MutableList<String>):RecyclerView.Adapter<CommunityGridAdapter.ViewHolder>() {
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
