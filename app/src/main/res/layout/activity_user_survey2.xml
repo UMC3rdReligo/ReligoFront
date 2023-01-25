@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserSurveyActivity2">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="이정민님의 위치는 어디인가요?"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="40dp"
+        tools:layout_editor_absoluteY="59dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="설정해주신 위치 근처의 교회를 추천해드릴게요"
+        android:textColor="#000000"
+        tools:layout_editor_absoluteX="40dp"
+        tools:layout_editor_absoluteY="117dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:background="@drawable/next_btn"
+        android:text="현재 위치로 찾기"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
+        android:textSize="15sp"
+        tools:layout_editor_absoluteX="80dp"
+        tools:layout_editor_absoluteY="255dp" />
+
+    <SearchView
+        android:layout_width="320dp"
+        android:layout_height="42dp"
+        android:iconifiedByDefault="false"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="188dp" />
+
+    />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
