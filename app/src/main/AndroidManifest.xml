@@ -15,6 +15,13 @@
         android:theme="@style/Theme.Religo"
         tools:targetApi="31">
         <activity
+            android:name=".CommunityChurchActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".CommunityActivity"
             android:exported="false">
             <meta-data
