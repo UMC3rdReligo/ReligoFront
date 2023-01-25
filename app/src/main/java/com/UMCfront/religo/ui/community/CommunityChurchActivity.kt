@@ -1,10 +1,10 @@
-package com.UMCfront.religo
+package com.UMCfront.religo.ui.community
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.UMCfront.religo.R
 
 class CommunityChurchActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,7 +21,7 @@ class CommunityChurchActivity : AppCompatActivity() {
         communityAllList.add("안녕하세요 이번에 새로 가입했습니다.")
 
 
-        val communityAdapter=CommunityGridAdapter(communityAllList)
+        val communityAdapter= CommunityGridAdapter(communityAllList)
 
         val rv=findViewById<RecyclerView>(R.id.community_grid_rv)
         rv.adapter=communityAdapter

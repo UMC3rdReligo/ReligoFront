@@ -1,4 +1,4 @@
-package com.UMCfront.religo
+package com.UMCfront.religo.ui.community
 
 data class CommunityArticle (
     val title:String,

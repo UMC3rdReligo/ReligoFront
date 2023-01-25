@@ -1,4 +1,4 @@
-package com.UMCfront.religo
+package com.UMCfront.religo.common
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,10 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.UMCfront.religo.ui.community.CommunityRVAdapter1
+import com.UMCfront.religo.R
+import com.UMCfront.religo.ui.community.CommunityChurchActivity
 
 
 class CommunityFragment : Fragment() {
@@ -45,7 +46,7 @@ class CommunityFragment : Fragment() {
         communityAllList.add("안녕하세요 이번에 새로 가입했습니다.")
 
 
-        val communityAdapter=CommunityRVAdapter1(communityAllList)
+        val communityAdapter= CommunityRVAdapter1(communityAllList)
 
         val rv=view.findViewById<RecyclerView>(R.id.allRV)
         rv.adapter=communityAdapter
@@ -68,7 +69,7 @@ class CommunityFragment : Fragment() {
         communityPlatformList.add("안녕하세용~~~")
         communityPlatformList.add("안녕하세용~~~")
 
-        val platformAdapter=CommunityRVAdapter1(communityPlatformList)
+        val platformAdapter= CommunityRVAdapter1(communityPlatformList)
         val platRv=view.findViewById<RecyclerView>(R.id.platformRV)
         platRv.adapter=platformAdapter
 
@@ -78,7 +79,7 @@ class CommunityFragment : Fragment() {
 
     companion object {
         // fragment 인스턴스 사용하기 위해 companion object 사용
-        fun newInstance():CommunityFragment{
+        fun newInstance(): CommunityFragment {
             return CommunityFragment()
         }
     }
