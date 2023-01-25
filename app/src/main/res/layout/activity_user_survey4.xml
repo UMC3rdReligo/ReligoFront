@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.user.UserSurveyActivity4">
+    tools:context=".src.survey.UserSurveyActivity4">
 
     <TextView
         android:id="@+id/questionMsg1"
