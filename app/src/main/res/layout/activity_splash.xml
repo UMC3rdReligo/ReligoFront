@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.UMCfront.religo.SplashActivity">
+    tools:context="com.UMCfront.religo.src.survey.SplashActivity">
 
     <ImageView
         android:layout_width="343dp"
         android:layout_height="473dp"
         android:src="@drawable/main_logo"
         tools:layout_editor_absoluteX="34dp"
-        tools:layout_editor_absoluteY="94dp" />
+        tools:layout_editor_absoluteY="94dp"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

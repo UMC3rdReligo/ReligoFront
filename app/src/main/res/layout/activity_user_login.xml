@@ -4,28 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserLoginActivity">
+    tools:context=".src.survey.UserLoginActivity">
 
     <ImageView
         android:layout_width="193dp"
         android:layout_height="263dp"
         android:src="@drawable/religo_logo"
         tools:layout_editor_absoluteX="109dp"
-        tools:layout_editor_absoluteY="110dp" />
+        tools:layout_editor_absoluteY="110dp"
+        tools:ignore="MissingConstraints" />
 
     <ImageView
         android:layout_width="416dp"
         android:layout_height="55dp"
         android:src="@drawable/naver_login"
         tools:layout_editor_absoluteX="-2dp"
-        tools:layout_editor_absoluteY="549dp" />
+        tools:layout_editor_absoluteY="549dp"
+        tools:ignore="MissingConstraints" />
 
     <ImageView
         android:layout_width="412dp"
         android:layout_height="51dp"
         android:src="@drawable/kakao_login"
         tools:layout_editor_absoluteX="-2dp"
-        tools:layout_editor_absoluteY="483dp" />
+        tools:layout_editor_absoluteY="483dp"
+        tools:ignore="MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

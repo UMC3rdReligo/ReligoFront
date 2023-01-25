@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserSurveyActivity2">
+    tools:context=".src.survey.UserSurveyActivity2">
 
     <TextView
         android:id="@+id/textView2"
@@ -15,7 +15,8 @@
         android:textSize="20sp"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="40dp"
-        tools:layout_editor_absoluteY="59dp" />
+        tools:layout_editor_absoluteY="59dp"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView3"
@@ -24,7 +25,8 @@
         android:text="설정해주신 위치 근처의 교회를 추천해드릴게요"
         android:textColor="#000000"
         tools:layout_editor_absoluteX="40dp"
-        tools:layout_editor_absoluteY="117dp" />
+        tools:layout_editor_absoluteY="117dp"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/button"
@@ -36,7 +38,8 @@
         android:textColorHint="#000000"
         android:textSize="15sp"
         tools:layout_editor_absoluteX="80dp"
-        tools:layout_editor_absoluteY="255dp" />
+        tools:layout_editor_absoluteY="255dp"
+        tools:ignore="MissingConstraints" />
 
     <SearchView
         android:layout_width="320dp"
