@@ -100,7 +100,7 @@
         </activity>
 
         <activity
-            android:name=".common.MainActivity"
+            android:name=".MainActivity"
             android:exported="true">
 
 
