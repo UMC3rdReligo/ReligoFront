@@ -4,9 +4,9 @@
     <!-- UNSELECTED -->
     <item android:state_checked="false">
         <shape>
-            <stroke android:color="#D9D9D9" android:width="2dp" />
-            <corners android:radius="30dp" />
-            <solid android:color="#D9D9D9" />
+            <stroke android:color="#D9D9D9" android:width="4dp" />
+            <corners android:radius="10dp" />
+            <solid android:color="#FFFFFF" />
         </shape>
     </item>
     <!-- SELECTED -->
@@ -15,9 +15,9 @@
             <!-- 배경 -->
             <item>
                 <shape>
-                    <stroke android:color="#c4cbd2" android:width="2dp" />
-                    <corners android:radius="30dp" />
-                    <solid android:color="#996FF3" />
+                    <stroke android:color="#996FF3" android:width="4dp" />
+                    <corners android:radius="10dp" />
+                    <solid android:color="#fff" />
                 </shape>
             </item>
         </layer-list>
