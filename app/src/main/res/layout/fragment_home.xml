@@ -23,9 +23,9 @@
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/homeviewpager2"
-        android:layout_marginTop="70dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="764dp"
+        android:layout_marginTop="70dp"
 
         />
 
