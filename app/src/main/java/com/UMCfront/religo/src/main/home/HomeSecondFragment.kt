@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import com.UMCfront.religo.R
 
 class HomeSecondFragment : Fragment() {
+    //
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
