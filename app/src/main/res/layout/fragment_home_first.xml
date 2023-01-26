@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/home_church_imageview1"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".src.main.home.HomeFirstFragment">
+
+>
 
 
     <LinearLayout
@@ -19,6 +22,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
+
 
         <TextView
             android:id="@+id/textView"
@@ -62,8 +66,8 @@
 
         <TextView
             android:id="@+id/homefirst_locate_textview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="140dp"
+            android:layout_height="7dp"
             android:layout_gravity="center"
             android:layout_weight="1"
             android:text="양천구"
@@ -76,7 +80,6 @@
             android:layout_height="24dp"
             android:layout_gravity="bottom"
             android:layout_weight="0"
-
             android:text="더보기" />
 
     </LinearLayout>
