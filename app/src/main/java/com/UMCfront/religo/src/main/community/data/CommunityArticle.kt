@@ -5,4 +5,4 @@ data class CommunityArticle (
     val summary:String,
     val time:String,
     val writer:String
-        )
+    )
