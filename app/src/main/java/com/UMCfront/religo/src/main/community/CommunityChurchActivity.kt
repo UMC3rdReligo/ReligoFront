@@ -12,17 +12,22 @@ class CommunityChurchActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_community_church)
 
-        var communityAllList= mutableListOf<String>()
-        communityAllList.add("안녕하세요 이번에 새로 가입했습니다.")
-        communityAllList.add("안녕하세요 이번에 새로 가입했습니다.")
-        communityAllList.add("안녕하세요 이번에 새로 가입했습니다.")
-        communityAllList.add("안녕하세요 이번에 새로 가입했습니다.")
-        communityAllList.add("안녕하세요 이번에 새로 가입했습니다.")
-        communityAllList.add("안녕하세요 이번에 새로 가입했습니다.")
-        communityAllList.add("안녕하세요 이번에 새로 가입했습니다.")
+        var communityChurchList= mutableListOf<String>()
+        communityChurchList.add("안녕하세요 이번에 새로 가입했습니다.")
+        communityChurchList.add("안녕하세요 이번에 새로 가입했습니다.")
+        communityChurchList.add("안녕하세요 이번에 새로 가입했습니다.")
+        communityChurchList.add("안녕하세요 이번에 새로 가입했습니다.")
+        communityChurchList.add("안녕하세요 이번에 새로 가입했습니다.")
+        communityChurchList.add("안녕하세요 이번에 새로 가입했습니다.")
+        communityChurchList.add("안녕하세요 이번에 새로 가입했습니다.")
+        communityChurchList.add("안녕하세요 이번에 새로 가입했습니다.")
+        communityChurchList.add("안녕하세요 이번에 새로 가입했습니다.")
+        communityChurchList.add("안녕하세요 이번에 새로 가입했습니다.")
 
 
-        val communityAdapter= CommunityGridAdapter(communityAllList)
+
+
+        val communityAdapter= CommunityGridAdapter(communityChurchList)
 
         val rv=findViewById<RecyclerView>(R.id.community_grid_rv)
         rv.adapter=communityAdapter

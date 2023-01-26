@@ -38,13 +38,18 @@ android {
     buildFeatures {
         viewBinding true
     }
-    
+
 
 }
 
 dependencies {
 
 
+
+
+    // 플로팅 버튼 관련
+    //noinspection GradleCompatible
+    implementation 'com.android.support:design:26.1.0'
 
     // Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
