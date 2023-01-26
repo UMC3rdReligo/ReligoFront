@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.UMCfront.religo.src.main.community.adapter.CommunityRVAdapter1
 import com.UMCfront.religo.R
+import com.UMCfront.religo.src.main.MainActivity
+import com.UMCfront.religo.src.main.community.CommunityFragment.Companion.newInstance
 
 
 class CommunityFragment : Fragment() {
@@ -27,12 +29,26 @@ class CommunityFragment : Fragment() {
 
 
         churchEntrance!!.setOnClickListener {
+            
+            // fragment간 이동
+
+            //(activity as MainActivity?)?.changeFragment(CommunityChurchFragment.newInstance())
+
             activity?.let{
                 val intent = Intent(context, CommunityChurchActivity::class.java)
                 startActivity(intent)
             }
 
 
+        }
+
+        val allViewMore=view.findViewById<ImageView>(R.id.community_all_viewmore)
+
+        allViewMore.setOnClickListener{
+            activity?.let{
+                val intent = Intent(context, CommunityAllActivity::class.java)
+                startActivity(intent)
+            }
         }
 
         var communityAllList= mutableListOf<String>()

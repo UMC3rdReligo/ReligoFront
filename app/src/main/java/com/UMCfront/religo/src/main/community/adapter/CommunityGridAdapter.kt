@@ -11,8 +11,8 @@ class CommunityGridAdapter(val items:MutableList<String>):RecyclerView.Adapter<C
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
         fun bindItem(item:String){
-            val rv_text=itemView.findViewById<TextView>(R.id.community_rv_text)
-            rv_text.text=item
+            val rv_text_title=itemView.findViewById<TextView>(R.id.community_rv_detail_title)
+            rv_text_title.text=item
 
         }
 

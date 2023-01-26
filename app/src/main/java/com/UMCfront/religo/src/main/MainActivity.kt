@@ -10,6 +10,7 @@ import com.UMCfront.religo.src.main.community.CommunityFragment
 import com.UMCfront.religo.src.main.event.EventFragment
 import com.UMCfront.religo.src.main.home.HomeFragment
 import com.UMCfront.religo.src.main.search.SearchFragment
+import com.UMCfront.religo.src.main.search.SearchHomeFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -24,6 +25,9 @@ class MainActivity : AppCompatActivity() {
     private val eventFragment by lazy { EventFragment() }
 
     private val searchFragment by lazy { SearchFragment() }
+
+    //SearchHomeFragmnet 테스트화면
+    private val searchHomeFragment by lazy { SearchHomeFragment()}
 
 
 
@@ -54,7 +58,7 @@ class MainActivity : AppCompatActivity() {
                         changeFragment(eventFragment)
                     }
                     R.id.nav_search ->{
-                        changeFragment(searchFragment)
+                        changeFragment(searchHomeFragment)
                     }
 
                 }
@@ -64,7 +68,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun changeFragment(fragment: Fragment) {
+    fun changeFragment(fragment: Fragment) {
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.mainFrameLayout, fragment)

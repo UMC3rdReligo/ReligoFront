@@ -1,12 +1,12 @@
-package com.UMCfront.religo.src.survey
+package com.UMCfront.religo.src.main.community
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.UMCfront.religo.R
 
-class UserLoginActivity : AppCompatActivity() {
+class CommunityPlatformActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_user_login)
+        setContentView(R.layout.activity_community_platform)
     }
 }
