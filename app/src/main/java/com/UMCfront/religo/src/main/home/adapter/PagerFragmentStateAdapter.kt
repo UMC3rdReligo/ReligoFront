@@ -5,7 +5,7 @@ import com.UMCfront.religo.src.main.home.HomeFragment
 
 class PagerFragmentStateAdapter(fragmentActivity: HomeFragment): FragmentStateAdapter(fragmentActivity){
     val fragments = mutableListOf<Fragment>()
-    
+
 
 
     override fun getItemCount(): Int {
@@ -13,7 +13,7 @@ class PagerFragmentStateAdapter(fragmentActivity: HomeFragment): FragmentStateAd
     }
 
     override fun createFragment(position: Int): Fragment {
-        return fragments[position]
+            return fragments[position]
     }
 
 
