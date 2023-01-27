@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+
+
 }
 
 android {
@@ -17,7 +19,7 @@ android {
         targetSdk 33
         versionCode 1
         versionName "1.0"
-
+        vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
@@ -44,6 +46,10 @@ android {
 
 dependencies {
 
+
+
+
+    //navigation
 
 
 

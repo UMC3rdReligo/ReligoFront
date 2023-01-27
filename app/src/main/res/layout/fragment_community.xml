@@ -19,8 +19,10 @@
         android:layout_marginTop="15dp"
         android:textSize="30sp"
         android:textColor="@color/white"
-
+        android:fontFamily="@font/amaranth_bold"
         android:text="Religo" />
+
+
 
    <androidx.core.widget.NestedScrollView
        android:layout_marginTop="50dp"
@@ -103,6 +105,7 @@
                    android:text="목동교회"
                    />
                <TextView
+                   android:id="@+id/community_church_address"
                    app:layout_constraintTop_toBottomOf="@+id/community_churchName"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
@@ -114,11 +117,10 @@
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:id="@+id/community_entrance"
-                   android:layout_marginStart="300dp"
                    android:layout_marginBottom="4dp"
                    android:src="@drawable/community_entrance"
-                   app:layout_constraintBottom_toBottomOf="@id/community_church_layout"
-                   app:layout_constraintStart_toStartOf="@id/community_church_layout" />
+                   app:layout_constraintRight_toRightOf="parent"
+                   app:layout_constraintBottom_toBottomOf="parent"/>
 
            </androidx.constraintlayout.widget.ConstraintLayout>
 

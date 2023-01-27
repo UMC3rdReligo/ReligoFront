@@ -7,6 +7,7 @@
     android:background="@drawable/community_background"
     tools:context=".src.main.search.SearchHomeFragment">
     <TextView
+        android:fontFamily="@font/amaranth_bold"
         android:id="@+id/religoText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,6 +21,7 @@
 
 
     <EditText
+        android:fontFamily="@font/pretendard_regular"
         android:id="@+id/edittext_search"
         android:layout_width="379dp"
         android:layout_height="40dp"
@@ -38,6 +40,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:fontFamily="@font/pretendard_regular"
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
