@@ -51,6 +51,15 @@ class CommunityFragment : Fragment() {
             }
         }
 
+        val platformMore=view.findViewById<ImageView>(R.id.community_platform_viewmore)
+
+        platformMore.setOnClickListener {
+            activity?.let{
+                val intent = Intent(context, CommunityPlatformActivity::class.java)
+                startActivity(intent)
+            }
+        }
+
         var communityAllList= mutableListOf<String>()
         communityAllList.add("안녕하세요 이번에 새로 가입했습니다.")
         communityAllList.add("안녕하세요 이번에 새로 가입했습니다.")
