@@ -8,70 +8,122 @@
     android:id="@+id/community_writing_fragment"
     android:background="@drawable/community_background"
     tools:context=".src.main.community.CommunityWritingFragment">
-    <TextView
+
+    <LinearLayout
         android:id="@+id/community_writing_section"
-        android:fontFamily="@font/pretendard_medium"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
+        android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="15dp"
-        android:textSize="30sp"
-        android:textColor="@color/white"
-        android:text="글쓰기" />
-
-    <TextView
-        android:id="@+id/c_writing_top"
-        android:layout_marginTop="30dp"
-        app:layout_constraintTop_toBottomOf="@+id/community_writing_section"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="목동교회"
-        android:textSize="18sp"
-        android:gravity="center"/>
-
-    <EditText
-
-        android:id="@+id/community_title_input"
-        android:layout_width="match_parent"
-        android:hint="제목을 입력하세요."
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        app:layout_constraintTop_toBottomOf="@+id/c_writing_top"
-        android:textSize="15sp"/>
-    <LinearLayout
-        android:id="@+id/community_writing_area"
-        android:orientation="vertical"
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:background="@drawable/community_radius"
-        app:layout_constraintTop_toBottomOf="@id/community_title_input">
-       <EditText
-           android:background="@null"
-           android:hint="글을 입력해주세요"
-           android:layout_width="match_parent"
-           android:layout_height="match_parent"/>
+        android:layout_height="wrap_content">
+        <TextView
+            android:fontFamily="@font/pretendard_medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="12dp"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:text="글쓰기" />
+        <TextView
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="목동교회"
+            android:textSize="18sp"
+            android:gravity="center"/>
     </LinearLayout>
 
-    <Button
-        android:text="완료"
-        android:textSize="20sp"
-        android:textColor="@color/white"
-        android:fontFamily="@font/pretendard_regular"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/community_writing_area"
-        android:layout_marginTop="30dp"
+    <androidx.core.widget.NestedScrollView
+        app:layout_constraintTop_toBottomOf="@+id/community_writing_section"
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/community_writing_btn"/>
+        android:layout_height="0dp">
 
+
+       <LinearLayout
+
+           android:orientation="vertical"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="828dp"
+               android:orientation="vertical"
+               app:layout_constraintTop_toBottomOf="@+id/c_writing_top">
+
+               <EditText
+
+                   android:id="@+id/community_title_input"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginLeft="20dp"
+                   android:layout_marginTop="40dp"
+                   android:layout_marginRight="20dp"
+                   android:hint="제목을 입력하세요."
+                   android:textSize="15sp"
+                   app:layout_constraintTop_toBottomOf="@+id/c_writing_top" />
+
+               <LinearLayout
+                   android:id="@+id/community_writing_area"
+                   android:layout_width="match_parent"
+                   android:layout_height="400dp"
+                   android:layout_marginLeft="20dp"
+                   android:layout_marginTop="10dp"
+                   android:layout_marginRight="20dp"
+                   android:background="@drawable/community_radius"
+                   android:orientation="vertical"
+                   app:layout_constraintTop_toBottomOf="@id/community_title_input">
+
+                   <EditText
+                       android:id="@+id/community_text_input"
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:background="@null"
+                       android:hint="글을 입력해주세요" />
+               </LinearLayout>
+
+               <RadioGroup
+                   android:id="@+id/community_radioGroup"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_alignParentTop="true"
+                   android:layout_centerHorizontal="true"
+                   android:orientation="horizontal"
+                   app:layout_constraintStart_toStartOf="@+id/community_writing_area"
+                   app:layout_constraintTop_toBottomOf="@+id/community_writing_area">
+
+                   <RadioButton
+                       android:id="@+id/radioButton"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="익명" />
+
+                   <RadioButton
+                       android:id="@+id/radioButton2"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="닉네임" />
+               </RadioGroup>
+
+               <Button
+                   android:id="@+id/c_writing_complete"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginLeft="20dp"
+                   android:layout_marginTop="30dp"
+                   android:layout_marginRight="20dp"
+                   android:background="@drawable/community_writing_btn"
+                   android:fontFamily="@font/pretendard_regular"
+                   android:text="완료"
+                   android:textColor="@color/white"
+                   android:textSize="20sp" />
+           </LinearLayout>
+       </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
 
 
