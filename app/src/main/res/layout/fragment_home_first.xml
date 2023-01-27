@@ -136,10 +136,17 @@
         <TextView
             android:id="@+id/homefirst_textView3"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
+            android:layout_height="match_parent"
             android:text="TextView"
             android:textSize="6.5sp" />
+
+        <TextView
+            android:id="@+id/homefirst_textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="6.5sp" />
+
 
     </LinearLayout>
 
