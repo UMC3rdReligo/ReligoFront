@@ -51,11 +51,14 @@ class CommunityFragment : Fragment() {
         val allViewMore=view.findViewById<ImageView>(R.id.community_all_viewmore)
 
         allViewMore.setOnClickListener{
+
+            (activity as MainActivity?)?.changeFragment(CommunityAllFragment.newInstance())
             
-            activity?.let{
-                val intent = Intent(context, CommunityAllActivity::class.java)
-                startActivity(intent)
-            }
+//            activity?.let{
+//                val intent = Intent(context, CommunityAllActivity::class.java)
+//                startActivity(intent)
+//
+//            }
         }
 
         val platformMore=view.findViewById<ImageView>(R.id.community_platform_viewmore)
@@ -111,6 +114,10 @@ class CommunityFragment : Fragment() {
         fun newInstance(): CommunityFragment {
             return CommunityFragment()
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
     }
 
 
