@@ -1,7 +1,10 @@
 package com.UMCfront.religo.src.main.community
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.AttributeSet
+import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import com.UMCfront.religo.R
 import com.UMCfront.religo.databinding.ActivityCommunityAllBinding
@@ -10,6 +13,8 @@ import com.UMCfront.religo.src.main.community.adapter.CommunityGridAdapter
 
 class CommunityPlatformActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCommunityPlatformBinding
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_community_platform)
