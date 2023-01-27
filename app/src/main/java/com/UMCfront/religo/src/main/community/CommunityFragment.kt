@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.UMCfront.religo.src.main.community.adapter.CommunityRVAdapter1
@@ -23,13 +25,17 @@ class CommunityFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view=inflater.inflate(R.layout.fragment_community, container, false)
+        return inflater.inflate(R.layout.fragment_community, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         val churchEntrance=view.findViewById<ImageView>(R.id.community_entrance)
 
 
         churchEntrance!!.setOnClickListener {
-            
+
             // fragment간 이동
 
             //(activity as MainActivity?)?.changeFragment(CommunityChurchFragment.newInstance())
@@ -45,6 +51,7 @@ class CommunityFragment : Fragment() {
         val allViewMore=view.findViewById<ImageView>(R.id.community_all_viewmore)
 
         allViewMore.setOnClickListener{
+            
             activity?.let{
                 val intent = Intent(context, CommunityAllActivity::class.java)
                 startActivity(intent)
@@ -97,8 +104,6 @@ class CommunityFragment : Fragment() {
         val platRv=view.findViewById<RecyclerView>(R.id.platformRV)
         platRv.adapter=platformAdapter
 
-
-        return view
     }
 
     companion object {
