@@ -23,7 +23,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="30dp"
-            android:text="자신에게 엄격하고 스스로\n규칙을  가진다"
+            android:text="자신에게 엄격하고 스스로\n규칙을 가진다."
+            android:fontFamily="@font/pretendard_regular"
             android:textAlignment="center"
             android:textColor="#000000"
             android:textSize="20sp"
@@ -104,6 +105,7 @@
                 android:layout_marginLeft="25dp"
                 android:layout_weight="1"
                 android:text="전혀아니다"
+                android:fontFamily="@font/pretendard_regular"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="10sp" />
@@ -114,6 +116,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="보통이다"
+                android:fontFamily="@font/pretendard_regular"
                 android:textAlignment="center"
                 android:textColor="#000000"
                 android:textSize="10sp" />
@@ -125,6 +128,7 @@
                 android:layout_marginRight="20dp"
                 android:layout_weight="1"
                 android:text="매우그렇다"
+                android:fontFamily="@font/pretendard_regular"
                 android:textAlignment="viewEnd"
                 android:textColor="#000000"
                 android:textSize="10sp" />
@@ -150,6 +154,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="30dp"
             android:text="다른 사람이나 집단에 관용적 이다."
+            android:fontFamily="@font/pretendard_regular"
             android:textAlignment="center"
             android:textColor="#000000"
             android:textSize="20sp"
@@ -230,6 +235,7 @@
                 android:layout_marginLeft="25dp"
                 android:layout_weight="1"
                 android:text="전혀아니다"
+                android:fontFamily="@font/pretendard_regular"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="10sp" />
@@ -240,6 +246,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="보통이다"
+                android:fontFamily="@font/pretendard_regular"
                 android:textAlignment="center"
                 android:textColor="#000000"
                 android:textSize="10sp" />
@@ -251,6 +258,7 @@
                 android:layout_marginRight="20dp"
                 android:layout_weight="1"
                 android:text="매우그렇다"
+                android:fontFamily="@font/pretendard_regular"
                 android:textAlignment="viewEnd"
                 android:textColor="#000000"
                 android:textSize="10sp" />
@@ -265,6 +273,7 @@
         android:layout_marginBottom="80dp"
         android:background="@drawable/survey_move_btn"
         android:text="이전으로"
+        android:fontFamily="@font/pretendard_regular"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"

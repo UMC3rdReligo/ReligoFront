@@ -6,18 +6,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.Toast
-import androidx.core.app.ActivityCompat
-import com.UMCfront.religo.R
-import com.UMCfront.religo.databinding.FragmentCommunityAllBinding
-import com.UMCfront.religo.databinding.FragmentCommunityWritingBinding
+import com.UMCfront.religo.databinding.FragmentCommunityChurchWritingBinding
+import com.UMCfront.religo.src.main.MainActivity
 
 
-class CommunityWritingFragment : Fragment() {
+class CommunityChurchWritingFragment : Fragment() {
 
 
-    private var _binding: FragmentCommunityWritingBinding? = null
+    private var _binding: FragmentCommunityChurchWritingBinding? = null
     private val binding get() = _binding!!
 
 
@@ -25,7 +22,7 @@ class CommunityWritingFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = FragmentCommunityWritingBinding.inflate(inflater, container, false)
+        val binding = FragmentCommunityChurchWritingBinding.inflate(inflater, container, false)
 
         val title=binding.communityTitleInput
         val text=binding.communityTextInput
@@ -36,6 +33,7 @@ class CommunityWritingFragment : Fragment() {
             Toast.makeText(context,title.text,Toast.LENGTH_LONG).show()
             // 백엔드 통신
             Log.d("writing222",title.text.toString())
+            (activity as MainActivity?)?.changeFragment(CommunityChurchFragment())
         }
 
 
@@ -43,8 +41,8 @@ class CommunityWritingFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(): CommunityWritingFragment {
-            return CommunityWritingFragment()
+        fun newInstance(): CommunityChurchWritingFragment {
+            return CommunityChurchWritingFragment()
         }
     }
 }

@@ -8,7 +8,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.UMCfront.religo.R
 
 class CommunityGridAdapter(val items:MutableList<String>):RecyclerView.Adapter<CommunityGridAdapter.ViewHolder>() {
+
+    interface GridItemClick{
+        fun onClick(view:View,position:Int)
+    }
+
+    var itemClick: CommunityGridAdapter.GridItemClick?=null
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+
+        //아이템 클릭
 
         fun bindItem(item:String){
             val rv_text_title=itemView.findViewById<TextView>(R.id.community_rv_detail_title)
@@ -27,6 +35,12 @@ class CommunityGridAdapter(val items:MutableList<String>):RecyclerView.Adapter<C
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindItem(items[position])
+        if(itemClick!=null){
+            holder.itemView.setOnClickListener{v->
+                itemClick?.onClick(v,position)
+
+            }
+        }
     }
 
     override fun getItemCount(): Int {
