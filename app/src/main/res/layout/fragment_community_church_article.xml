@@ -145,6 +145,7 @@
                 android:layout_centerInParent="true"
                 android:background="#D3D3D3"/>
 
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -166,6 +167,30 @@
 
         
     </androidx.core.widget.NestedScrollView>
+    <LinearLayout
+        app:layout_constraintTop_toBottomOf="parent"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/community_comment_input"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="댓글을 입력하세요."
+            android:fontFamily="@font/pretendard_regular"
+            android:textSize="12sp" />
+        <Button
+            android:layout_weight="0.2"
+            android:id="@+id/community_comment_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:textSize="8sp"
+            android:text="입력"
+            android:onClick="onButtonClick"/>
+
+
+    </LinearLayout>
 
 
 

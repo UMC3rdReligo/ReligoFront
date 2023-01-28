@@ -57,6 +57,13 @@ class CommunityChurchFragment : Fragment() {
             (activity as MainActivity?)?.changeFragment(CommunityChurchWritingFragment.newInstance())
 
         }
+        // 글 클릭 구현
+        communityAdapter.itemClick=object: CommunityGridAdapter.GridItemClick{
+            override fun onClick(view: View, position: Int) {
+                (activity as MainActivity?)?.changeFragment(CommunityChurchArticleFragment.newInstance())
+            }
+
+        }
 
         //뒤로가기 버튼 구현
         binding.communityChurchBack.setOnClickListener{
