@@ -16,7 +16,7 @@
             android:background="@drawable/community_radius">
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="20dp"
                 android:src="@drawable/material_symbols_person"/>
         </LinearLayout>
 
@@ -24,7 +24,7 @@
             android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
+            android:textSize="10sp"
             android:text="캐시"
             android:fontFamily="@font/pretendard_regular"/>
 
@@ -32,7 +32,7 @@
     <TextView
         android:id="@+id/community_comment_text"
         android:layout_marginTop="10dp"
-        android:textSize="10sp"
+        android:textSize="8sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/pretendard_regular"
@@ -45,7 +45,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="8sp"
+            android:textSize="5sp"
             android:text="23/01/25"/>
         <ImageView
             android:layout_width="wrap_content"

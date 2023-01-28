@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.UMCfront.religo.databinding.FragmentCommunityChurchBinding
 import com.UMCfront.religo.src.main.MainActivity
 import com.UMCfront.religo.src.main.community.adapter.CommunityGridAdapter
@@ -43,7 +44,7 @@ class CommunityChurchFragment : Fragment() {
         rv.adapter=communityAdapter
 
 
-        rv.layoutManager= GridLayoutManager(context,2)
+        rv.layoutManager= LinearLayoutManager(this.context)
 
         binding.communityFab.bringToFront()
 

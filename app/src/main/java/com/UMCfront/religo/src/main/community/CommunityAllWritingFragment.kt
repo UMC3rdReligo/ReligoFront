@@ -29,7 +29,12 @@ class CommunityAllWritingFragment : Fragment() {
             (activity as MainActivity?)?.changeFragment(CommunityAllFragment())
         }
 
-        return binding.root
+        //뒤로가기 버튼 구현
+        binding.communityChurchBack.setOnClickListener {
+            (activity as MainActivity?)?.changeFragment(CommunityAllFragment.newInstance())
+        }
+
+            return binding.root
     }
 
     companion object {

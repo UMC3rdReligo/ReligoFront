@@ -38,6 +38,12 @@ class CommunityChurchArticleFragment : Fragment() {
         rv.adapter=communityCommentChurchAdapter
         rv.layoutManager= LinearLayoutManager(this.context)
 
+        //뒤로가기
+        binding.communityChurchBack.setOnClickListener{
+            (activity as MainActivity?)?.changeFragment(CommunityFragment.newInstance())
+
+        }
+
         return binding.root
     }
 

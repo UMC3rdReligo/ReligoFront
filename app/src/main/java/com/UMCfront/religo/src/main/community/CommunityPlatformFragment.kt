@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.UMCfront.religo.R
 import com.UMCfront.religo.databinding.FragmentCommunityAllBinding
 import com.UMCfront.religo.databinding.FragmentCommunityChurchBinding
@@ -48,7 +49,7 @@ class CommunityPlatformFragment : Fragment() {
         rv.adapter=communityAdapter
 
 
-        rv.layoutManager= GridLayoutManager(context,2)
+        rv.layoutManager= LinearLayoutManager(this.context)
 
         binding.communityFab.bringToFront()
 
@@ -71,7 +72,12 @@ class CommunityPlatformFragment : Fragment() {
 
         }
 
-        return binding.root
+        //뒤로가기 버튼 구현
+        binding.communityChurchBack.setOnClickListener {
+            (activity as MainActivity?)?.changeFragment(CommunityFragment.newInstance())
+        }
+
+            return binding.root
     }
 
     companion object {

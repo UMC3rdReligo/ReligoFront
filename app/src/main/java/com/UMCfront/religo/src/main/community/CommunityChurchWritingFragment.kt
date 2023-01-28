@@ -36,8 +36,13 @@ class CommunityChurchWritingFragment : Fragment() {
             (activity as MainActivity?)?.changeFragment(CommunityChurchFragment())
         }
 
+        //뒤로가기 버튼 구현
+        binding.communityChurchBack.setOnClickListener {
+            (activity as MainActivity?)?.changeFragment(CommunityChurchFragment.newInstance())
+        }
 
-        return binding.root
+
+            return binding.root
     }
 
     companion object {

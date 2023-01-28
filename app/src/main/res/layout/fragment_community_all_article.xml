@@ -9,17 +9,29 @@
     android:background="@drawable/community_background"
     android:orientation="vertical"
     tools:context=".src.main.community.CommunityAllArticleFragment">
-    <TextView
-        android:id="@+id/community_all_article_top"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        app:fabSize="normal"
-        android:layout_marginTop="15dp"
-        android:textSize="20sp"
-        android:textColor="@color/white"
-        android:fontFamily="@font/pretendard_medium"
-        android:text="함께 소통해요" />
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/community_church_back"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/community_back_btn"/>
+        <TextView
+            android:id="@+id/community_all_article_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="60dp"
+            android:gravity="center"
+            app:fabSize="normal"
+            android:layout_marginTop="15dp"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/pretendard_medium"
+            android:text="함께 소통해요" />
+    </LinearLayout>
     <View
         android:id="@+id/community_all_article_margin"
         app:layout_constraintTop_toBottomOf="@+id/community_all_article_top"
@@ -46,11 +58,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="안녕하세요 이번에 새로 가입했습니다"
+                android:textStyle="bold"
                 android:fontFamily="@font/pretendard_medium"
                 android:textSize="18sp"/>
 
             <LinearLayout
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -65,10 +78,12 @@
                 </LinearLayout>
 
                 <TextView
+                    android:layout_marginTop="4sp"
                     android:layout_marginLeft="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textSize="12sp"
                     android:text="캐시"
                     android:fontFamily="@font/pretendard_regular"/>
 
@@ -93,7 +108,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
-                    android:layout_marginTop="1dp"
+                    android:layout_marginTop="2dp"
                     android:text="3"
                     android:textSize="10sp"/>
 
@@ -104,6 +119,7 @@
                     android:src="@drawable/mdi_cards_heart_outline"
                     android:layout_marginTop="3dp"/>
                 <TextView
+                    android:layout_marginLeft="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="2"
@@ -112,7 +128,7 @@
 
             </LinearLayout>
             <View
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
@@ -127,20 +143,12 @@
 
             </TextView>
 
-            <View
-                android:layout_marginTop="50dp"
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_centerInParent="true"
-                android:background="#D3D3D3"/>
-
-
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="100dp"
                 android:orientation="vertical">
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/community_comment_rv"

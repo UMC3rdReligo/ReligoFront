@@ -31,8 +31,13 @@ class CommunityPlatformWritingFragment : Fragment() {
             (activity as MainActivity?)?.changeFragment(CommunityPlatformFragment())
         }
 
+        //뒤로가기 버튼 구현
+        binding.communityChurchBack.setOnClickListener {
+            (activity as MainActivity?)?.changeFragment(CommunityPlatformFragment.newInstance())
+        }
 
-        return binding.root
+
+            return binding.root
 
 
     }
