@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.UMCfront.religo.databinding.FragmentCommunityAllBinding
 import com.UMCfront.religo.src.main.MainActivity
 import com.UMCfront.religo.src.main.community.adapter.CommunityGridAdapter
@@ -59,7 +60,8 @@ class CommunityAllFragment : Fragment() {
         rv.adapter=communityGridAdapter
 
 
-        rv.layoutManager= GridLayoutManager(context,2)
+        //linear layout으로 변경
+        rv.layoutManager= LinearLayoutManager(this.context)
 
         binding.communityFab.bringToFront()
 
@@ -82,7 +84,12 @@ class CommunityAllFragment : Fragment() {
 
         }
 
-        return binding.root
+        //뒤로가기 버튼 구현
+        binding.communityChurchBack.setOnClickListener {
+            (activity as MainActivity?)?.changeFragment(CommunityFragment.newInstance())
+        }
+
+            return binding.root
 
     }
 
