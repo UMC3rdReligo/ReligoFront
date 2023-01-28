@@ -193,17 +193,17 @@
             </LinearLayout>
 
             <Button
-                android:layout_marginStart="27dp"
                 android:id="@+id/home_findlocate_button"
-                android:layout_marginTop="25dp"
                 android:layout_width="75dp"
-                android:layout_marginBottom="2dp"
                 android:layout_height="match_parent"
-                android:textStyle="bold"
+                android:layout_marginStart="27dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="2dp"
                 android:background="@drawable/home_sendinfo_tochurch_background"
                 android:fontFamily="@font/pretendard_regular"
                 android:text="주소검색"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:textStyle="bold" />
 
         </LinearLayout>
 

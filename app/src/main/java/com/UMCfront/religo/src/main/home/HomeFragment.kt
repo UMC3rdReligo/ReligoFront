@@ -23,7 +23,7 @@ class HomeFragment : Fragment() {
     ): View? {
 
         val adapter = PagerFragmentStateAdapter(this)
-        val fragments = listOf<Fragment>(HomeFirstFragment(),HomeSecondFragment(),HomeChurchsignupFragment())
+        val fragments = listOf<Fragment>(HomeFirstFragment(),HomeSecondFragment(),HomechurchinfoFragment())
         adapter.fragments.addAll(fragments)
 
 
