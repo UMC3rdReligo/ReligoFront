@@ -7,27 +7,21 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.UMCfront.religo.R
 
-class CommunityGridAdapter(val items:MutableList<String>):RecyclerView.Adapter<CommunityGridAdapter.ViewHolder>() {
+class CommunityCommentRVAdapter(val items:MutableList<String>):
+    RecyclerView.Adapter<CommunityCommentRVAdapter.ViewHolder>() {
 
-    interface GridItemClick{
-        fun onClick(view:View,position:Int)
-    }
-
-    var itemClick: CommunityGridAdapter.GridItemClick?=null
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
-        //아이템 클릭
-
         fun bindItem(item:String){
-            val rv_text_title=itemView.findViewById<TextView>(R.id.community_rv_detail_title)
-            rv_text_title.text=item
+            val rv_text=itemView.findViewById<TextView>(R.id.community_comment_text)
+            rv_text.text=item
 
         }
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view= LayoutInflater.from(parent.context).inflate(R.layout.community_rv_item_grid,parent,false)
+        val view= LayoutInflater.from(parent.context).inflate(R.layout.community_comment_rv_item,parent,false)
         // 뷰 홀더에 뷰 넣어주기
         return ViewHolder(view)
 
@@ -35,12 +29,8 @@ class CommunityGridAdapter(val items:MutableList<String>):RecyclerView.Adapter<C
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindItem(items[position])
-        if(itemClick!=null){
-            holder.itemView.setOnClickListener{v->
-                itemClick?.onClick(v,position)
 
-            }
-        }
+
     }
 
     override fun getItemCount(): Int {
