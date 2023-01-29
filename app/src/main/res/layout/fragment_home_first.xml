@@ -7,83 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".src.main.home.HomeFirstFragment">
 
->
-
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/home_phrases"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints">
-
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:text="TextView" />
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="4dp"
-            android:layout_marginTop="4dp"
-            android:text="내 위치기반 교회 추천"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <View
-            android:layout_width="10dp"
-            android:layout_height="10dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="10dp"
-            android:background="@drawable/home_phrases_plus" />
-
-        <TextView
-            android:id="@+id/homefirst_locate_textview"
-            android:layout_width="140dp"
-            android:layout_height="7dp"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:text="양천구"
-            android:textSize="8sp"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/homefirst_more_button"
-            android:layout_width="47dp"
-            android:layout_height="24dp"
-            android:layout_gravity="bottom"
-            android:layout_weight="0"
-            android:text="더보기" />
-
-    </LinearLayout>
-
     <View
         android:id="@+id/rectangle_3"
         android:layout_width="363dp"
@@ -94,8 +17,7 @@
         android:background="@drawable/home_location_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
-
+        app:layout_constraintTop_toTopOf="parent" />
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
@@ -119,24 +41,43 @@
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="@+id/rectangle_3">
 
-        <TextView
-            android:id="@+id/homefirst_textView1"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="19dp"
-            android:text="목동 교회 "
-            android:textSize="16sp" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/homefirst_textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="19dp"
+                android:text="목동 교회 "
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <ImageButton
+                android:id="@+id/home_church_star1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+
+                />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/homefirst_textView2"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="서울특별시 양천 목동 중앙본로 51-65"
             android:textSize="6.5sp" />
 
         <TextView
             android:id="@+id/homefirst_textView3"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="TextView"
             android:textSize="6.5sp" />
 
@@ -146,6 +87,19 @@
             android:layout_height="wrap_content"
             android:text="TextView"
             android:textSize="6.5sp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <ImageButton
+            android:id="@+id/home_churchinfo1_findmore_imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            />
+
 
 
     </LinearLayout>
@@ -173,13 +127,30 @@
     app:layout_constraintTop_toBottomOf="@+id/homelinearLayout1">
 
 
-        <TextView
-            android:id="@+id/homefirst_textView12"
-            android:layout_width="match_parent"
-            android:layout_height="19dp"
-            android:text="목동 교회 "
-            android:textSize="16sp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+            <TextView
+                android:id="@+id/homefirst_textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="19dp"
+                android:text="목동 교회 "
+                android:textSize="16sp" />
 
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <ImageButton
+            android:id="@+id/home_church_star2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+
+            />
+    </LinearLayout>
         <TextView
             android:id="@+id/homefirst_textView22"
             android:layout_width="match_parent"
@@ -194,6 +165,16 @@
             android:layout_gravity="bottom"
             android:text="TextView"
             android:textSize="6.5sp" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+        <ImageButton
+            android:id="@+id/home_churchinfo2_findmore_imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            />
 
     </LinearLayout>
 
