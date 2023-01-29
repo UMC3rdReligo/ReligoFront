@@ -271,7 +271,7 @@
         android:layout_width="350dp"
         android:layout_height="55dp"
         android:layout_marginBottom="80dp"
-        android:background="@drawable/survey_move_btn"
+        android:background="@drawable/back_btn"
         android:text="이전으로"
         android:fontFamily="@font/pretendard_regular"
         android:textColor="#FFFFFF"

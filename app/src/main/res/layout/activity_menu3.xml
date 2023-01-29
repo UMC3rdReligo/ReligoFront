@@ -10,10 +10,10 @@
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="400dp"
-        android:layout_height="350dp"
+        android:layout_height="wrap_content"
         android:background="#FFFFFF"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/button6"
+        app:layout_constraintBottom_toTopOf="@+id/menu3_back_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,14 +22,15 @@
 
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/menu2_btn1"
+            android:padding="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
             android:background="@drawable/survey_btn"
+            android:fontFamily="@font/pretendard_regular"
             android:stateListAnimator="@null"
             android:text="모태신앙"
-            android:fontFamily="@font/pretendard_regular"
             android:textColor="#000000"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -37,14 +38,15 @@
             app:elevation="8dp" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/menu2_btn2"
+            android:padding="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
             android:background="@drawable/survey_btn"
+            android:fontFamily="@font/pretendard_regular"
             android:stateListAnimator="@null"
             android:text="주변인의 권유"
-            android:fontFamily="@font/pretendard_regular"
             android:textColor="#000000"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -52,14 +54,15 @@
             app:elevation="8dp" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/menu2_btn3"
+            android:padding="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
             android:background="@drawable/survey_btn"
+            android:fontFamily="@font/pretendard_regular"
             android:stateListAnimator="@null"
             android:text="마음의 안정"
-            android:fontFamily="@font/pretendard_regular"
             android:textColor="#000000"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -67,14 +70,15 @@
             app:elevation="8dp" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/menu2_btn4"
+            android:padding="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
             android:background="@drawable/survey_btn"
-            android:stateListAnimator="@null"
-            android:text="경험"
             android:fontFamily="@font/pretendard_regular"
+            android:stateListAnimator="@null"
+            android:text="가입한 적 없음"
             android:textColor="#000000"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -99,11 +103,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/menu3_back_btn"
         android:layout_width="350dp"
         android:layout_height="55dp"
         android:layout_marginBottom="80dp"
-        android:background="@drawable/survey_move_btn"
+        android:background="@drawable/back_btn"
         android:text="이전으로"
         android:fontFamily="@font/pretendard_regular"
         android:textColor="#FFFFFF"
