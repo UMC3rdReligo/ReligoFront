@@ -26,6 +26,14 @@ class EventFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_event, container, false)
     }
 
+    fun userHaveChurch(){
+
+    }
+
+    fun userBlankChurch(){
+
+    }
+
     companion object {
         fun newInstance(): EventFragment {
             return EventFragment()
