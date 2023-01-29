@@ -7,11 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
-import com.UMCfront.religo.R
-import com.UMCfront.religo.databinding.ActivityCommunityAllBinding
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.UMCfront.religo.databinding.FragmentCommunityAllBinding
 import com.UMCfront.religo.src.main.MainActivity
 import com.UMCfront.religo.src.main.community.adapter.CommunityGridAdapter
+import com.UMCfront.religo.src.main.community.adapter.CommunityRVAdapter1
 
 
 class CommunityAllFragment : Fragment() {
@@ -27,6 +27,9 @@ class CommunityAllFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+
+        
 
 
         val binding = FragmentCommunityAllBinding.inflate(inflater, container, false)
@@ -50,29 +53,43 @@ class CommunityAllFragment : Fragment() {
 
 
 
-        val communityAdapter= CommunityGridAdapter(communityAllList)
+        val communityGridAdapter= CommunityGridAdapter(communityAllList)
 
         //community_grid_rv
         val rv=binding.communityGridRv
-        rv.adapter=communityAdapter
+        rv.adapter=communityGridAdapter
 
 
-        rv.layoutManager= GridLayoutManager(context,2)
+        //linear layout으로 변경
+        rv.layoutManager= LinearLayoutManager(this.context)
 
         binding.communityFab.bringToFront()
 
         // 글쓰기 버튼 구현
 
-        val fragment_community_writing=CommunityWritingFragment()
+
         binding.communityFab.setOnClickListener{
 
             Toast.makeText(context,"플로팅 클릭", Toast.LENGTH_LONG).show()
 
-            (activity as MainActivity?)?.changeFragment(CommunityWritingFragment())
+            (activity as MainActivity?)?.changeFragment(CommunityAllWritingFragment.newInstance())
 
         }
 
-        return binding.root
+        // 글 클릭 구현
+        communityGridAdapter.itemClick=object: CommunityGridAdapter.GridItemClick{
+            override fun onClick(view: View, position: Int) {
+                (activity as MainActivity?)?.changeFragment(CommunityAllArticleFragment.newInstance())
+            }
+
+        }
+
+        //뒤로가기 버튼 구현
+        binding.communityChurchBack.setOnClickListener {
+            (activity as MainActivity?)?.changeFragment(CommunityFragment.newInstance())
+        }
+
+            return binding.root
 
     }
 

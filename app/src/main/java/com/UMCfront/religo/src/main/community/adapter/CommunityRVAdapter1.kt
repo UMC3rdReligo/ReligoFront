@@ -8,6 +8,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.UMCfront.religo.R
 
 class CommunityRVAdapter1(val items:MutableList<String>):RecyclerView.Adapter<CommunityRVAdapter1.ViewHolder>() {
+
+    // 아이템 클릭
+    interface ItemClick{
+        fun onClick(view:View,position:Int)
+    }
+
+    var itemClick:ItemClick?=null
+
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
         fun bindItem(item:String){
@@ -27,6 +35,13 @@ class CommunityRVAdapter1(val items:MutableList<String>):RecyclerView.Adapter<Co
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindItem(items[position])
+        if(itemClick!=null){
+            holder.itemView.setOnClickListener{v->
+                itemClick?.onClick(v,position)
+
+            }
+        }
+
     }
 
     override fun getItemCount(): Int {
