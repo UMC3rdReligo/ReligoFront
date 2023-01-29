@@ -7,26 +7,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/community_background"
     tools:context=".src.main.MainActivity">
 
     <TextView
-        android:id="@+id/idTVHeading"
+        android:fontFamily="@font/amaranth_bold"
+        android:id="@+id/religoText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
         android:gravity="center"
-        android:padding="4dp"
-        android:text="@string/app_name"
-        android:textAlignment="center"
-        android:textColor="@color/purple_200"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="15dp"
+        android:textSize="30sp"
+        android:textColor="@color/white"
+        android:text="Religo" />
+
+
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/idRVCourses"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/idTVHeading"
+        android:layout_marginTop="130dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
 </RelativeLayout>

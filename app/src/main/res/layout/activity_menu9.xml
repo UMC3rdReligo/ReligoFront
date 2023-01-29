@@ -6,14 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".src.menu.MenuActivity9">
 
-    <!-- SearchView 커스텀 해야함 -->
+    <!-- EditText 입력 형식 체크해야함 (text or textPersonName -->
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="112dp"
-        android:text="닉네임을 설정해주세요"
+        android:text="닉네임을 설정해주세요."
         android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -28,6 +28,7 @@
         android:layout_height="45dp"
         android:background="@drawable/survey_move_btn"
         android:text="Religo 가입하기"
+        android:fontFamily="@font/pretendard_regular"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
@@ -64,6 +65,7 @@
             android:background="@drawable/ok_btn"
             android:stateListAnimator="@null"
             android:text="중복확인"
+            android:fontFamily="@font/pretendard_regular"
             android:textSize="13sp"
             android:textStyle="bold"
             android:translationZ="5dp"
@@ -78,6 +80,7 @@
         android:layout_marginBottom="80dp"
         android:background="@drawable/survey_move_btn"
         android:text="이전으로"
+        android:fontFamily="@font/pretendard_regular"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"

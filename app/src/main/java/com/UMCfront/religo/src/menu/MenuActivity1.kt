@@ -7,6 +7,6 @@ import com.UMCfront.religo.R
 class MenuActivity1 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_menu8);
+        setContentView(R.layout.activity_menu3);
     }
 }

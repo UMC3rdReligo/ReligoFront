@@ -7,8 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.UMCfront.religo.src.main.community.adapter.CommunityRVAdapter1
@@ -38,12 +40,12 @@ class CommunityFragment : Fragment() {
 
             // fragment간 이동
 
-            //(activity as MainActivity?)?.changeFragment(CommunityChurchFragment.newInstance())
+            (activity as MainActivity?)?.changeFragment(CommunityChurchFragment.newInstance())
 
-            activity?.let{
-                val intent = Intent(context, CommunityChurchActivity::class.java)
-                startActivity(intent)
-            }
+//            activity?.let{
+//                val intent = Intent(context, CommunityChurchActivity::class.java)
+//                startActivity(intent)
+//            }
 
 
         }
@@ -51,20 +53,20 @@ class CommunityFragment : Fragment() {
         val allViewMore=view.findViewById<ImageView>(R.id.community_all_viewmore)
 
         allViewMore.setOnClickListener{
+
+            (activity as MainActivity?)?.changeFragment(CommunityAllFragment.newInstance())
             
-            activity?.let{
-                val intent = Intent(context, CommunityAllActivity::class.java)
-                startActivity(intent)
-            }
+//            activity?.let{
+//                val intent = Intent(context, CommunityAllActivity::class.java)
+//                startActivity(intent)
+//
+//            }
         }
 
         val platformMore=view.findViewById<ImageView>(R.id.community_platform_viewmore)
 
         platformMore.setOnClickListener {
-            activity?.let{
-                val intent = Intent(context, CommunityPlatformActivity::class.java)
-                startActivity(intent)
-            }
+            (activity as MainActivity?)?.changeFragment(CommunityPlatformFragment.newInstance())
         }
 
         var communityAllList= mutableListOf<String>()
@@ -77,10 +79,20 @@ class CommunityFragment : Fragment() {
         communityAllList.add("안녕하세요 이번에 새로 가입했습니다.")
 
 
+        val rv=view.findViewById<RecyclerView>(R.id.allRV)
+
         val communityAdapter= CommunityRVAdapter1(communityAllList)
 
-        val rv=view.findViewById<RecyclerView>(R.id.allRV)
+
         rv.adapter=communityAdapter
+
+        // 글 클릭 구현
+        communityAdapter.itemClick=object:CommunityRVAdapter1.ItemClick{
+            override fun onClick(view: View, position: Int) {
+                (activity as MainActivity?)?.changeFragment(CommunityAllArticleFragment.newInstance())
+            }
+
+        }
 
 
         rv.layoutManager= LinearLayoutManager(this.context)
@@ -102,7 +114,16 @@ class CommunityFragment : Fragment() {
 
         val platformAdapter= CommunityRVAdapter1(communityPlatformList)
         val platRv=view.findViewById<RecyclerView>(R.id.platformRV)
+
         platRv.adapter=platformAdapter
+
+        // 글 클릭 구현
+        platformAdapter.itemClick=object:CommunityRVAdapter1.ItemClick{
+            override fun onClick(view: View, position: Int) {
+                (activity as MainActivity?)?.changeFragment(CommunityPlatformFragment.newInstance())
+            }
+
+        }
 
     }
 
@@ -111,6 +132,10 @@ class CommunityFragment : Fragment() {
         fun newInstance(): CommunityFragment {
             return CommunityFragment()
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
     }
 
 

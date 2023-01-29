@@ -20,197 +20,20 @@
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:fontFamily="@font/amaranth_bold"
+        />
 
-    <LinearLayout
-        android:id="@+id/homelinearLayout_phrases"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/home_viewpager"
+        android:layout_width="409dp"
+        android:layout_height="0dp"
         android:layout_marginTop="50dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/home_phrases"
-        android:orientation="horizontal"
+        android:layout_marginEnd="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/homereligo">
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:text="TextView" />
-
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="0"
-            android:gravity="right" />
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/homelinearLayout_phrases">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="4dp"
-            android:layout_marginTop="4dp"
-            android:text="내 위치기반 교회 추천"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <View
-            android:layout_width="10dp"
-            android:layout_height="10dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="10dp"
-            android:background="@drawable/home_phrases_plus" />
-
-        <TextView
-            android:id="@+id/homefirst_locate_textview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:text="양천구"
-            android:textSize="8sp"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/homefirst_more_button"
-            android:layout_width="47dp"
-            android:layout_height="24dp"
-            android:layout_gravity="bottom"
-            android:layout_weight="0"
-            android:text="더보기" />
-
-    </LinearLayout>
-
-    <View
-        android:id="@+id/rectangle_3"
-        android:layout_width="363dp"
-        android:layout_height="390dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/home_location_background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="@+id/rectangle_3"
-        app:layout_constraintTop_toTopOf="@+id/rectangle_3"
-        app:srcCompat="@drawable/home_churchimg_background" />
-
-
-    <LinearLayout
-        android:id="@+id/homelinearLayout1"
-        android:layout_width="0dp"
-        android:layout_height="129dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="4dp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="@+id/rectangle_3"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/rectangle_3">
-
-        <TextView
-            android:id="@+id/homefirst_textView1"
-            android:layout_width="match_parent"
-            android:layout_height="19dp"
-            android:text="목동 교회 "
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/homefirst_textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="서울특별시 양천 목동 중앙본로 51-65"
-            android:textSize="6.5sp" />
-
-        <TextView
-            android:id="@+id/homefirst_textView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:text="TextView"
-            android:textSize="6.5sp" />
-
-    </LinearLayout>
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintStart_toStartOf="@+id/rectangle_3"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:srcCompat="@drawable/home_churchimg_background" />
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="129dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="4dp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="@+id/rectangle_3"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/homelinearLayout1">
-
-
-        <TextView
-            android:id="@+id/homefirst_textView12"
-            android:layout_width="match_parent"
-            android:layout_height="19dp"
-            android:text="목동 교회 "
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/homefirst_textView22"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="서울특별시 양천 목동 중앙본로 51-65"
-            android:textSize="6.5sp" />
-
-        <TextView
-            android:id="@+id/homefirst_textView33"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:text="TextView"
-            android:textSize="6.5sp" />
-
-    </LinearLayout>
-
-
+        app:layout_constraintTop_toBottomOf="@+id/homereligo" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

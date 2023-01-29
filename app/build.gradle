@@ -6,9 +6,7 @@ plugins {
 }
 
 android {
-    viewBinding {
-        enabled = true
-    }
+
 
     namespace 'com.UMCfront.religo'
     compileSdk 33
@@ -40,6 +38,9 @@ android {
     buildFeatures {
         viewBinding true
     }
+    dataBinding {
+        enabled = true
+    }
 
 
 }
@@ -49,7 +50,8 @@ dependencies {
 
 
 
-    //navigation
+    //이미지 둥글게 clipping
+    implementation 'com.google.android.material:material:1.0.0'
 
 
 
@@ -64,7 +66,8 @@ dependencies {
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.6.0'
-    implementation 'com.google.android.material:material:1.7.0'
+
+
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
     //glide

@@ -48,6 +48,8 @@
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:text="캐시"
+                   android:fontFamily="@font/pretendard_regular"
+                   android:textStyle="bold"
                    android:textSize="20sp"
                    app:layout_constraintRight_toLeftOf="@+id/community_name2"
                    />
@@ -57,6 +59,8 @@
                    android:id="@+id/community_name2"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
+                   android:fontFamily="@font/pretendard_regular"
+                   android:textStyle="bold"
                    android:text="님의 교회"
                    android:textSize="20sp"
                    app:layout_constraintLeft_toRightOf="@+id/community_name1" />
@@ -68,29 +72,40 @@
                android:id="@+id/community_church"
                android:layout_marginTop="10dp"
                android:layout_width="match_parent"
-               android:layout_height="70dp"
+               android:layout_height="100dp"
                android:layout_marginLeft="20dp"
                android:layout_marginRight="20dp"
                app:layout_constraintTop_toBottomOf="@+id/my_community">
 
 
-               <ImageView
+               <View
                    android:id="@+id/community_church_layout"
                    android:layout_width="match_parent"
                    android:layout_height="match_parent"
                    android:background="@drawable/community_radius"
                    app:layout_constraintTop_toTopOf="parent"
-                   tools:layout_editor_absoluteX="0dp"></ImageView>
+                   tools:layout_editor_absoluteX="0dp"></View>
 
-               <ImageView
-                   android:layout_marginLeft="10dp"
+               <androidx.cardview.widget.CardView
+
                    android:id="@+id/churchImgLayout"
-                   android:layout_marginTop="10dp"
-                   app:layout_constraintTop_toTopOf="parent"
-                   app:layout_constraintStart_toStartOf="parent"
-                   android:layout_width="wrap_content"
+                   android:layout_width="120dp"
                    android:layout_height="wrap_content"
-                   android:src="@drawable/community_church_image"/>
+                   app:cardCornerRadius="10dp"
+                   android:layout_marginTop="10dp"
+                   android:layout_marginBottom="8dp"
+                   android:layout_marginLeft="5dp"
+                   app:layout_constraintTop_toTopOf="parent"
+                   app:layout_constraintStart_toStartOf="parent">
+
+                   <ImageView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:adjustViewBounds="true"
+                       android:src="@drawable/church_img" />
+
+               </androidx.cardview.widget.CardView>
+
 
                <TextView
                    android:id="@+id/community_churchName"
@@ -101,8 +116,9 @@
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    app:layout_constraintLeft_toRightOf="@+id/churchImgLayout"
-                   android:textStyle="bold"
                    android:text="목동교회"
+                   android:fontFamily="@font/pretendard_regular"
+                   android:textStyle="bold"
                    />
                <TextView
                    android:id="@+id/community_church_address"
@@ -111,6 +127,7 @@
                    android:layout_height="wrap_content"
                    app:layout_constraintStart_toStartOf="@+id/community_churchName"
                    android:text="서울특별시 양천 목동 중앙본로 51-16"
+                   android:fontFamily="@font/pretendard_regular"
                    />
 
                <ImageView
@@ -145,6 +162,7 @@
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
                        android:text="함께 소통해요!"
+                       android:fontFamily="@font/pretendard_regular"
                        android:textSize="20dp"
                        android:textStyle="bold" />
 
@@ -166,6 +184,7 @@
                    android:layout_width="match_parent"
                    android:layout_height="match_parent"
                    android:layout_marginTop="20dp"
+                   android:elevation="10dp"
                    android:background="@drawable/community_radius">
 
                    <androidx.recyclerview.widget.RecyclerView
@@ -193,10 +212,12 @@
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content">
                    <TextView
+                       android:fontFamily="@font/pretendard_regular"
+                       android:textStyle="bold"
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
                        android:textSize="20dp"
-                       android:text="지금 우리 교인은?">
+                       android:text="지금 우리 교단은?">
 
 
                    </TextView>
