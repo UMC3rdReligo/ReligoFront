@@ -17,7 +17,7 @@ import com.kakao.sdk.user.UserApiClient
 
 // https://developers.kakao.com/console/app
 class LoginActivity : AppCompatActivity() {
-    // (참고) 카카오 소셜 로그인 -> 1. 카톡 [닉네임] , 2. 카카오계정 [이메일] 항목만 정보 수집하게 설정
+    // 카카오 소셜 로그인 -> 1. 카톡 [닉네임] , 2. 카카오계정 [이메일] 항목만 정보 수집하게 설정
 
     private lateinit var viewBinding: ActivityLoginBinding
 
