@@ -8,16 +8,17 @@
     tools:context=".src.menu.MenuActivity1">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="140dp"
-        android:text="Religo에 방문하신것을 환영합니다.\n어떤 목적으로 방문하셨나요?"
         android:fontFamily="@font/pretendard_regular"
+        android:text="Religo에 방문하신것을 환영합니다.\n어떤 목적으로 방문하셨나요?"
         android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.35"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,17 +29,18 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.545"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.19">
+        app:layout_constraintTop_toBottomOf="@+id/textView1"
+        app:layout_constraintVertical_bias="0.2">
 
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/menu1_btn1"
+            android:padding="15dp"
+            android:layout_margin="25dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="25dp"
             android:background="@drawable/survey_btn"
             android:stateListAnimator="@null"
             android:text="최초 가입"
@@ -50,7 +52,8 @@
             app:elevation="8dp" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/menu1_btn2"
+            android:padding="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="25dp"
@@ -65,7 +68,8 @@
             app:elevation="8dp" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/menu1_btn3"
+            android:padding="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="25dp"

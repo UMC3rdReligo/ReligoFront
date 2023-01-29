@@ -46,7 +46,8 @@ android {
 
 dependencies {
 
-
+    // 카카오 소셜 로그인
+    implementation "com.kakao.sdk:v2-user:2.0.1"
 
 
     //navigation

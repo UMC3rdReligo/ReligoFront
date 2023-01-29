@@ -7,22 +7,7 @@
     tools:context=".src.menu.MenuActivity2">
 
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="330dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/survey_move_btn"
-        android:text="현재 위치로 검색"
-        android:fontFamily="@font/pretendard_regular"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView" />
-
-    <!-- SearchView 커스텀 해야함 -->
+    <!-- SearchView 오류 수정 중
 
     <SearchView
         android:id="@+id/searchView"
@@ -33,33 +18,49 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="180dp"
-        />
+        tools:ignore="MissingConstraints" />
+
+        -->
+
+    <Button
+        android:id="@+id/menusearch_btn"
+        android:layout_width="330dp"
+        android:layout_height="45dp"
+        android:background="@drawable/back_btn"
+        android:fontFamily="@font/pretendard_regular"
+        android:text="현재 위치로 검색"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/menu2_back_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintVertical_bias="0.25" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="36dp"
-        android:text="현재 위치는 어디인가요?"
+        android:layout_marginTop="100dp"
         android:fontFamily="@font/pretendard_regular"
+        android:text="현재 위치는 어디인가요?"
         android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/searchView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/menu2_back_btn"
         android:layout_width="350dp"
         android:layout_height="55dp"
         android:layout_marginBottom="80dp"
-        android:background="@drawable/survey_move_btn"
-        android:text="이전으로"
+        android:background="@drawable/back_btn"
         android:fontFamily="@font/pretendard_regular"
+        android:text="이전으로"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
