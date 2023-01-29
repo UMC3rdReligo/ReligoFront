@@ -8,23 +8,21 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.UMCfront.religo.R
-import com.UMCfront.religo.databinding.FragmentCommunityAllArticleBinding
-import com.UMCfront.religo.databinding.FragmentCommunityAllWritingBinding
+
+import com.UMCfront.religo.databinding.FragmentCommunityPlatformArticleBinding
 import com.UMCfront.religo.src.main.MainActivity
 import com.UMCfront.religo.src.main.community.adapter.CommunityCommentRVAdapter
-import com.UMCfront.religo.src.main.community.adapter.CommunityGridAdapter
 
 
-class CommunityAllArticleFragment : Fragment() {
+class CommunityPlatformArticleFragment : Fragment() {
 
-    private var _binding: FragmentCommunityAllArticleBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        val binding = FragmentCommunityAllArticleBinding.inflate(inflater, container, false)
+        val binding = FragmentCommunityPlatformArticleBinding.inflate(inflater, container, false)
 
         var communityAllCommentList= mutableListOf<String>()
         communityAllCommentList.add("안녕하세요 이번에 새로 가입했습니다.")
@@ -40,14 +38,14 @@ class CommunityAllArticleFragment : Fragment() {
         //community_grid_rv
         val rv=binding.communityCommentRv
         rv.adapter=communityCommentAllAdapter
-        rv.layoutManager=LinearLayoutManager(this.context)
+        rv.layoutManager= LinearLayoutManager(this.context)
 
 
 
         //댓글 입력 구현
         binding.communityCommentBtn.setOnClickListener{
             val text=binding.communityCommentInput
-            Toast.makeText(context,text.text,Toast.LENGTH_LONG).show()
+            Toast.makeText(context,text.text, Toast.LENGTH_LONG).show()
             text.text=null
         }
 
@@ -55,7 +53,7 @@ class CommunityAllArticleFragment : Fragment() {
 
         //뒤로가기 버튼 구현
         binding.communityChurchBack.setOnClickListener {
-            (activity as MainActivity?)?.changeFragment(CommunityAllFragment.newInstance())
+            (activity as MainActivity?)?.changeFragment(CommunityPlatformFragment.newInstance())
         }
 
 
@@ -63,8 +61,8 @@ class CommunityAllArticleFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(): CommunityAllArticleFragment {
-            return CommunityAllArticleFragment()
+        fun newInstance(): CommunityPlatformArticleFragment {
+            return CommunityPlatformArticleFragment()
         }
     }
 }

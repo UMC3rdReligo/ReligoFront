@@ -120,7 +120,7 @@ class CommunityFragment : Fragment() {
         // 글 클릭 구현
         platformAdapter.itemClick=object:CommunityRVAdapter1.ItemClick{
             override fun onClick(view: View, position: Int) {
-                (activity as MainActivity?)?.changeFragment(CommunityAllArticleFragment.newInstance())
+                (activity as MainActivity?)?.changeFragment(CommunityPlatformFragment.newInstance())
             }
 
         }

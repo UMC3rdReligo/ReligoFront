@@ -67,7 +67,7 @@ class CommunityPlatformFragment : Fragment() {
         // 글 클릭 구현
         communityAdapter.itemClick=object: CommunityGridAdapter.GridItemClick{
             override fun onClick(view: View, position: Int) {
-                (activity as MainActivity?)?.changeFragment(CommunityAllArticleFragment.newInstance())
+                (activity as MainActivity?)?.changeFragment(CommunityPlatformArticleFragment.newInstance())
             }
 
         }

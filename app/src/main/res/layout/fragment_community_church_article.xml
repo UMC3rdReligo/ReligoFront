@@ -31,7 +31,7 @@
             android:textSize="20sp"
             android:textColor="@color/white"
             android:fontFamily="@font/pretendard_medium"
-            android:text="함께 소통해요" />
+            android:text="내 교회" />
     </LinearLayout>
     <View
         android:id="@+id/community_all_article_margin"
@@ -179,6 +179,7 @@
             android:layout_height="wrap_content"
             android:hint="댓글을 입력하세요."
             android:fontFamily="@font/pretendard_regular"
+            android:background="@null"
             android:textSize="12sp" />
         <Button
             android:layout_weight="0.2"
@@ -186,6 +187,7 @@
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:textSize="8sp"
+            android:background="@null"
             android:text="입력"
             android:onClick="onButtonClick"/>
 

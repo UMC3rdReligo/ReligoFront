@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+    android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,8 +8,7 @@
     android:id="@+id/community_all_fragment"
     android:layout_height="match_parent"
     android:background="@drawable/community_background"
-    android:orientation="vertical"
-    tools:context=".src.main.community.CommunityAllArticleFragment">
+    tools:context=".src.main.community.CommunityPlatformArticleFragment">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -19,18 +19,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/community_back_btn"/>
+
         <TextView
             android:id="@+id/community_all_article_top"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="60dp"
             android:gravity="center"
+            android:layout_marginRight="60dp"
             app:fabSize="normal"
             android:layout_marginTop="15dp"
             android:textSize="20sp"
             android:textColor="@color/white"
             android:fontFamily="@font/pretendard_medium"
-            android:text="함께 소통해요" />
+            android:text="지금 우리 교단은" />
     </LinearLayout>
     <View
         android:id="@+id/community_all_article_margin"
@@ -176,16 +177,16 @@
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@null"
             android:hint="댓글을 입력하세요."
+            android:background="@null"
             android:fontFamily="@font/pretendard_regular"
             android:textSize="12sp" />
         <Button
             android:layout_weight="0.2"
             android:id="@+id/community_comment_btn"
             android:layout_width="wrap_content"
-            android:background="@null"
             android:layout_height="30dp"
+            android:background="@null"
             android:textSize="8sp"
             android:text="입력"
             android:onClick="onButtonClick"/>
