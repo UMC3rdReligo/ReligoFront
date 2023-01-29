@@ -3,8 +3,11 @@ package com.UMCfront.religo.src.menu
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
+import androidx.databinding.DataBindingUtil
 import com.UMCfront.religo.R
 import com.UMCfront.religo.databinding.ActivityLoginBinding
 import com.UMCfront.religo.databinding.ActivityMenu1Binding
@@ -13,13 +16,24 @@ import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.AuthErrorCause
 import com.kakao.sdk.common.util.Utility
 import com.kakao.sdk.user.UserApiClient
+import com.navercorp.nid.NaverIdLoginSDK
+import com.navercorp.nid.oauth.NidOAuthLogin
+import com.navercorp.nid.oauth.OAuthLoginCallback
+import com.navercorp.nid.profile.NidProfileCallback
+import com.navercorp.nid.profile.data.NidProfileResponse
 
 
 // https://developers.kakao.com/console/app
 class LoginActivity : AppCompatActivity() {
     // 카카오 소셜 로그인 -> 1. 카톡 [닉네임] , 2. 카카오계정 [이메일] 항목만 정보 수집하게 설정
-
     private lateinit var viewBinding: ActivityLoginBinding
+
+    // 네이버 소셜 로그인
+    // 1. [이름] 2. [닉네임] 3. [이메일] 항목만 정보 수집하게 설정
+    private val TAG = this.javaClass.simpleName
+    private var name: String=""
+    private var email: String=""
+    private var nickname: String=""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +50,7 @@ class LoginActivity : AppCompatActivity() {
         */
 
 
-        // 로그인 정보 확인하기
+        // [카톡] 로그인 정보 확인하기
         UserApiClient.instance.accessTokenInfo { tokenInfo, error ->
             if (error != null) { // 토큰 정보 보기 오류
                 Toast.makeText(this, "로그인 실패", Toast.LENGTH_SHORT).show()
@@ -92,7 +106,7 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-        // 카카오 소셜 로그인 이미지 버튼
+        // [카톡] 소셜 로그인 이미지 버튼
         val kakao_login_btn = viewBinding.kakaoLoginBtn
 
         kakao_login_btn.setOnClickListener {
@@ -105,5 +119,77 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
+
+        // [네이버] 소셜 로그인 구현
+        val naverClientId= getString(R.string.naver_clinet_id)
+        val naverClientSecret=getString(R.string.naver_client_secret)
+        val naverClientName=getString(R.string.naver_client_name)
+        NaverIdLoginSDK.initialize(this, naverClientId, naverClientSecret, naverClientName)
+
+        viewBinding.naverLoginBtn.setOnClickListener {
+            startNaverLogin()
+        }
     }
+
+    private fun startNaverLogin(){
+        var naverToken: String? = ""
+
+        var profileCallback=object :NidProfileCallback<NidProfileResponse>{
+            override fun onSuccess(response: NidProfileResponse) {
+                val userId = response.profile?.id
+                Toast.makeText(this@LoginActivity, "로그인에 성공하였습니다.", Toast.LENGTH_SHORT).show()
+
+                // 로그인 성공 시 이동
+                val intent = Intent(this@LoginActivity, MenuActivity1::class.java)
+                startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
+                finish()
+            }
+
+            override fun onFailure(httpStatus: Int, message: String) {
+                val errorCode=NaverIdLoginSDK.getLastErrorCode().code
+                val errorDescription=NaverIdLoginSDK.getLastErrorDescription()
+                Toast.makeText(this@LoginActivity,"errorCode: ${errorCode}\n"+
+                        "errorDescription: ${errorDescription}",Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onError(errorCode: Int, message: String) {
+                onFailure(errorCode, message)
+            }
+        }
+
+        val oauthLoginCallback= object :  OAuthLoginCallback{
+            override fun onSuccess() {
+                // 네이버 로그인 인증 성공시 실행
+                naverToken=NaverIdLoginSDK.getAccessToken()
+
+                // 로그인 유저 정보 불러오기
+                NidOAuthLogin().callProfileApi(profileCallback)
+            }
+
+            override fun onFailure(httpStatus: Int, message: String) {
+                val errorCode = NaverIdLoginSDK.getLastErrorCode().code
+                val errorDescription = NaverIdLoginSDK.getLastErrorDescription()
+                Toast.makeText(this@LoginActivity, "errorCode: ${errorCode}\n" +
+                        "errorDescription: ${errorDescription}", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onError(errorCode: Int, message: String) {
+                onFailure(errorCode, message)
+            }
+        }
+
+        NaverIdLoginSDK.authenticate(this, oauthLoginCallback)
+    }
+
+    /*
+
+    private fun setLayoutState(login:Boolean) {
+        if (login) {
+            viewBinding.naverLoginBtn.visibility = View.GONE
+        } else {
+            viewBinding.naverLoginBtn.visibility = View.VISIBLE
+        }
+    }
+
+    */
 }
