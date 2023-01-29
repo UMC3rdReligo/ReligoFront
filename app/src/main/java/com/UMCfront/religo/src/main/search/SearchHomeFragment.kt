@@ -31,6 +31,7 @@ class SearchHomeFragment : Fragment() {
         val edtSearch = view.findViewById<EditText>(R.id.edt_search)
         val edtInput = view.findViewById<EditText>(R.id.edt_search)
         val btnDone = view.findViewById<Button>(R.id.btn_intent)
+        val btnHashtag = view.findViewById<Button>(R.id.btn_hashtag)
 
 
         
@@ -41,7 +42,14 @@ class SearchHomeFragment : Fragment() {
         edtInput!!.setOnEditorActionListener(getEditorActionListener(btnDone)) // 키보드에서 done(완료) 클릭 시 , 원하는 뷰 클릭되게 하기
         btnDone.setOnClickListener {
             (activity as MainActivity?)?.changeFragment(SearchFragment.newInstance())
+            }
+
+        btnHashtag.setOnClickListener{
+            (activity as MainActivity?)?.changeFragment(SearchFragment.newInstance())
+
         }
+
+
     }
 
 
