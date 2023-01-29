@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.UMCfront.religo">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- 인터넷 사용 권한 설정 -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".src.menu.GlobalApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -17,48 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Religo"
         tools:targetApi="31">
-        <activity
-            android:name=".src.menu.LoginActivity"
-            android:exported="true">
-
-            <!-- 로그인 전, splash 화면 -->
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.LAUNCHER" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <data
-                    android:host="oauth"
-                    android:scheme="kakaoc5a5df86d7f63c928abd4daa3ec3d59a" />
-            </intent-filter>
-        </activity>
-
-
-        <activity
-            android:name=".src.menu.SplashActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-
-
-        <activity
-            android:name=".src.menu.LoadingActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-
 
         <activity
             android:name=".src.menu.MenuActivity1"
             android:exported="true">
 
-            <!-- menu activity 테스트
+            <!-- menu activity test용
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -66,14 +27,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
-            -->
+             -->
 
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
-
         <activity
             android:name=".src.menu.MenuActivity2"
             android:exported="false">
@@ -90,8 +49,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
-
         <activity
             android:name=".src.menu.MenuActivity4"
             android:exported="false">
@@ -100,16 +57,6 @@
                 android:value="" />
         </activity>
 
-
-        <activity
-            android:name=".src.menu.MenuActivity5"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-
-
         <activity
             android:name=".src.menu.MenuActivity6"
             android:exported="false">
@@ -117,8 +64,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
-
         <activity
             android:name=".src.menu.MenuActivity7"
             android:exported="false">
@@ -126,8 +71,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
-
         <activity
             android:name=".src.menu.MenuActivity8"
             android:exported="false">
@@ -135,8 +78,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
-
         <activity
             android:name=".src.menu.MenuActivity9"
             android:exported="false">
@@ -144,8 +85,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
-
         <activity
             android:name=".src.menu.MenuActivity10"
             android:exported="false">
@@ -154,37 +93,18 @@
                 android:value="" />
         </activity>
 
-
-        <activity
-            android:name=".src.main.community.CommunityPlatformActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-
-
-        <activity
-            android:name=".src.main.community.CommunityChurchActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-
-
         <activity
             android:name=".src.main.MainActivity"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
+
         </activity>
     </application>
 
