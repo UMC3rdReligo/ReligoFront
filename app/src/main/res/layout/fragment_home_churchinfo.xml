@@ -197,9 +197,10 @@
                     android:layout_width="367dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="안녕하세요 목동교회입니다(TEXT TEXT)" />
+                    android:text="안녕하세요 목동교회입니다(TEST TEXT)" />
 
                 <ImageButton
+                    android:id="@+id/churchinfo_churchdetail_imageButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
@@ -305,7 +306,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
                     android:layout_marginTop="4dp"
-                    android:background="@drawable/home_phrases_plus" />
+                    android:background="@drawable/circle" />
 
 
             </LinearLayout>
@@ -360,7 +361,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
                     android:layout_marginTop="4dp"
-                    android:background="@drawable/home_phrases_plus" />
+                    android:background="@drawable/circle" />
 
 
             </LinearLayout>
@@ -373,7 +374,6 @@
                 android:text="교회행사"
                 android:textSize="20sp"
                 android:textStyle="bold" />
-
 
             <LinearLayout
                 android:layout_width="match_parent"

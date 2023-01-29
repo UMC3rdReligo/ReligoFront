@@ -81,14 +81,14 @@
                 android:layout_gravity="center"
                 android:background="@drawable/home_person" />
 
-            <TextView
+            <EditText
                 android:id="@+id/home_username_signup_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="10dp"
                 android:fontFamily="@font/pretendard_regular"
-                android:text="이름을 입력하시오"
+                android:hint="이름을 입력하시오"
                 android:textSize="10sp" />
 
 
@@ -108,14 +108,14 @@
                 android:layout_gravity="center"
                 android:background="@drawable/home_call" />
 
-            <TextView
+            <EditText
                 android:id="@+id/home_birth_signup_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="10dp"
                 android:fontFamily="@font/pretendard_regular"
-                android:text="생년월일을 입력하시오"
+                android:hint="생년월일을 입력하시오"
                 android:textSize="10sp" />
 
             <View
@@ -147,14 +147,14 @@
                 android:layout_gravity="center"
                 android:background="@drawable/home_call" />
 
-            <TextView
+            <EditText
                 android:id="@+id/home_usernumber_signup_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="10dp"
                 android:fontFamily="@font/pretendard_regular"
-                android:text="전화번호를 - 없이 입력하시오."
+                android:hint="전화번호를 - 없이 입력하시오."
                 android:textSize="10sp" />
 
 
@@ -179,14 +179,14 @@
                     android:layout_gravity="center"
                     android:background="@drawable/home_address_marker" />
 
-                <TextView
+                <EditText
                     android:id="@+id/home_location_signup_textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginStart="10dp"
                     android:fontFamily="@font/pretendard_regular"
-                    android:text="주소를 입력하시오."
+                    android:hint="주소를 입력하시오."
                     android:textSize="10sp" />
 
 
@@ -227,14 +227,14 @@
                     android:layout_gravity="center"
                     android:background="@drawable/home_email_outline" />
 
-                <TextView
+                <EditText
                     android:id="@+id/home_email_signup_textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginStart="10dp"
                     android:fontFamily="@font/pretendard_regular"
-                    android:text="이메일 주소를 입력하시오."
+                    android:hint="이메일 주소를 입력하시오."
                     android:textSize="10sp" />
 
 
@@ -264,14 +264,14 @@
                     android:layout_gravity="center"
                     android:background="@drawable/home_guider_outline" />
 
-                <TextView
+                <EditText
                     android:id="@+id/home_guide_signup_textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginStart="10dp"
                     android:fontFamily="@font/pretendard_regular"
-                    android:text="인도자를 입력하시오(단 없으면 입력x)."
+                    android:hint="인도자를 입력하시오(단 없으면 입력x)."
                     android:textSize="10sp" />
 
 
@@ -294,14 +294,14 @@
                 android:layout_gravity="center"
                 android:background="@drawable/home_date" />
 
-            <TextView
+            <EditText
                 android:id="@+id/home_date_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="10dp"
                 android:fontFamily="@font/pretendard_regular"
-                android:text="방문날짜를 선택하시오"
+                android:hint="방문날짜를 선택하시오"
                 android:textSize="10sp" />
 
             <View

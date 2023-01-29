@@ -29,8 +29,6 @@ class CommunityCommentRVAdapter(val items:MutableList<String>):
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindItem(items[position])
-
-
     }
 
     override fun getItemCount(): Int {

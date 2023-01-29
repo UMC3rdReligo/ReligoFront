@@ -40,8 +40,8 @@ class HomeFragment : Fragment() {
         //viewpager 오류 발생 -> 생명 주기 확인하기//
         //
 
-        //churchviewPager2.adapter = adapter
-
+        churchviewPager2.adapter = adapter
+        churchviewPager2.setSaveEnabled(false);
         // Inflate the layout for this fragment
         return view
 
