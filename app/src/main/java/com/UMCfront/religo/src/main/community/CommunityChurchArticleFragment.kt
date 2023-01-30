@@ -50,6 +50,9 @@ class CommunityChurchArticleFragment : Fragment() {
         binding.communityCommentBtn.setOnClickListener{
             val text=binding.communityCommentInput
             Toast.makeText(context,text.text, Toast.LENGTH_LONG).show()
+            communityChurchCommentList.add(text.text.toString())
+            //리사이클러뷰 동적 추가
+            communityCommentChurchAdapter.notifyItemInserted(communityChurchCommentList.size);
             text.text=null
         }
 
