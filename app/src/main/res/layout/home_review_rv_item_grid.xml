@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_marginTop="10dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginLeft="5dp"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:fontFamily="@font/pretendard_medium"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/home_review_rv_detail_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="normal"
+        android:textSize="15sp"
+        android:text="교회가 너무 크고 좋아요"/>
+
+    <TextView
+        android:fontFamily="@font/pretendard_regular"
+        android:id="@+id/home_review_rv_detail_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="테스트용 텍스트입니다.테스트용 텍스트입니다.테스트용 텍스트입니다.테스트용 텍스트입니다.테스트용 텍스트입니다."
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:id="@+id/community_detail_writer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/home_review_rv_detail_date"
+            android:layout_marginLeft="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="01/25"
+            android:textSize="5sp"></TextView>
+
+        <TextView
+            android:id="@+id/home_review_rv_detail_writer_name"
+            android:layout_width="wrap_content"
+            android:text="익명"
+            android:textSize="8sp"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <View
+
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
