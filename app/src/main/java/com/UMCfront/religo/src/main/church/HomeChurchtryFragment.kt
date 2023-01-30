@@ -61,13 +61,15 @@ class HomeChurchtryFragment :Fragment(){
 
 
         editor.putString("name",tryname.text.toString())
-        editor.putString("name",trynumber.text.toString())
-        editor.putString("name",trydate.toString())
+        editor.putString("number",trynumber.text.toString())
+        editor.putString("date",trydate.toString())
 
 
         editor.apply()
 
         Toast.makeText(getActivity(),tryname.text,Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(),trynumber.text,Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(),trydate.text,Toast.LENGTH_SHORT).show();
 
 
     }
@@ -84,33 +86,27 @@ class HomeChurchtryFragment :Fragment(){
             savepref()
         }
 
+        val btnDatetext = view.findViewById<TextView>(R.id.home_date_textView)
         val btnStartDate = view.findViewById<LinearLayout>(R.id.home_userdate_box)
         btnStartDate.setOnClickListener{
-            Log.d("HomeChurchFragment","prev")
-            showDatePicker()
-//            val calendar:Calendar = Calendar.getInstance()
-//
-//            val year = calendar.get(Calendar.YEAR)
-//            val mon = calendar.get(Calendar.MONTH)
-//            val day = calendar.get(Calendar.DAY_OF_MONTH)
-//
-//            calendar.set(year,mon,day)
 
+            val cal = Calendar.getInstance()
+            var year = cal.get(Calendar.YEAR)
+            var month = cal.get(Calendar.MONTH)
+            var day = cal.get(Calendar.DATE)
+
+
+            val datePickerDialog = DatePickerDialog(requireContext(),{_,year,month,day ->
+                btnDatetext.text=
+                    year.toString()+"/"+(month+1).toString()+"/"+day.toString()
+            },year,month,day)
+            datePickerDialog.show()
         }
-
-        }
-
-    @RequiresApi(Build.VERSION_CODES.N)
-    private fun showDatePicker() {
-        Log.d("HomeChurchFragment","next")
-
-        val cal = Calendar.getInstance()
-        DatePickerDialog(Activity(), DatePickerDialog.OnDateSetListener { datePicker, y, m, d->
-            Toast.makeText(Activity(), "$y-$m-$d", Toast.LENGTH_SHORT).show()
-        }, cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DATE)).show()
-        Log.d("HomeChurchFragment","next2")
 
     }
+
+
+
 
 }
 

@@ -1,14 +1,16 @@
 package com.UMCfront.religo.src.main.church
 
 import android.annotation.SuppressLint
+import android.app.DatePickerDialog
 import android.content.Context
+import android.icu.util.Calendar
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
+import android.widget.*
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import com.UMCfront.religo.R
 
@@ -58,6 +60,7 @@ class HomeChurchsignupFragment:Fragment() {
 
     }
 
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -65,6 +68,42 @@ class HomeChurchsignupFragment:Fragment() {
 
         signupputdata!!.setOnClickListener {
             signupsavepref()
+        }
+
+        val signupbtnDatetext = view.findViewById<TextView>(R.id.home_date_textView)
+        val signupbtnStartDate = view.findViewById<LinearLayout>(R.id.home_userdate_box)
+
+        signupbtnStartDate.setOnClickListener{
+
+            val cal = Calendar.getInstance()
+            var year = cal.get(Calendar.YEAR)
+            var month = cal.get(Calendar.MONTH)
+            var day = cal.get(Calendar.DATE)
+
+
+            val datePickerDialog = DatePickerDialog(requireContext(),{_,year,month,day ->
+                signupbtnDatetext.text=
+                    year.toString()+"/"+(month+1).toString()+"/"+day.toString()
+            },year,month,day)
+            datePickerDialog.show()
+        }
+
+        val signupbtnbirthtext = view.findViewById<TextView>(R.id.home_birth_signup_textView)
+        val signupbtnbirthStartDate = view.findViewById<LinearLayout>(R.id.home_userbirth_box)
+
+        signupbtnbirthStartDate.setOnClickListener{
+
+            val cal = Calendar.getInstance()
+            var year = cal.get(Calendar.YEAR)
+            var month = cal.get(Calendar.MONTH)
+            var day = cal.get(Calendar.DATE)
+
+
+            val datePickerDialog = DatePickerDialog(requireContext(),{_,year,month,day ->
+                signupbtnbirthtext.text=
+                    year.toString()+"/"+(month+1).toString()+"/"+day.toString()
+            },year,month,day)
+            datePickerDialog.show()
         }
 
 
