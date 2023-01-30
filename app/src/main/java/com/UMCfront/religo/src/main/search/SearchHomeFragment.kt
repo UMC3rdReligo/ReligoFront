@@ -1,8 +1,6 @@
 package com.UMCfront.religo.src.main.search
 
 import android.os.Bundle
-import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,11 +8,7 @@ import android.view.inputmethod.EditorInfo
 import android.widget.*
 import androidx.fragment.app.Fragment
 import com.UMCfront.religo.R
-import com.UMCfront.religo.databinding.FragmentSearchHomeBinding
 import com.UMCfront.religo.src.main.MainActivity
-import com.UMCfront.religo.src.main.community.CommunityAllFragment
-import com.UMCfront.religo.src.main.community.CommunityFragment
-import com.UMCfront.religo.src.main.home.HomeFragment
 
 class SearchHomeFragment : Fragment() {
     override fun onCreateView(

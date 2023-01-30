@@ -1,22 +1,16 @@
 package com.UMCfront.religo.src.main.community
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.Toast
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.UMCfront.religo.src.main.community.adapter.CommunityRVAdapter1
 import com.UMCfront.religo.R
 import com.UMCfront.religo.src.main.MainActivity
-import com.UMCfront.religo.src.main.community.CommunityFragment.Companion.newInstance
 
 
 class CommunityFragment : Fragment() {

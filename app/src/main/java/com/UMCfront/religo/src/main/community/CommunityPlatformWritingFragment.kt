@@ -5,8 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.UMCfront.religo.R
-import com.UMCfront.religo.databinding.FragmentCommunityChurchWritingBinding
 import com.UMCfront.religo.databinding.FragmentCommunityPlatformWritingBinding
 import com.UMCfront.religo.src.main.MainActivity
 
