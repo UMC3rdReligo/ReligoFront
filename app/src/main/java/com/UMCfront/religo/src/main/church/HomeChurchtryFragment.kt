@@ -1,4 +1,4 @@
-package com.UMCfront.religo.src.main.home
+package com.UMCfront.religo.src.main.church
 
 import android.annotation.SuppressLint
 import android.app.Activity
