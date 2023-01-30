@@ -9,7 +9,7 @@ import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import com.UMCfront.religo.R
 import com.UMCfront.religo.src.main.MainActivity
-import com.UMCfront.religo.src.main.community.CommunityChurchFragment
+import com.UMCfront.religo.src.main.church.HomechurchinfoFragment
 
 class HomeFirstFragment : Fragment() {
 

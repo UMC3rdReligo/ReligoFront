@@ -1,4 +1,4 @@
-package com.UMCfront.religo.src.main.home
+package com.UMCfront.religo.src.main.church
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,7 +10,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.UMCfront.religo.R
 import com.UMCfront.religo.src.main.MainActivity
-import com.UMCfront.religo.src.main.community.CommunityChurchFragment
+import com.UMCfront.religo.src.main.home.HomeChurchtryFragment
 
 class HomechurchinfoFragment : Fragment() {
 
