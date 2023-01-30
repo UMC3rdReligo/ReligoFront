@@ -10,7 +10,6 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.UMCfront.religo.R
 import com.UMCfront.religo.src.main.MainActivity
-import com.UMCfront.religo.src.main.home.HomeChurchtryFragment
 
 class HomechurchinfoFragment : Fragment() {
 
