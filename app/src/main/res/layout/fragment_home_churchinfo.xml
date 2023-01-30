@@ -9,12 +9,15 @@
 
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="35dp"
-        android:layout_height="40dp"
+        android:id="@+id/churchinfo_backbtn_imageView"
+        android:layout_width="15dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="10dp"
         app:layout_constraintBottom_toBottomOf="@+id/home_churchinfoname_textView"
         app:layout_constraintStart_toStartOf="@+id/home_churchinfoname_textView"
-        app:layout_constraintTop_toTopOf="@+id/home_churchinfoname_textView" />
+        app:layout_constraintTop_toTopOf="@+id/home_churchinfoname_textView"
+        android:background="@drawable/home_back"
+        />
 
     <TextView
         android:id="@+id/home_churchinfoname_textView"
@@ -63,13 +66,13 @@
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="25dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginEnd="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2">
+        app:layout_constraintTop_toBottomOf="@+id/churchinfo_backbtn_imageView">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -205,7 +208,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
                     android:layout_marginTop="4dp"
-                    android:background="@drawable/home_phrases_plus" />
+                    android:background="@drawable/home_plus_btn" />
 
 
             </LinearLayout>
@@ -229,7 +232,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
-                    android:background="@drawable/home_phrases_plus"
+                    android:background="@drawable/home_img_before"
                     app:layout_constraintBottom_toBottomOf="@+id/churchdetailimg_viewPager2"
                     app:layout_constraintEnd_toStartOf="@+id/churchdetailimg_viewPager2"
                     app:layout_constraintStart_toStartOf="parent"
@@ -258,7 +261,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
-                    android:background="@drawable/home_phrases_plus"
+                    android:background="@drawable/home_img_next"
                     app:layout_constraintBottom_toBottomOf="@+id/churchdetailimg_viewPager2"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/churchdetailimg_viewPager2"
@@ -306,10 +309,14 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
                     android:layout_marginTop="4dp"
-                    android:background="@drawable/circle" />
+                    android:background="@drawable/home_calendar" />
 
 
             </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -319,6 +326,25 @@
                 android:text="리뷰"
                 android:textSize="20sp"
                 android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <ImageView
+                android:id="@+id/churchinfo_review_viewmore_imageview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:src="@drawable/community_view_more" />
+
+        </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/churchinfo_review_RecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"/>
 
 
             <TextView
@@ -361,7 +387,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
                     android:layout_marginTop="4dp"
-                    android:background="@drawable/circle" />
+                    android:background="@drawable/home_call" />
 
 
             </LinearLayout>
@@ -420,7 +446,7 @@
 
                             android:layout_height="15dp"
                             android:layout_marginStart="10dp"
-                            android:background="@drawable/home_person" />
+                            android:background="@drawable/home_calendar" />
 
                         <TextView
                             android:id="@+id/churchinfo_churchevent_date"
@@ -443,7 +469,7 @@
                             android:layout_width="15dp"
                             android:layout_height="15dp"
                             android:layout_marginStart="10dp"
-                            android:background="@drawable/home_person" />
+                            android:background="@drawable/home_church_icon" />
 
                         <TextView
                             android:id="@+id/churchinfo_churchevent_locate"

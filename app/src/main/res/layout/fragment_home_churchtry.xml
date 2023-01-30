@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:background="@drawable/community_background"
     tools:context=".src.main.church.HomeChurchtryFragment">
->
+
+
 
     <TextView
         android:id="@+id/churchtry_title"
