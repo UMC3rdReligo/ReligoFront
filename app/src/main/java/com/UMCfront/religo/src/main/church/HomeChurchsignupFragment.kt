@@ -1,4 +1,4 @@
-package com.UMCfront.religo.src.main.home
+package com.UMCfront.religo.src.main.church
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -37,12 +37,12 @@ class HomeChurchsignupFragment:Fragment() {
 
 
         editor.putString("name",signname.text.toString())
-        editor.putString("name",signnumber.text.toString())
-        editor.putString("name",signbirth.text.toString())
-        editor.putString("name",signlocate.text.toString())
-        editor.putString("name",signemail.text.toString())
-        editor.putString("name",signguid.text.toString())
-        editor.putString("name",signdate.text.toString())
+        editor.putString("number",signnumber.text.toString())
+        editor.putString("birth",signbirth.text.toString())
+        editor.putString("locate",signlocate.text.toString())
+        editor.putString("email",signemail.text.toString())
+        editor.putString("guide",signguid.text.toString())
+        editor.putString("date",signdate.text.toString())
 
 
         editor.apply()
