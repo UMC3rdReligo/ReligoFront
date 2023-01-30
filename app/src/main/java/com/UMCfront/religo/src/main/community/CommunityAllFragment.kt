@@ -76,6 +76,7 @@ class CommunityAllFragment : Fragment() {
 
         }
 
+
         // 글 클릭 구현
         communityGridAdapter.itemClick=object: CommunityGridAdapter.GridItemClick{
             override fun onClick(view: View, position: Int) {
