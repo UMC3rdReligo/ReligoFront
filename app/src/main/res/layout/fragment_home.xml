@@ -115,20 +115,21 @@
                     android:textSize="8sp"
                     android:textStyle="bold" />
 
-                <Button
+                <ImageButton
                     android:id="@+id/home_more_button"
                     android:layout_width="47dp"
                     android:layout_height="24dp"
                     android:layout_gravity="bottom"
+                    android:background="@android:color/transparent"
                     android:layout_weight="0"
-                    android:text="더보기" />
+                    android:src="@drawable/community_view_more" />
 
             </LinearLayout>
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/home_churchrecommend_viewpager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="300dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="15dp"
@@ -166,6 +167,11 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/home_community_background">
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/home_community_allRV"
                 android:layout_width="match_parent"
@@ -173,8 +179,10 @@
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
 
             </androidx.recyclerview.widget.RecyclerView>
+        </LinearLayout>
 
             <LinearLayout
+                android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -207,7 +215,6 @@
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
 
             </androidx.viewpager2.widget.ViewPager2>
-
 
 
         </LinearLayout>

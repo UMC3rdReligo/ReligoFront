@@ -37,15 +37,17 @@
         android:layout_margin="16dp"
         app:borderWidth="0dp"
         app:elevation="0dp"
-
-        android:src="@drawable/community_writing"
         android:layout_marginBottom="30dp"
         android:layout_width="wrap_content"
         android:backgroundTint="#B393F6"
         android:contentDescription="community_writing_floating"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/community_all_scroll"/>
+        android:src="@drawable/community_writing"
+        app:layout_constraintEnd_toEndOf="@+id/community_all_scroll">
+
+
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
     <androidx.core.widget.NestedScrollView
         android:id="@+id/community_all_scroll"
         android:layout_marginLeft="20dp"
