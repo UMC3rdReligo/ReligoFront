@@ -33,12 +33,15 @@
         </activity>
 
 
-        <!-- 로그인 -->
+        <!-- 로그인
         <activity
             android:name=".src.menu.LoginActivity"
             android:exported="true">
+
             <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
@@ -47,6 +50,8 @@
                     android:scheme="kakaoc5a5df86d7f63c928abd4daa3ec3d59a" />
             </intent-filter>
         </activity>
+
+    -->
 
 
         <activity
@@ -70,14 +75,14 @@
 
         <activity
             android:name=".src.menu.MenuActivity2"
-            android:exported="false">
+            android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".src.menu.MenuActivity3"
-            android:exported="false">
+            android:exported="true">
 
             <meta-data
                 android:name="android.app.lib_name"
@@ -87,7 +92,7 @@
 
         <activity
             android:name=".src.menu.MenuActivity4"
-            android:exported="false">
+            android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -96,7 +101,7 @@
 
         <activity
             android:name=".src.menu.MenuActivity5"
-            android:exported="false">
+            android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -105,7 +110,7 @@
 
         <activity
             android:name=".src.menu.MenuActivity6"
-            android:exported="false">
+            android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -114,7 +119,7 @@
 
         <activity
             android:name=".src.menu.MenuActivity7"
-            android:exported="false">
+            android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -123,7 +128,7 @@
 
         <activity
             android:name=".src.menu.MenuActivity8"
-            android:exported="false">
+            android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -132,7 +137,7 @@
 
         <activity
             android:name=".src.menu.MenuActivity9"
-            android:exported="false">
+            android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -141,7 +146,7 @@
 
         <activity
             android:name=".src.menu.MenuActivity10"
-            android:exported="false">
+            android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -152,10 +157,12 @@
             android:name=".src.main.MainActivity"
             android:exported="true">
 
+            <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            -->
 
             <meta-data
                 android:name="android.app.lib_name"

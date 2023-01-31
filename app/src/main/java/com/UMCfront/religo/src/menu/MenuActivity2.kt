@@ -3,20 +3,24 @@ package com.UMCfront.religo.src.menu
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.UMCfront.religo.databinding.ActivityMenu1Binding
-import com.UMCfront.religo.databinding.ActivityMenu2Binding
+import com.UMCfront.religo.R
+import kotlinx.android.synthetic.main.activity_menu1.*
+import kotlinx.android.synthetic.main.activity_menu2.*
 
 class MenuActivity2 : AppCompatActivity() {
-    private lateinit var viewBinding: ActivityMenu2Binding
-
-    override fun onCreate(savedInstanceState: Bundle?){
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewBinding=ActivityMenu2Binding.inflate(layoutInflater)
-        setContentView(viewBinding.root);
+        setContentView(R.layout.activity_menu2)
 
-        viewBinding.menu2BackBtn.setOnClickListener {
-            val intent= Intent(this, MenuActivity1::class.java)
+        menu2_next_btn.setOnClickListener {
+            val intent=Intent(this, MenuActivity3::class.java)
             startActivity(intent)
         }
+
+        menu2_back_btn.setOnClickListener {
+            val intent=Intent(this, MenuActivity1::class.java)
+            startActivity(intent)
+        }
+
     }
 }
