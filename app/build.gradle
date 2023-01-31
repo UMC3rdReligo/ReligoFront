@@ -51,6 +51,10 @@ android {
 
 dependencies {
 
+    //view pager2
+    implementation 'androidx.viewpager2:viewpager2:1.0.0'
+
+
     // 카카오 소셜 로그인
     implementation "com.kakao.sdk:v2-user:2.0.1"
 
@@ -60,7 +64,8 @@ dependencies {
 
 
     //이미지 둥글게 clipping
-    implementation 'com.google.android.material:material:1.0.0'
+    //version변경
+    implementation 'com.google.android.material:material:1.4.0'
 
 
 
@@ -87,6 +92,7 @@ dependencies {
 
     implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+
 
     annotationProcessor 'com.github.bumptech.glide:compiler:4.14.2'
     testImplementation 'junit:junit:4.13.2'

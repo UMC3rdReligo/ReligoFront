@@ -1,64 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:id="@+id/community_all_fragment"
     android:layout_height="match_parent"
     android:background="@drawable/community_background"
-    tools:context=".src.main.community.CommunityAllFragment">
+    tools:context=".src.main.home.HomeReviewAllFragment">
+
     <ImageView
+        android:id="@+id/home_churchnifo_reviewback_btn"
+        android:layout_width="15dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="10dp"
+        android:src="@drawable/home_back"
+        app:layout_constraintBottom_toBottomOf="@+id/home_churchinfo_churchname"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:id="@+id/community_church_back"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="15dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/community_back_btn"/>
+        app:layout_constraintStart_toStartOf="@+id/home_churchinfo_churchname"
+        app:layout_constraintTop_toTopOf="@+id/home_churchinfo_churchname" />
 
     <TextView
-        android:id="@+id/community_all_list_Text"
+        android:id="@+id/home_churchinfo_churchname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        app:fabSize="normal"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="15dp"
-        android:textSize="20sp"
-        android:textColor="@color/white"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/pretendard_medium"
-        android:text="함께 소통해요" />
+        android:gravity="center"
+        android:text="목동 교회"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:fabSize="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/communityFab"
+        android:id="@+id/Home_review_Fab"
         android:layout_margin="16dp"
         app:borderWidth="0dp"
         app:elevation="0dp"
+
+        android:src="@drawable/community_writing"
         android:layout_marginBottom="30dp"
         android:layout_width="wrap_content"
         android:backgroundTint="#B393F6"
         android:contentDescription="community_writing_floating"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:src="@drawable/community_writing"
-        app:layout_constraintEnd_toEndOf="@+id/community_all_scroll">
+        app:layout_constraintEnd_toEndOf="@+id/home_review_all"/>
 
-
-    </com.google.android.material.floatingactionbutton.FloatingActionButton>
     <androidx.core.widget.NestedScrollView
-        android:id="@+id/community_all_scroll"
+        android:id="@+id/home_review_all"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="70dp"
-        app:layout_constraintTop_toBottomOf="@+id/community_all_list_Text"
+        app:layout_constraintTop_toBottomOf="@+id/home_churchinfo_churchname"
         android:layout_width="match_parent"
         android:layout_height="0dp">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/community_grid_rv"
+            android:id="@+id/home_review_grid_rv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 

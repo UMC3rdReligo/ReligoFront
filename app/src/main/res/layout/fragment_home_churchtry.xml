@@ -5,10 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/community_background"
-    tools:context=".src.main.home.HomeChurchtryFragment">
->
+    tools:context=".src.main.church.HomeChurchtryFragment">
 
-    <EditText
+
+
+    <TextView
         android:id="@+id/churchtry_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -136,7 +137,7 @@
                 android:layout_gravity="center"
                 android:background="@drawable/home_date" />
 
-            <EditText
+            <TextView
                 android:id="@+id/home_date_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -146,7 +147,7 @@
                 android:hint="방문 날짜를 선택하시오"
                 android:textSize="10sp" >
 
-            </EditText>
+            </TextView>
 
             <View
                 android:layout_width="wrap_content"

@@ -5,9 +5,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/community_background"
-    tools:context=".src.main.home.HomeChurchsignupFragment">
+    tools:context=".src.main.church.HomeChurchsignupFragment">
 
->
 
     <TextView
         android:id="@+id/church_signup_title"
@@ -108,7 +107,7 @@
                 android:layout_gravity="center"
                 android:background="@drawable/home_call" />
 
-            <EditText
+            <TextView
                 android:id="@+id/home_birth_signup_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -199,6 +198,7 @@
                 android:layout_marginStart="27dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="2dp"
+                android:textSize="10sp"
                 android:background="@drawable/home_sendinfo_tochurch_background"
                 android:fontFamily="@font/pretendard_regular"
                 android:text="주소검색"
@@ -294,7 +294,7 @@
                 android:layout_gravity="center"
                 android:background="@drawable/home_date" />
 
-            <EditText
+            <TextView
                 android:id="@+id/home_date_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
