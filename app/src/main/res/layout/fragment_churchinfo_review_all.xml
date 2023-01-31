@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/community_background"
-    tools:context=".src.main.home.HomeReviewAllFragment">
+    tools:context=".src.main.church.ChurchReviewAllFragment">
 
     <ImageView
         android:id="@+id/home_churchnifo_reviewback_btn"
@@ -40,7 +40,6 @@
         android:layout_margin="16dp"
         app:borderWidth="0dp"
         app:elevation="0dp"
-
         android:src="@drawable/community_writing"
         android:layout_marginBottom="30dp"
         android:layout_width="wrap_content"
@@ -60,7 +59,7 @@
         android:layout_height="0dp">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/home_review_grid_rv"
+            android:id="@+id/home_review_rv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 

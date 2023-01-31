@@ -1,4 +1,4 @@
-package com.UMCfront.religo.src.main.home
+package com.UMCfront.religo.src.main.church
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,9 +8,13 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.UMCfront.religo.R
+import com.UMCfront.religo.src.main.MainActivity
+import com.UMCfront.religo.src.main.church.adapter.ChurchDetailAdapter
+import com.UMCfront.religo.src.main.church.adapter.ChurchDetailGridAdapter
+import com.UMCfront.religo.src.main.community.CommunityAllArticleFragment
 import com.UMCfront.religo.src.main.community.adapter.CommunityRVAdapter1
 
-class HomeReviewAllFragment :Fragment(){
+class ChurchReviewAllFragment :Fragment(){
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -18,11 +22,7 @@ class HomeReviewAllFragment :Fragment(){
     ): View? {
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_churchinfo_review_all, container, false)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        val view= inflater.inflate(R.layout.fragment_churchinfo_review_all, container, false)
 
         var homereviewAllList= mutableListOf<String>()
         homereviewAllList.add("안녕하세요 이번에 새로 가입했습니다.")
@@ -34,28 +34,26 @@ class HomeReviewAllFragment :Fragment(){
         homereviewAllList.add("안녕하세요 이번에 새로 가입했습니다.")
 
 
-        val homerv= view.findViewById<RecyclerView>(R.id.churchinfo_review_RecyclerView)
-        val homeReviewAdapter= CommunityRVAdapter1(homereviewAllList)
+        val homerv= view.findViewById<RecyclerView>(R.id.home_review_rv)
+        val homeReviewAdapter= ChurchDetailGridAdapter(homereviewAllList)
 
 
 
         homerv.adapter=homeReviewAdapter
 
-//        homeReviewAdapter.itemClick=object:CommunityRVAdapter1.ItemClick{
-//            override fun onClick(view: View, position: Int) {
-//                (activity as MainActivity?)?.changeFragment(CommunityAllArticleFragment.newInstance())
-//            }
-//
-//        }
 
         homerv.layoutManager= LinearLayoutManager(this.context)
+
+        return view
 
     }
 
 
+
+
         companion object {
-        fun newInstance(): HomeReviewAllFragment {
-            return HomeReviewAllFragment()
+        fun newInstance(): ChurchReviewAllFragment {
+            return ChurchReviewAllFragment()
         }
     }
 

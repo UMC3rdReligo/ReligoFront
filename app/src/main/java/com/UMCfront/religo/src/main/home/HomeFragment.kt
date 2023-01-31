@@ -6,22 +6,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
-import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 
 import androidx.viewpager2.widget.ViewPager2
 import com.UMCfront.religo.R
-import com.UMCfront.religo.databinding.FragmentCommunityAllBinding
-import com.UMCfront.religo.databinding.FragmentHomeBinding
 import com.UMCfront.religo.src.main.MainActivity
 import com.UMCfront.religo.src.main.church.HomechurchinfoFragment
-import com.UMCfront.religo.src.main.community.CommunityAllArticleFragment
-import com.UMCfront.religo.src.main.community.CommunityAllWritingFragment
-import com.UMCfront.religo.src.main.community.adapter.CommunityGridAdapter
 import com.UMCfront.religo.src.main.community.adapter.CommunityRVAdapter1
 import com.UMCfront.religo.src.main.home.adapter.HomeViewPagerAdapter
-import com.UMCfront.religo.src.main.home.adapter.PagerFragmentStateAdapter
 
 
 class HomeFragment : Fragment() {

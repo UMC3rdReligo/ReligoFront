@@ -7,12 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.UMCfront.religo.R
-import com.UMCfront.religo.databinding.FragmentCommunityAllArticleBinding
 import com.UMCfront.religo.databinding.FragmentCommunityChurchArticleBinding
 import com.UMCfront.religo.src.main.MainActivity
 import com.UMCfront.religo.src.main.community.adapter.CommunityCommentRVAdapter
-import com.UMCfront.religo.src.main.community.adapter.CommunityGridAdapter
 
 
 class CommunityChurchArticleFragment : Fragment() {

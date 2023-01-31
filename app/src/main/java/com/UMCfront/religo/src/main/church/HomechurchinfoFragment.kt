@@ -7,22 +7,27 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.UMCfront.religo.R
 import com.UMCfront.religo.src.main.MainActivity
-import com.UMCfront.religo.src.main.community.CommunityAllArticleFragment
+import com.UMCfront.religo.src.main.church.adapter.ChurchDetailAdapter
 import com.UMCfront.religo.src.main.community.adapter.CommunityRVAdapter1
 import com.UMCfront.religo.src.main.home.HomeFragment
 
+
 class HomechurchinfoFragment : Fragment() {
+    //val homeFragment:HomeFragment=HomeFragment()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+
 
 
 
@@ -57,7 +62,9 @@ class HomechurchinfoFragment : Fragment() {
         //이부분 수정 필요 => 오브젝트 변화 X .-> 교회 소개에 대한 도움말 dialog로 표현하기
         //오브젝트 클릭 부분 ( 교회소개 변화 )
         val churchdetail =  view.findViewById<ImageButton>(R.id.churchinfo_churchdetail_imageButton)
+ //       val churchdetailbackground = view.findViewById<LinearLayout>(R.id.churchinfo_churchinfo_background)
         val detailtext = view.findViewById<TextView>(R.id.churchinfo_churchinfo_textView)
+
         var detailobchecer:Int = 0
         churchdetail.setOnClickListener {
 
@@ -65,6 +72,7 @@ class HomechurchinfoFragment : Fragment() {
                 detailtext.setText("\n\n\n\n\n 목동 교회 입니다 \n\n\n\n\n")
                 detailobchecer = 1
                 churchdetail.setImageResource(R.drawable.celebration)
+
             }
             else{
                 detailtext.setText("안녕하세요 목동교회입니다(TEST TEXT)")
@@ -86,8 +94,14 @@ class HomechurchinfoFragment : Fragment() {
 
 
         val homerv= view.findViewById<RecyclerView>(R.id.churchinfo_review_RecyclerView)
-        val homeReviewAdapter= CommunityRVAdapter1(homereviewAllList)
+        val homeReviewAdapter= ChurchDetailAdapter(homereviewAllList)
 
+
+        val homeReviewAll = view.findViewById<ImageView>(R.id.churchinfo_review_viewmore_imageview)
+
+        homeReviewAll.setOnClickListener {
+            (activity as MainActivity?)?.changeFragment(ChurchReviewAllFragment.newInstance())
+        }
 
 
         homerv.adapter=homeReviewAdapter
