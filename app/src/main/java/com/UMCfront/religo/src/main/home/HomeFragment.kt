@@ -31,6 +31,7 @@ class HomeFragment : Fragment() {
 
 
 
+
         // home- 교회추천 viewpager
         val viewPager2Church = view.findViewById<ViewPager2>(R.id.home_churchrecommend_viewpager);
         val churchRecommendList= mutableListOf<HomeChurchViewItem>()
