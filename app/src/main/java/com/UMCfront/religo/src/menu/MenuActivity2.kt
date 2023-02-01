@@ -14,6 +14,7 @@ import kotlinx.android.synthetic.main.activity_menu1.*
 import kotlinx.android.synthetic.main.activity_menu2.*
 
 class MenuActivity2 : AppCompatActivity() {
+
     private val search_address_btn: Button by lazy {
         findViewById(R.id.search_address_btn)
     }
