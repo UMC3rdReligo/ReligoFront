@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.UMCfront.religo" >
+
     <!-- 인터넷 사용 권한 설정 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <!-- 인터넷 연결 확인-->
@@ -53,11 +54,14 @@
             android:name=".src.menu.SplashActivity"
             android:exported="true" >
 
+<<<<<<< HEAD
+=======
 <!--            <intent-filter>-->
 <!--                <action android:name="android.intent.action.MAIN" />-->
 <!--                <category android:name="android.intent.category.LAUNCHER" />-->
 <!--            </intent-filter>-->
 
+>>>>>>> 79bce926d3bea8e898f2fa909856e41fc14c5956
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -66,16 +70,18 @@
 
         <activity
             android:name=".src.menu.LoginActivity"
+            android:launchMode="singleTask"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data
                     android:host="oauth"
-                    android:scheme="kakaoc5a5df86d7f63c928abd4daa3ec3d59a" />
+                    android:scheme="kakao6b4c422835c948c8624f39254f00aa31" />
             </intent-filter>
         </activity>
 
