@@ -2,7 +2,6 @@ package com.UMCfront.religo.config
 
 
 
-import com.UMCfront.religo.config.ApplicationClass.Companion.loginSharedPreferences
 import okhttp3.Interceptor
 import okhttp3.Request
 import okhttp3.Response
