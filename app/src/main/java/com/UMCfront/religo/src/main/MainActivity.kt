@@ -37,12 +37,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val bnv_main=findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-        initNavigationBar(bnv_main)
+        initNavigationBar(savedInstanceState,bnv_main)
 
 
     }
 
-    private fun initNavigationBar(bnv_main:BottomNavigationView) {
+    private fun initNavigationBar(savedInstanceState: Bundle?,bnv_main:BottomNavigationView) {
         bnv_main.run {
             setOnNavigationItemSelectedListener {
                 when(it.itemId) {
@@ -70,6 +70,7 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.mainFrameLayout, fragment)
+            .addToBackStack(null)
             .commit()
     }
 

@@ -22,7 +22,8 @@ class HomeViewPagerAdapter(val items:MutableList<HomeFragment.HomeChurchViewItem
         fun onClick(view:View,position:Int)
     }
 
-    var churchItemClick: ChurchViewMoreItemClick?=null
+    var churchItemClick1: ChurchViewMoreItemClick?=null
+    var churchItemClick2: ChurchViewMoreItemClick?=null
 
 
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
@@ -70,9 +71,16 @@ class HomeViewPagerAdapter(val items:MutableList<HomeFragment.HomeChurchViewItem
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindItem(items[position])
-        if(churchItemClick!=null){
+        if(churchItemClick1!=null){
             holder.itemView.findViewById<ImageView>(R.id.home_church_item1_view_more).setOnClickListener{v->
-                churchItemClick?.onClick(v,position)
+                churchItemClick1?.onClick(v,position)
+
+            }
+        }
+
+        if(churchItemClick2!=null){
+            holder.itemView.findViewById<ImageView>(R.id.home_church_item2_view_more).setOnClickListener{v->
+                churchItemClick2?.onClick(v,position)
 
             }
         }
