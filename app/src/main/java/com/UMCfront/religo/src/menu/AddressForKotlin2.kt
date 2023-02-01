@@ -27,12 +27,12 @@ class AddressForKotlin2 : AppCompatActivity() {
         webView.addJavascriptInterface(KaKaoJavaScriptInterface(), "Android")
         webView.webViewClient = object : WebViewClient() {
             override fun onPageFinished(view: WebView, url: String) {
-                webView.loadUrl("javascript:execKakaoPostcode();")
+                webView.loadUrl("javascript:sample2_execDaumPostcode();")
             }
         }
 
         // Kakao에서 https를 허용하지 않아서 https -> http로 바꿔야 동작함
-        webView.loadUrl("https://umc-religo.firebaseapp.com/")
+        webView.loadUrl("https://religoaddress.web.app/")
     }
 
     inner class KaKaoJavaScriptInterface {

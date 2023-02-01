@@ -16,8 +16,8 @@ class ApplicationClass : Application() {
     // 코틀린의 전역변수 문법
     companion object {
         // 만들어져있는 SharedPreferences 를 사용해야합니다. 재생성하지 않도록 유념해주세요
-        lateinit var loginSharedPreferences: SharedPreferences
-        lateinit var loginSPEditor: SharedPreferences.Editor
+        lateinit var SharedPreferences: SharedPreferences
+        lateinit var SPEditor: SharedPreferences.Editor
         // JWT Token Header 키 값
         //val X_ACCESS_TOKEN = "X-ACCESS-TOKEN"
 
@@ -27,9 +27,9 @@ class ApplicationClass : Application() {
     // 앱이 처음 생성되는 순간, SP를 새로 만들어주고, 레트로핏 인스턴스를 생성합니다.
     override fun onCreate() {
         super.onCreate()
-        loginSharedPreferences =
+        SharedPreferences =
             applicationContext.getSharedPreferences("JWT", MODE_PRIVATE)
-        loginSPEditor = loginSharedPreferences.edit()
+        SPEditor = SharedPreferences.edit()
         // 레트로핏 인스턴스 생성
         initRetrofitInstance()
     }
