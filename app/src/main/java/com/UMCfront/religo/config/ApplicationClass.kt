@@ -33,6 +33,8 @@ class ApplicationClass : Application() {
         // 카카오 소셜로그인
         KakaoSdk.init(this, "c5a5df86d7f63c928abd4daa3ec3d59a")
 
+        SharedPreferences =
+            applicationContext.getSharedPreferences("JWT", MODE_PRIVATE)
         applicationContext.getSharedPreferences("JWT", MODE_PRIVATE)
         SPEditor = SharedPreferences.edit()
         // 레트로핏 인스턴스 생성
