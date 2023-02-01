@@ -65,6 +65,7 @@
             android:name=".src.menu.LoginActivity"
             android:exported="true"
             android:launchMode="singleTask">
+
 <!--            <intent-filter>-->
 <!--                <action android:name="android.intent.action.VIEW" />-->
 <!--                <action android:name="android.intent.action.MAIN" />-->
@@ -77,6 +78,7 @@
 <!--                    android:host="oauth"-->
 <!--                    android:scheme="kakao6b4c422835c948c8624f39254f00aa31" />-->
 <!--            </intent-filter>-->
+
         </activity>
         <activity
             android:name=".src.menu.MenuActivity1"
@@ -152,6 +154,11 @@
             android:exported="true">
 
 
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
 
             <meta-data

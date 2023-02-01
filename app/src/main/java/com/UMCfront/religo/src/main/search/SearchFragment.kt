@@ -2,14 +2,15 @@ package com.UMCfront.religo.src.main.search
 
 import android.os.Bundle
 import android.view.*
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.UMCfront.religo.R
+import com.UMCfront.religo.src.main.MainActivity
 import com.UMCfront.religo.src.main.search.adapter.CourseRVAdapter
-
 
 
 class SearchFragment : Fragment() {
@@ -36,6 +37,7 @@ class SearchFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?
     ):View? {
+        val result = arguments?.getString("key")
         val view=inflater.inflate(R.layout.fragment_search, container, false)
         setHasOptionsMenu(true)
 
@@ -58,6 +60,25 @@ class SearchFragment : Fragment() {
         courseList.add(CourseRVModal("교회6",R.drawable.search))
         courseList.add(CourseRVModal("교회7",R.drawable.search))
         courseList.add(CourseRVModal("교회8",R.drawable.search))
+
+        val backtosearch = view.findViewById<ImageView>(R.id.search_back_btn)
+
+        backtosearch.setOnClickListener{
+            (activity as MainActivity?)?.changeFragment(SearchHomeFragment.newInstance())
+        }
+
+
+        //SearchHomeFragment에서 받은 값 표시
+//        val searchresult = arguments?.getString("searchresult")
+//
+//
+        Toast.makeText(activity, result.toString(), Toast.LENGTH_SHORT).show()
+
+
+
+
+
+
 
 
 
@@ -105,6 +126,8 @@ class SearchFragment : Fragment() {
 //            courseRVAdapter.filterList(filteredlist)
 //        }
     }
+
+
 
 
 }
