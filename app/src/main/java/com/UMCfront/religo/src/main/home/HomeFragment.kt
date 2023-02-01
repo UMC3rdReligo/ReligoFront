@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
@@ -14,12 +15,17 @@ import com.UMCfront.religo.R
 import com.UMCfront.religo.config.ApplicationClass
 import com.UMCfront.religo.src.main.MainActivity
 import com.UMCfront.religo.src.main.church.HomechurchinfoFragment
+import com.UMCfront.religo.src.main.community.CommunityAllFragment
 import com.UMCfront.religo.src.main.community.adapter.CommunityRVAdapter1
 import com.UMCfront.religo.src.main.home.adapter.HomeViewPagerAdapter
+import com.UMCfront.religo.src.main.home.adapter.HomeViewPagerAdapter2
 import com.UMCfront.religo.src.main.home.data.ChurchRecommendRetrofitService
+import com.UMCfront.religo.src.main.home.data.HomeCommunityRetrofitService
 import com.UMCfront.religo.src.main.home.data.model.ChurchRecommendResponse
+import com.UMCfront.religo.src.main.home.data.model.HomeCommunityResponse
 import retrofit2.Call
 import retrofit2.Response
+import retrofit2.create
 
 
 class HomeFragment : Fragment(){
@@ -27,6 +33,8 @@ class HomeFragment : Fragment(){
     val homechurchinfoFragment=HomechurchinfoFragment();
     val churchRecommendList= mutableListOf<HomeChurchViewItem>()
     val churchItemDetailList= mutableListOf<HomeChurchItemDetail>()
+    val homeCommunityItemList=ArrayList<String>(10)
+    val homeEventList= mutableListOf<HomeEventDetail>()
 
 
     override fun onCreateView(
@@ -37,15 +45,16 @@ class HomeFragment : Fragment(){
 
         val view=inflater.inflate(R.layout.fragment_home, container, false)
 
+        //
 
 
         // home- 교회추천 viewpager
         val viewPager2Church = view.findViewById<ViewPager2>(R.id.home_churchrecommend_viewpager);
 
         val retrofit=ApplicationClass.sRetrofit
-        val service=retrofit.create(ChurchRecommendRetrofitService::class.java)
+        val churchService=retrofit.create(ChurchRecommendRetrofitService::class.java)
 
-        service.getChurchRecommendation().enqueue(object :retrofit2.Callback<ChurchRecommendResponse>{
+        churchService.getChurchRecommendation().enqueue(object :retrofit2.Callback<ChurchRecommendResponse>{
             override fun onResponse(
                 call: Call<ChurchRecommendResponse>,
                 response: Response<ChurchRecommendResponse>
@@ -58,6 +67,7 @@ class HomeFragment : Fragment(){
                     val info = item.info
                     churchItemDetailList.add(
                         HomeChurchItemDetail(
+                            info.id,
                             info.name,
                             info.address,
                             item.mainImage
@@ -73,8 +83,19 @@ class HomeFragment : Fragment(){
                 viewPager2Church.adapter= churchViewPagerAdapter
                 // 더 알아보기 클릭
 
-                churchViewPagerAdapter.churchItemClick=object :HomeViewPagerAdapter.ChurchViewMoreItemClick{
+                churchViewPagerAdapter.churchItemClick1=object :HomeViewPagerAdapter.ChurchViewMoreItemClick{
                     override fun onClick(view: View, position: Int) {
+                        Log.d("home3",churchRecommendList.get(position).church1.churchId.toString())
+                        val bundle:Bundle=Bundle()
+                        bundle.putInt("churchId",churchRecommendList[position].church1.churchId)
+                        homechurchinfoFragment.arguments=bundle
+                        Log.d("home3.5","dd")
+                        (activity as MainActivity?)?.changeFragment(homechurchinfoFragment)
+                    }
+                }
+                churchViewPagerAdapter.churchItemClick2=object :HomeViewPagerAdapter.ChurchViewMoreItemClick{
+                    override fun onClick(view: View, position: Int) {
+                        savedInstanceState!!.putInt("churchId",churchRecommendList.get(position).church2.churchId)
                         (activity as MainActivity?)?.changeFragment(homechurchinfoFragment)
                     }
                 }
@@ -86,21 +107,45 @@ class HomeFragment : Fragment(){
         })
 
 
+        val communityService=retrofit.create(HomeCommunityRetrofitService::class.java)
+        communityService.getHomeCommunityAll().enqueue(object :retrofit2.Callback<HomeCommunityResponse>{
+            override fun onResponse(
+                call: Call<HomeCommunityResponse>,
+                response: Response<HomeCommunityResponse>
+            ) {
+                val res=response.body() as HomeCommunityResponse
+                Log.d("home2",res.result.size.toString())
+                homeCommunityItemList.clear()
 
+                for(item in res.result){
+                    homeCommunityItemList.add(item.title)
+                }
+            }
 
+            override fun onFailure(call: Call<HomeCommunityResponse>, t: Throwable) {
+                Toast.makeText(context,"연결 오류",Toast.LENGTH_LONG).show()
+            }
+        })
 
-        val homeCommunityList= mutableListOf<String>()
-        homeCommunityList.add("안녕하세용~~")
-        homeCommunityList.add("안녕하세용~~")
-        homeCommunityList.add("안녕하세용~~")
-        homeCommunityList.add("안녕하세용~~")
-        homeCommunityList.add("안녕하세용~~")
+        // 커뮤니티 더 알아보기 눌렀을 때 전체 커뮤니티 화면으로 이동되게끔
 
+        val home_community_view_more=view.findViewById<ImageView>(R.id.home_community_viewmore)
+        home_community_view_more.setOnClickListener {
+            (activity as MainActivity?)?.changeFragment(CommunityAllFragment())
 
-
+        }
 
         val communityRecyclerView=view.findViewById<RecyclerView>(R.id.home_community_allRV)
-        communityRecyclerView.adapter=CommunityRVAdapter1(homeCommunityList)
+        communityRecyclerView.adapter=CommunityRVAdapter1(homeCommunityItemList)
+
+        homeEventList.add(HomeEventDetail("부활절 행사","서울특별시 양천 목동 중앙본로  51-16","https://mblogthumb-phinf.pstatic.net/MjAxODAzMjlfNDgg/MDAxNTIyMzI2ODE5MTkx.qDy6e-7CD8o7a3bbozdVX3c3X7d4BEuzZ_kHgz3LWTYg.KBcLyTPcBAB0IsetRbUAqkQuKHfLZ2cS0yBFL7BJnCUg.JPEG.myday5676/18-03-29-21-33-04-226_deco.jpg?type=w800"))
+        homeEventList.add(HomeEventDetail("부활절 행사","서울특별시 양천 목동 중앙본로  51-16","https://mblogthumb-phinf.pstatic.net/MjAxODAzMjlfNDgg/MDAxNTIyMzI2ODE5MTkx.qDy6e-7CD8o7a3bbozdVX3c3X7d4BEuzZ_kHgz3LWTYg.KBcLyTPcBAB0IsetRbUAqkQuKHfLZ2cS0yBFL7BJnCUg.JPEG.myday5676/18-03-29-21-33-04-226_deco.jpg?type=w800"))
+        homeEventList.add(HomeEventDetail("부활절 행사","서울특별시 양천 목동 중앙본로  51-16","https://mblogthumb-phinf.pstatic.net/MjAxODAzMjlfNDgg/MDAxNTIyMzI2ODE5MTkx.qDy6e-7CD8o7a3bbozdVX3c3X7d4BEuzZ_kHgz3LWTYg.KBcLyTPcBAB0IsetRbUAqkQuKHfLZ2cS0yBFL7BJnCUg.JPEG.myday5676/18-03-29-21-33-04-226_deco.jpg?type=w800"))
+
+
+
+        val eventViewPager=view.findViewById<ViewPager2>(R.id.home_event_all_view_pager)
+        eventViewPager.adapter=HomeViewPagerAdapter2(homeEventList)
 
 
         return view
@@ -131,13 +176,26 @@ class HomeFragment : Fragment(){
 
     }
 
-    inner class HomeChurchItemDetail constructor(name:String,address:String,mainImg:String){
+    inner class HomeChurchItemDetail constructor(churchId:Int,name:String,address:String,mainImg:String){
+        var churchId:Int=0
         var name:String=""
         var address:String=""
         var mainImg:String=""
         init{
+            this.churchId=churchId
             this.name=name;
             this.address=address;
+            this.mainImg=mainImg
+        }
+    }
+
+    inner class HomeEventDetail constructor(name:String,location:String,mainImg:String){
+        var name:String=""
+        var location:String=""
+        var mainImg:String=""
+        init{
+            this.name=name
+            this.location=location
             this.mainImg=mainImg
         }
     }
