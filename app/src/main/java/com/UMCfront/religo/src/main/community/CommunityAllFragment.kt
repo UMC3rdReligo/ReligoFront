@@ -64,8 +64,6 @@ class CommunityAllFragment : Fragment() {
         binding.communityFab.bringToFront()
 
         // 글쓰기 버튼 구현
-
-
         binding.communityFab.setOnClickListener{
 
             Toast.makeText(context,"플로팅 클릭", Toast.LENGTH_LONG).show()

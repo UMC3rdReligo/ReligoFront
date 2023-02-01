@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/community_background">
+
+    <ImageView
+        android:id="@+id/home_churchnifo_writeback_btn"
+        android:layout_width="15dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="10dp"
+        android:src="@drawable/home_back"
+        app:layout_constraintBottom_toBottomOf="@+id/home_churchinfo_write_churchname"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/home_churchinfo_write_churchname"
+        app:layout_constraintTop_toTopOf="@+id/home_churchinfo_write_churchname" />
+
+    <TextView
+        android:id="@+id/home_churchinfo_write_churchname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/pretendard_regular"
+        android:gravity="center"
+        android:text="목동 교회"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:fabSize="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+
+        android:id="@+id/churchinfo_write_"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/amaranth_bold"
+        android:text="Review"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_churchinfo_write_churchname" />
+
+    <Button
+        android:id="@+id/churchinfo_write_finish"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/home_sendinfo_tochurch_background"
+        android:fontFamily="@font/pretendard_regular"
+        android:text="확인"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/churchinfo_write_"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp">
+
+            <EditText
+                android:id="@+id/churchinfo_review_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:hint="제목을 입력하세요"
+                android:fontFamily="@font/pretendard_regular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <EditText
+                android:id="@+id/churchinfo_review_content"
+                android:textSize="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:fontFamily="@font/pretendard_regular"
+                android:gravity="center"
+                android:hint="안녕하세요"
+                android:background="@drawable/home_location_background"
+                />
+            <RadioGroup
+                android:id="@+id/churchinfo_write_radioGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal">>
+
+                <RadioButton
+                    android:fontFamily="@font/pretendard_regular"
+                    android:layout_marginEnd="10dp"
+                    android:id="@+id/churchinfo_write_unknown"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" 익명 " />
+
+                <RadioButton
+                    android:fontFamily="@font/pretendard_regular"
+                    android:id="@+id/churchinfo_write_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" 닉네임 " />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/churchinfo_write_reivewrule"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/pretendard_regular"
+                android:layout_gravity="center"
+                android:textSize="10dp"
+                android:lineSpacingExtra = "10dp"
+                android:hint="리뷰 규칙\n 국제 평화, 국제질서 및 국가 간의 우의를 현저히 해할 우려가 있는 행위\n 헌법에 위배되거나 국가의 존립을 해하는 행위\n 범죄 기타 법령에 위반되는 행위\n 사회통념상 일반인의 성욕을 자극하여 성적 흥분을 유발하고 정상적인 성적 수치심을 해하여 성적 도의관념에 반하는 행위"
+                android:gravity="center"
+                />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
