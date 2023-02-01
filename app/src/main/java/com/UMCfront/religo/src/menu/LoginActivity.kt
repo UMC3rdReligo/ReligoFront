@@ -16,12 +16,7 @@ import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.AuthErrorCause
 import com.kakao.sdk.common.util.Utility
 import com.kakao.sdk.user.UserApiClient
-import com.navercorp.nid.NaverIdLoginSDK
-import com.navercorp.nid.oauth.NidOAuthLogin
-import com.navercorp.nid.oauth.OAuthLoginCallback
-import com.navercorp.nid.profile.NidProfileCallback
-import com.navercorp.nid.profile.data.NidProfileResponse
-
+import kotlinx.android.synthetic.main.activity_login.*
 
 // https://developers.kakao.com/console/app
 class LoginActivity : AppCompatActivity() {
@@ -107,8 +102,6 @@ class LoginActivity : AppCompatActivity() {
         }
 
         // [카톡] 소셜 로그인 이미지 버튼
-        val kakao_login_btn = viewBinding.kakaoLoginBtn
-
         kakao_login_btn.setOnClickListener {
             if (LoginClient.instance.isKakaoTalkLoginAvailable(this)) {
                 LoginClient.instance.loginWithKakaoTalk(this, callback = callback)
