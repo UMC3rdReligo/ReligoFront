@@ -11,6 +11,8 @@ import com.UMCfront.religo.src.main.community.adapter.CommunityCommentRVAdapter
 class HomeReviewRVAdapter(val items:MutableList<String>) {
 
     // 아이템 클릭
+
+    // dddd
     interface ItemClick{
         fun onClick(view:View,position:Int)
     }

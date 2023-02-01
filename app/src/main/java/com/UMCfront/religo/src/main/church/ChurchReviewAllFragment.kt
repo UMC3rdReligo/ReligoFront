@@ -44,8 +44,6 @@ class ChurchReviewAllFragment :Fragment(){
 
 
         homerv.adapter=homeReviewAdapter
-
-
         homerv.layoutManager= LinearLayoutManager(this.context)
 
         //reviewadd 버튼은 위로 옮김
@@ -64,12 +62,10 @@ class ChurchReviewAllFragment :Fragment(){
     //reviewaddbtn은 위로 옮겨 진행하였습니다
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         val reviewallbackbtn = view.findViewById<ImageView>(R.id.home_churchnifo_reviewback_btn)
         reviewallbackbtn.setOnClickListener {
             (activity as MainActivity?)?.changeFragment(HomechurchinfoFragment())
         }
-
     }
 
 
