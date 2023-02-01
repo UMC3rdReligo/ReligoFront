@@ -14,4 +14,5 @@
     <string name="naver_clinet_id">client_id 값</string>
     <string name="naver_client_secret">client_secret 값</string>
     <string name="naver_client_name">네이버 아이디 로그인</string>
+    <string name="title_activity_search_address_for_java">SearchAddressForJava</string>
 </resources>

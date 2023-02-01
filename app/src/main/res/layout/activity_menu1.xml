@@ -11,23 +11,25 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="120dp"
         android:fontFamily="@font/pretendard_regular"
         android:text="Religo에 방문하신것을 환영합니다.\n어떤 목적으로 방문하셨나요?"
         android:textColor="#000000"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.35"
+        app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
+        android:id="@+id/linearLayout7"
         android:layout_width="400dp"
         android:layout_height="330dp"
+        android:layout_marginTop="16dp"
         android:background="#FFFFFF"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/menu1_next_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,52 +37,69 @@
         app:layout_constraintVertical_bias="0.2">
 
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/menu1_btn1"
-            android:padding="15dp"
-            android:layout_margin="25dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="25dp"
             android:background="@drawable/survey_btn"
+            android:fontFamily="@font/pretendard_regular"
+            android:padding="15dp"
             android:stateListAnimator="@null"
             android:text="최초 가입"
-            android:fontFamily="@font/pretendard_regular"
             android:textColor="#000000"
             android:textSize="20sp"
             android:textStyle="bold"
             android:translationZ="8dp"
             app:elevation="8dp" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/menu1_btn2"
-            android:padding="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="25dp"
             android:background="@drawable/survey_btn"
+            android:fontFamily="@font/pretendard_regular"
+            android:padding="15dp"
             android:stateListAnimator="@null"
             android:text="재가입"
-            android:fontFamily="@font/pretendard_regular"
             android:textColor="#000000"
             android:textSize="20sp"
             android:textStyle="bold"
             android:translationZ="8dp"
             app:elevation="8dp" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/menu1_btn3"
-            android:padding="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="25dp"
             android:background="@drawable/survey_btn"
+            android:fontFamily="@font/pretendard_regular"
+            android:padding="15dp"
             android:stateListAnimator="@null"
             android:text="친목 형성"
-            android:fontFamily="@font/pretendard_regular"
             android:textColor="#000000"
             android:textSize="20sp"
             android:textStyle="bold"
             android:translationZ="8dp"
             app:elevation="8dp" />
+
     </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/menu1_next_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginBottom="80dp"
+        android:background="@drawable/next_btn"
+        android:fontFamily="@font/pretendard_regular"
+        android:text="다음으로"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
