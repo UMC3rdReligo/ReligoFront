@@ -30,9 +30,12 @@ class SearchHomeFragment : Fragment() {
 
 
         val bundle = Bundle()
-        bundle.putString("key", edtInput.text.toString())
+        bundle.putString("key", edtSearch.text.toString())
 
         val passBundleSearchFragment = SearchFragment()
+
+
+
 
 
 
@@ -45,8 +48,11 @@ class SearchHomeFragment : Fragment() {
         btnDone.setOnClickListener {
             passBundleSearchFragment.arguments = bundle
             parentFragmentManager.beginTransaction()
-                .replace(R.id.mainFrameLayout, SearchFragment())
+                .replace(R.id.mainFrameLayout, passBundleSearchFragment)
                 .commit()
+
+//            transaction.replace(R.id.container, passBundleSearchFragment)
+//                .commit()
 
         }
 
