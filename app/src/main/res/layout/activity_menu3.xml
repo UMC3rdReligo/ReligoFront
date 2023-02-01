@@ -9,26 +9,27 @@
 
     <LinearLayout
         android:id="@+id/linearLayout3"
-        android:layout_width="400dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="94dp"
         android:background="#FFFFFF"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/menu3_back_btn"
+        app:layout_constraintBottom_toTopOf="@+id/menu3_next_btn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.4">
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
 
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/menu2_btn1"
-            android:padding="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
             android:background="@drawable/survey_btn"
             android:fontFamily="@font/pretendard_regular"
+            android:padding="12dp"
             android:stateListAnimator="@null"
             android:text="모태신앙"
             android:textColor="#000000"
@@ -37,14 +38,14 @@
             android:translationZ="8dp"
             app:elevation="8dp" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/menu2_btn2"
-            android:padding="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
             android:background="@drawable/survey_btn"
             android:fontFamily="@font/pretendard_regular"
+            android:padding="12dp"
             android:stateListAnimator="@null"
             android:text="주변인의 권유"
             android:textColor="#000000"
@@ -53,14 +54,14 @@
             android:translationZ="8dp"
             app:elevation="8dp" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/menu2_btn3"
-            android:padding="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
             android:background="@drawable/survey_btn"
             android:fontFamily="@font/pretendard_regular"
+            android:padding="12dp"
             android:stateListAnimator="@null"
             android:text="마음의 안정"
             android:textColor="#000000"
@@ -69,14 +70,14 @@
             android:translationZ="8dp"
             app:elevation="8dp" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/menu2_btn4"
-            android:padding="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
             android:background="@drawable/survey_btn"
             android:fontFamily="@font/pretendard_regular"
+            android:padding="12dp"
             android:stateListAnimator="@null"
             android:text="가입한 적 없음"
             android:textColor="#000000"
@@ -91,30 +92,45 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="22dp"
+        android:fontFamily="@font/pretendard_regular"
         android:text="기독교에 왜 가입을 하셨나요?"
-        android:fontFamily="@font/pretendard_regular"
         android:textColor="#000000"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/menu3_back_btn" />
 
-    <Button
-        android:id="@+id/menu3_back_btn"
-        android:layout_width="350dp"
-        android:layout_height="55dp"
-        android:layout_marginBottom="80dp"
-        android:background="@drawable/back_btn"
-        android:text="이전으로"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/menu3_next_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="71dp"
+        android:background="@drawable/next_btn"
         android:fontFamily="@font/pretendard_regular"
+        android:text="다음으로"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+
+    <ImageButton
+        android:id="@+id/menu3_back_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="85dp"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back_icon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

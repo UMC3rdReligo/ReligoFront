@@ -27,10 +27,6 @@ class HomechurchinfoFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-
-
-
-
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home_churchinfo, container, false)
     }
@@ -62,7 +58,7 @@ class HomechurchinfoFragment : Fragment() {
         //이부분 수정 필요 => 오브젝트 변화 X .-> 교회 소개에 대한 도움말 dialog로 표현하기
         //오브젝트 클릭 부분 ( 교회소개 변화 )
         val churchdetail =  view.findViewById<ImageButton>(R.id.churchinfo_churchdetail_imageButton)
- //       val churchdetailbackground = view.findViewById<LinearLayout>(R.id.churchinfo_churchinfo_background)
+        val churchdetailbackground = view.findViewById<LinearLayout>(R.id.churchinfo_churchinfo_background)
         val detailtext = view.findViewById<TextView>(R.id.churchinfo_churchinfo_textView)
 
         var detailobchecer:Int = 0
@@ -72,12 +68,15 @@ class HomechurchinfoFragment : Fragment() {
                 detailtext.setText("\n\n\n\n\n 목동 교회 입니다 \n\n\n\n\n")
                 detailobchecer = 1
                 churchdetail.setImageResource(R.drawable.celebration)
+                churchdetailbackground.setBackgroundResource(R.drawable.home_dateformeeting_background)
+                churchdetailbackground.setBackgroundResource(R.drawable.home_location_background)
 
             }
             else{
                 detailtext.setText("안녕하세요 목동교회입니다(TEST TEXT)")
                 detailobchecer = 0
                 churchdetail.setImageResource(R.drawable.circle)
+                churchdetailbackground.setBackgroundResource(R.drawable.home_dateformeeting_background)
 
             }
 

@@ -21,6 +21,10 @@ class HomeChurchsignupFragment:Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+
+
+
+
         return inflater.inflate(R.layout.fragment_home_churchsignup, container, false)
     }
 
@@ -63,6 +67,13 @@ class HomeChurchsignupFragment:Fragment() {
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+        val emailitems = arrayOf("example.com","gmail.com","naver.com")
+        val spinner = requireView().findViewById<Spinner>(R.id.home_email_signup_emailafter_Spinner)
+        spinner?.adapter = ArrayAdapter(activity?.applicationContext!!, com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item, emailitems) as SpinnerAdapter
+
+
 
         val signupputdata = view.findViewById<Button>(R.id.home_sendinfo_tochurch)
         /*

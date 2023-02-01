@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/apllication_complete_church_imageView"
+        android:layout_width="200dp"
+        android:layout_height="180dp"
+        android:background="@drawable/application_complete_church_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.248" />
+
+    <TextView android:id="@+id/apllication_complete_textView"
+    android:layout_marginTop="20dp"
+    android:textSize="25sp"
+    android:textStyle="bold"
+    android:fontFamily="@font/pretendard_regular"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="목동 교회 가입 신청 접수"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/apllication_complete_church_imageView" />
+
+    <TextView
+        android:id="@+id/application_complete_welcome_textView"
+        android:layout_marginTop="25dp"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="WELCOME"
+        android:fontFamily="@font/amaranth_bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/apllication_complete_textView" />
+
+
+    <TextView
+
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/amaranth_bold"
+        android:text="Religo"
+        android:textSize="70dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/application_complete_welcome_textView" />
+
+    <View
+        android:layout_width="98dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="84dp"
+        android:background="@drawable/apllication_complete_circle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.881"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/apllication_complete_church_imageView" />
+
+    <View
+        android:layout_width="58dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="192dp"
+        android:background="@drawable/apllication_complete_circle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.198"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/apllication_complete_church_imageView" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

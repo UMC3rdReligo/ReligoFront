@@ -28,17 +28,17 @@ class LoginActivity : AppCompatActivity() {
     // 카카오 소셜 로그인 -> 1. 카톡 [닉네임] , 2. 카카오계정 [이메일] 항목만 정보 수집하게 설정
     private lateinit var viewBinding: ActivityLoginBinding
 
-    // 네이버 소셜 로그인
+    /* 네이버 소셜 로그인
     // 1. [이름] 2. [닉네임] 3. [이메일] 항목만 정보 수집하게 설정
     private val TAG = this.javaClass.simpleName
     private var name: String=""
     private var email: String=""
     private var nickname: String=""
+     */
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewBinding = ActivityLoginBinding.inflate(layoutInflater)
-        setContentView(viewBinding.root)
+        setContentView(R.layout.activity_login)
 
         /* 카카오 소셜 로그인 키 hash
 
@@ -118,8 +118,10 @@ class LoginActivity : AppCompatActivity() {
                 // 카카오톡이 설치되어 있지 않는 경우, 카카오 계정으로 로그인
             }
         }
+    }
+}
 
-
+        /*
         // [네이버] 소셜 로그인 구현
         val naverClientId= getString(R.string.naver_clinet_id)
         val naverClientSecret=getString(R.string.naver_client_secret)
@@ -181,6 +183,8 @@ class LoginActivity : AppCompatActivity() {
         NaverIdLoginSDK.authenticate(this, oauthLoginCallback)
     }
 
+    */
+
     /*
 
     private fun setLayoutState(login:Boolean) {
@@ -192,4 +196,3 @@ class LoginActivity : AppCompatActivity() {
     }
 
     */
-}
