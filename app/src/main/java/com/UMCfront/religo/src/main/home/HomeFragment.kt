@@ -37,6 +37,7 @@ class HomeFragment : Fragment(){
 
         val view=inflater.inflate(R.layout.fragment_home, container, false)
 
+        //
 
 
         // home- 교회추천 viewpager
