@@ -81,12 +81,8 @@ class CommunityAllFragment : Fragment() {
 
         }
 
-        //뒤로가기 버튼 구현
-        binding.communityChurchBack.setOnClickListener {
-            (activity as MainActivity?)?.changeFragment(CommunityFragment.newInstance())
-        }
 
-            return binding.root
+        return binding.root
 
     }
 
