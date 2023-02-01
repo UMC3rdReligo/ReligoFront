@@ -54,6 +54,14 @@
             android:name=".src.menu.SplashActivity"
             android:exported="true" >
 
+<<<<<<< HEAD
+=======
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+
+>>>>>>> 79bce926d3bea8e898f2fa909856e41fc14c5956
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -146,7 +154,7 @@
         </activity>
         <activity
             android:name=".src.main.MainActivity"
-            android:exported="true" >
+            android:exported="true">
 
             <!--
             <intent-filter>
