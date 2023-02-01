@@ -42,7 +42,6 @@ class LoginActivity : AppCompatActivity() {
 
         */
 
-
         // [카톡] 로그인 정보 확인하기
         UserApiClient.instance.accessTokenInfo { tokenInfo, error ->
             if (error != null) { // 토큰 정보 보기 오류
@@ -96,7 +95,6 @@ class LoginActivity : AppCompatActivity() {
                 finish()
             }
         }
-
 
         val kakao_login_button = binding.kakaoLoginBtn // 로그인 버튼
 
