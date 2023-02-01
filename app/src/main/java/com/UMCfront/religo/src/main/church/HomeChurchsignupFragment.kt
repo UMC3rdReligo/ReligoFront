@@ -65,10 +65,13 @@ class HomeChurchsignupFragment:Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val signupputdata = view.findViewById<Button>(R.id.home_sendinfo_tochurch)
+        /*
 
         signupputdata!!.setOnClickListener {
             signupsavepref()
         }
+
+         */
 
         val signupbtnDatetext = view.findViewById<TextView>(R.id.home_date_textView)
         val signupbtnStartDate = view.findViewById<LinearLayout>(R.id.home_userdate_box)
