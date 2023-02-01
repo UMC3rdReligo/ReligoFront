@@ -13,68 +13,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginBottom="53dp"
+        android:layout_marginTop="150dp"
         android:text="닉네임을 설정해주세요."
         android:textColor="#000000"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menu9_back_btn" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/join_btn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="40dp"
-        android:layout_marginBottom="255dp"
         android:background="@drawable/next_btn"
         android:fontFamily="@font/pretendard_regular"
         android:text="Religo 가입하기"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/menu9_next_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="20dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/join_btn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView1">
-
-        <EditText
-            android:id="@+id/nickNameField"
-            android:layout_width="280dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/check_btn"
-            android:layout_width="70dp"
-            android:layout_height="30dp"
-            android:layout_weight="1"
-            android:background="@drawable/ok_btn"
-            android:fontFamily="@font/pretendard_regular"
-            android:stateListAnimator="@null"
-            android:text="중복확인"
-            android:textSize="13sp"
-            android:textStyle="bold"
-            android:translationZ="5dp"
-            app:elevation="5dp" />
-
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/nickNameField" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/menu9_next_btn"
@@ -82,7 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="76dp"
+        android:layout_marginBottom="83dp"
         android:background="@drawable/next_btn"
         android:fontFamily="@font/pretendard_regular"
         android:text="다음으로"
@@ -90,8 +52,7 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/join_btn" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
         android:id="@+id/menu9_back_btn"
@@ -99,12 +60,41 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
-        android:layout_marginBottom="85dp"
         android:background="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/textView1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/back_icon" />
+
+    <EditText
+        android:id="@+id/nickNameField"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="53dp"
+        android:layout_marginEnd="10dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/check_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView1" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/check_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginEnd="41dp"
+        android:layout_weight="1"
+        android:background="@drawable/ok_btn"
+        android:fontFamily="@font/pretendard_regular"
+        android:stateListAnimator="@null"
+        android:text="중복확인"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:translationZ="5dp"
+        app:elevation="5dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/nickNameField"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/nickNameField" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

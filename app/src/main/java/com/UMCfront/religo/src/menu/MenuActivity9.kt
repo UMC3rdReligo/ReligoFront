@@ -13,18 +13,11 @@ import kotlinx.android.synthetic.main.activity_menu9.*
 class MenuActivity9 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_menu6)
+        setContentView(R.layout.activity_menu9)
 
         menu9_next_btn.setOnClickListener {
-            // 일정 시간 동안 welcome 화면 띄우기
-            Handler(Looper.getMainLooper()).postDelayed({
-                // 일정 시간이 지나면 MainActivity로 이동
-                val intent=Intent(this,MainActivity::class.java)
-                startActivity(intent)
-
-                // 이전 키 눌렀을때 다시 splash 화면으로 이동하는 것을 방지하기 위해
-                finish() // 이동 후 다시 사용 안함
-            }, 3000) // 3초후 mainActivity로 이동
+            val intent = Intent(this, MenuActivity10::class.java)
+            startActivity(intent)
         }
 
         menu9_back_btn.setOnClickListener {

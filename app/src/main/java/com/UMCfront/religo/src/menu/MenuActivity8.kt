@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.activity_menu8.*
 class MenuActivity8 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_menu6)
+        setContentView(R.layout.activity_menu8)
 
         menu8_next_btn.setOnClickListener {
             val intent = Intent(this, MenuActivity9::class.java)
