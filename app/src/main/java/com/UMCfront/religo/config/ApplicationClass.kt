@@ -17,8 +17,8 @@ class ApplicationClass : Application() {
     // 코틀린의 전역변수 문법
     companion object {
         // 만들어져있는 SharedPreferences 를 사용해야합니다. 재생성하지 않도록 유념해주세요
-        lateinit var loginSharedPreferences: SharedPreferences
-        lateinit var loginSPEditor: SharedPreferences.Editor
+        lateinit var SharedPreferences: SharedPreferences
+        lateinit var SPEditor: SharedPreferences.Editor
         // JWT Token Header 키 값
         //val X_ACCESS_TOKEN = "X-ACCESS-TOKEN"
 
@@ -29,12 +29,12 @@ class ApplicationClass : Application() {
     override fun onCreate() {
         super.onCreate()
 
+
         // 카카오 소셜로그인
         KakaoSdk.init(this, "c5a5df86d7f63c928abd4daa3ec3d59a")
 
-        loginSharedPreferences =
-            applicationContext.getSharedPreferences("JWT", MODE_PRIVATE)
-        loginSPEditor = loginSharedPreferences.edit()
+        applicationContext.getSharedPreferences("JWT", MODE_PRIVATE)
+        SPEditor = SharedPreferences.edit()
         // 레트로핏 인스턴스 생성
         initRetrofitInstance()
     }
