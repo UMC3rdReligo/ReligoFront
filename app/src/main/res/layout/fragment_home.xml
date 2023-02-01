@@ -62,9 +62,12 @@
                 <TextView
                     android:id="@+id/home_phrase_textView"
                     android:layout_width="wrap_content"
+                    android:layout_marginStart="12dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
+                    android:textSize="13sp"
+                    android:fontFamily="@font/pretendard_medium"
                     android:text="미움은 다툼을 일으켜도 사랑은 모든 허물을 가리느니라" />
 
                 <ImageButton
@@ -72,8 +75,8 @@
                     android:layout_width="23dp"
                     android:layout_height="23dp"
                     android:layout_gravity="center"
-                    android:layout_marginEnd="10dp"
-                    android:background="@drawable/home_phrases_plus" />
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/home_writing_plus" />
 
             </LinearLayout>
 
@@ -94,15 +97,16 @@
                     android:layout_marginLeft="4dp"
                     android:layout_marginTop="4dp"
                     android:text="내 위치기반 교회 추천"
+                    android:fontFamily="@font/pretendard_medium"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
-                <View
+                <ImageView
                     android:layout_width="10dp"
                     android:layout_height="10dp"
                     android:layout_gravity="center"
                     android:layout_marginStart="10dp"
-                    android:background="@drawable/home_phrases_plus" />
+                    android:background="@drawable/home_user_location" />
 
                 <TextView
                     android:id="@+id/home_locate_textview"
@@ -112,6 +116,7 @@
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:text="양천구"
+                    android:fontFamily="@font/pretendard_regular"
                     android:textSize="8sp"
                     android:textStyle="bold" />
 
@@ -130,6 +135,8 @@
             android:id="@+id/home_churchrecommend_viewpager"
             android:layout_width="match_parent"
             android:layout_height="300dp"
+            app:elevation="8dp"
+            android:translationZ="8dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="15dp"
@@ -148,6 +155,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/pretendard_medium"
                 android:text="함께 소통해요!"
                 android:textSize="20dp"
                 android:textStyle="bold" />
@@ -191,6 +199,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="이번 주에 진행되는 이벤트"
+                    android:fontFamily="@font/pretendard_medium"
                     android:textSize="20dp"
                     android:textStyle="bold" />
 
@@ -209,7 +218,7 @@
             </LinearLayout>
 
             <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/home_event_allRV"
+                android:id="@+id/home_event_all_view_pager"
                 android:layout_width="wrap_content"
                 android:layout_height="200dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
