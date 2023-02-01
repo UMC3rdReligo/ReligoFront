@@ -1,6 +1,7 @@
 package com.UMCfront.religo.src.main.home.adapter
 
 import android.view.LayoutInflater
+import android.view.RoundedCorner
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -9,6 +10,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.UMCfront.religo.R
 import com.UMCfront.religo.src.main.community.adapter.CommunityRVAdapter1
 import com.UMCfront.religo.src.main.home.HomeFragment
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
 
 class HomeViewPagerAdapter(val items:MutableList<HomeFragment.HomeChurchViewItem>): RecyclerView.Adapter<HomeViewPagerAdapter.ViewHolder>() {
 
@@ -25,8 +30,32 @@ class HomeViewPagerAdapter(val items:MutableList<HomeFragment.HomeChurchViewItem
         fun bindItem(item: HomeFragment.HomeChurchViewItem){
             val rv_text1=itemView.findViewById<TextView>(R.id.home_church_item1_text)
             val rv_text2=itemView.findViewById<TextView>(R.id.home_church_item2_text)
-            rv_text1.text=item.text1
-            rv_text2.text=item.text2
+            val rv_address1=itemView.findViewById<TextView>(R.id.home_church_item1_location)
+            val rv_address2=itemView.findViewById<TextView>(R.id.home_church_item2_location)
+            val rv_img1=itemView.findViewById<ImageView>(R.id.home_church_item1_img)
+            val rv_img2=itemView.findViewById<ImageView>(R.id.home_church_item2_img)
+            rv_text1.text=item.church1.name
+            rv_text2.text=item.church2.name
+            rv_address1.text=item.church1.address
+            rv_address2.text=item.church2.address
+            //glide에서 호출
+            Glide.with(itemView.context)
+                .load(item.church1.mainImg) // 불러올 이미지 url
+                .apply(RequestOptions.bitmapTransform(RoundedCorners(14)))
+                .error(rv_img1) // 로딩 에러 발생 시 표시할 이미지
+                .skipMemoryCache(true)
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .override(500,300)
+                .into(rv_img1) // 이미지를 넣을 뷰
+
+            Glide.with(itemView.context)
+                .load(item.church2.mainImg) // 불러올 이미지 url
+                .apply(RequestOptions.bitmapTransform(RoundedCorners(14)))
+                .error(rv_img2) // 로딩 에러 발생 시 표시할 이미지
+                .skipMemoryCache(true)
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .override(500,300)
+                .into(rv_img2) // 이미지를 넣을 뷰
 
         }
 
