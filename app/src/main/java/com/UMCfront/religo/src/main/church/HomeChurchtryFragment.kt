@@ -16,6 +16,7 @@ import androidx.annotation.RequiresApi
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import com.UMCfront.religo.R
+import com.UMCfront.religo.src.main.MainActivity
 
 
 class HomeChurchtryFragment :Fragment(){
@@ -31,10 +32,7 @@ class HomeChurchtryFragment :Fragment(){
 
 
 
-
         val view=inflater.inflate(R.layout.fragment_home_churchtry, container, false)
-
-
 
 
             // Inflate the layout for this fragment
@@ -60,6 +58,7 @@ class HomeChurchtryFragment :Fragment(){
 
 
 
+
         editor.putString("name",tryname.text.toString())
         editor.putString("number",trynumber.text.toString())
         editor.putString("date",trydate.toString())
@@ -79,6 +78,13 @@ class HomeChurchtryFragment :Fragment(){
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        //뒤로가기 버튼
+        val churchninfotryback = view.findViewById<ImageView>(R.id.home_churchnifo_churchtryupback_btn)
+        churchninfotryback.setOnClickListener {
+            (activity as MainActivity?)?.changeFragment(HomechurchinfoFragment())
+
+        }
 
         //가입 데이터 전송 버튼
         val putdata = view.findViewById<Button>(R.id.home_sendinfo_tochurch)
