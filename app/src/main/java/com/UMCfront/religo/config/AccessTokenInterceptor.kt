@@ -1,6 +1,7 @@
 package com.UMCfront.religo.config
 
-import com.UMCfront.religo.config.ApplicationClass.Companion.ACCESS_TOKEN
+
+
 import com.UMCfront.religo.config.ApplicationClass.Companion.loginSharedPreferences
 import okhttp3.Interceptor
 import okhttp3.Request
@@ -13,10 +14,11 @@ class AccessTokenInterceptor : Interceptor {
     @Throws(IOException::class)
     override fun intercept(chain: Interceptor.Chain): Response {
         val builder: Request.Builder = chain.request().newBuilder()
-        val jwtToken: String? = loginSharedPreferences.getString(ACCESS_TOKEN, null)
-        if (jwtToken != null) {
-            builder.addHeader("Authorization", "Bearer "+jwtToken)
-        }
+//        val jwtToken: String? = loginSharedPreferences.getString(X_ACCESS_TOKEN, null)
+//        if (jwtToken != null) {
+//
+//        }
+        builder.addHeader("Authorization", "Bearer "+"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWxpZTA5NjQ0QG5hdmVyLmNvbSIsInJvbGUiOiJST0xFX1VTRVIiLCJpZCI6MjcsImV4cCI6MTY3NTI2MjcwMH0.UxwLRlvwozPizPxTMdTAt9VoEYnDkaYg42OTyhuHKYk")
         return chain.proceed(builder.build())
     }
 }
