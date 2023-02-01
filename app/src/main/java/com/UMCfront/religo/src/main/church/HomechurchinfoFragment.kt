@@ -27,6 +27,8 @@ class HomechurchinfoFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home_churchinfo, container, false)
     }
@@ -67,15 +69,14 @@ class HomechurchinfoFragment : Fragment() {
             if(detailobchecer == 0){
                 detailtext.setText("\n\n\n\n\n 목동 교회 입니다 \n\n\n\n\n")
                 detailobchecer = 1
-                churchdetail.setImageResource(R.drawable.celebration)
-                churchdetailbackground.setBackgroundResource(R.drawable.home_dateformeeting_background)
+                churchdetail.setBackgroundResource(R.drawable.home_plus2_btn)
                 churchdetailbackground.setBackgroundResource(R.drawable.home_location_background)
 
             }
             else{
                 detailtext.setText("안녕하세요 목동교회입니다(TEST TEXT)")
                 detailobchecer = 0
-                churchdetail.setImageResource(R.drawable.circle)
+                churchdetail.setBackgroundResource(R.drawable.home_plus_btn)
                 churchdetailbackground.setBackgroundResource(R.drawable.home_dateformeeting_background)
 
             }
@@ -113,10 +114,6 @@ class HomechurchinfoFragment : Fragment() {
 //        }
 
         homerv.layoutManager= LinearLayoutManager(this.context)
-
-
-
-
 
     }
 

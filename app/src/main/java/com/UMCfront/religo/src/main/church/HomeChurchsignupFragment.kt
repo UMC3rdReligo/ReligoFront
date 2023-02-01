@@ -3,6 +3,7 @@ package com.UMCfront.religo.src.main.church
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.content.Context
+import android.graphics.Color
 import android.icu.util.Calendar
 import android.os.Build
 import android.os.Bundle
@@ -13,16 +14,17 @@ import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import com.UMCfront.religo.R
+import com.UMCfront.religo.src.main.MainActivity
 
 class HomeChurchsignupFragment:Fragment() {
+
+    val emailitems = arrayOf("example.com","gmail.com","naver.com")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-
-
 
 
         return inflater.inflate(R.layout.fragment_home_churchsignup, container, false)
@@ -33,11 +35,14 @@ class HomeChurchsignupFragment:Fragment() {
         val SharedPreferences = context!!.getSharedPreferences("try_settiongs", Context.MODE_PRIVATE)
         val editor = SharedPreferences.edit()
 
+
+
         val signname = view!!.findViewById<EditText>(R.id.home_username_signup_textView)
         val signnumber = view!!.findViewById<EditText>(R.id.home_usernumber_signup_textView)
         val signbirth = view!!.findViewById<EditText>(R.id.home_birth_signup_textView)
         val signlocate = view!!.findViewById<EditText>(R.id.home_location_signup_textView)
         val signemail = view!!.findViewById<EditText>(R.id.home_email_signup_textView)
+        val signemaillast = view!!.findViewById<Spinner>(R.id.home_email_signup_emailafter_Spinner)
         val signguid = view!!.findViewById<EditText>(R.id.home_guide_signup_textView)
         val signdate = view!!.findViewById<EditText>(R.id.home_date_textView)
 
@@ -46,7 +51,7 @@ class HomeChurchsignupFragment:Fragment() {
         editor.putString("number",signnumber.text.toString())
         editor.putString("birth",signbirth.text.toString())
         editor.putString("locate",signlocate.text.toString())
-        editor.putString("email",signemail.text.toString())
+        editor.putString("email",signemail.text.toString()+"@"+signemaillast.selectedItem.toString())
         editor.putString("guide",signguid.text.toString())
         editor.putString("date",signdate.text.toString())
 
@@ -64,18 +69,46 @@ class HomeChurchsignupFragment:Fragment() {
 
     }
 
+
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
 
-        val emailitems = arrayOf("example.com","gmail.com","naver.com")
-        val spinner = requireView().findViewById<Spinner>(R.id.home_email_signup_emailafter_Spinner)
-        spinner?.adapter = ArrayAdapter(activity?.applicationContext!!, com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item, emailitems) as SpinnerAdapter
+        val churchninfosignupback = requireView().findViewById<ImageView>(R.id.home_churchnifo_churchsignupback_btn)
+        churchninfosignupback.setOnClickListener {
+            (activity as MainActivity?)?.changeFragment(HomechurchinfoFragment())
 
+        }
+
+        val spinner = requireView().findViewById<Spinner>(R.id.home_email_signup_emailafter_Spinner)
+        spinner?.adapter = ArrayAdapter(activity?.applicationContext!!, R.layout.churchinfo_spinner_text, emailitems) as SpinnerAdapter
+
+
+
+        spinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
+
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                val value = parent!!.getItemAtPosition(position).toString()
+                if(value == emailitems[0]){
+                    (view as TextView).setTextColor(Color.GRAY)
+                }
+            }
+
+        }
 
 
         val signupputdata = view.findViewById<Button>(R.id.home_sendinfo_tochurch)
+
         /*
 
         signupputdata!!.setOnClickListener {

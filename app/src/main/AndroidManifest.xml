@@ -89,6 +89,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
             android:name=".src.menu.MenuActivity4"
             android:exported="false">
@@ -96,6 +97,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
             android:name=".src.menu.MenuActivity5"
             android:exported="false">
