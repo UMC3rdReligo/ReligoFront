@@ -8,6 +8,16 @@
     tools:context=".src.main.church.HomeChurchtryFragment">
 
 
+    <ImageView
+        android:id="@+id/home_churchnifo_churchtryupback_btn"
+        android:layout_width="15dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="10dp"
+        android:src="@drawable/home_back"
+        app:layout_constraintBottom_toBottomOf="@+id/churchtry_title"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/churchtry_title"
+        app:layout_constraintTop_toTopOf="@+id/churchtry_title" />
 
     <TextView
         android:id="@+id/churchtry_title"

@@ -4,6 +4,8 @@
     package="com.UMCfront.religo" >
     <!-- 인터넷 사용 권한 설정 -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 인터넷 연결 확인-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:name=".config.ApplicationClass"
@@ -45,6 +47,8 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
+
         <activity
             android:name=".src.menu.SplashActivity"
             android:exported="true" >
@@ -58,6 +62,8 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
+
         <activity
             android:name=".src.menu.LoginActivity"
             android:exported="true" >
@@ -72,6 +78,9 @@
                     android:scheme="kakaoc5a5df86d7f63c928abd4daa3ec3d59a" />
             </intent-filter>
         </activity>
+
+
+
         <activity
             android:name=".src.menu.MenuActivity1"
             android:exported="false" >
@@ -93,6 +102,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
             android:name=".src.menu.MenuActivity4"
             android:exported="false" >
@@ -100,6 +110,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
             android:name=".src.menu.MenuActivity5"
             android:exported="false" >
