@@ -120,15 +120,6 @@
                     android:textSize="8sp"
                     android:textStyle="bold" />
 
-                <ImageButton
-                    android:id="@+id/home_more_button"
-                    android:layout_width="47dp"
-                    android:layout_height="24dp"
-                    android:layout_gravity="bottom"
-                    android:background="@android:color/transparent"
-                    android:layout_weight="0"
-                    android:src="@drawable/community_view_more" />
-
             </LinearLayout>
 
         <androidx.viewpager2.widget.ViewPager2
@@ -217,13 +208,19 @@
                     android:src="@drawable/community_view_more" />
             </LinearLayout>
 
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/home_event_all_view_pager"
-                android:layout_width="wrap_content"
-                android:layout_height="200dp"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/home_community_background">
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/home_event_all_view_pager"
+                    android:layout_width="wrap_content"
+                    android:layout_height="200dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
 
-            </androidx.viewpager2.widget.ViewPager2>
+                </androidx.viewpager2.widget.ViewPager2>
+            </LinearLayout>
 
 
         </LinearLayout>
