@@ -3,6 +3,7 @@ package com.UMCfront.religo.config
 import android.app.Application
 import android.content.SharedPreferences
 import android.util.Log
+import com.kakao.sdk.common.KakaoSdk
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -27,6 +28,10 @@ class ApplicationClass : Application() {
     // 앱이 처음 생성되는 순간, SP를 새로 만들어주고, 레트로핏 인스턴스를 생성합니다.
     override fun onCreate() {
         super.onCreate()
+
+        // 카카오 소셜로그인
+        KakaoSdk.init(this, "c5a5df86d7f63c928abd4daa3ec3d59a")
+
         loginSharedPreferences =
             applicationContext.getSharedPreferences("JWT", MODE_PRIVATE)
         loginSPEditor = loginSharedPreferences.edit()
