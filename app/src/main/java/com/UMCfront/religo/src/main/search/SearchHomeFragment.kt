@@ -29,12 +29,36 @@ class SearchHomeFragment : Fragment() {
 
 
 
+        val bundle = Bundle()
+        bundle.putString("key", edtInput.text.toString())
+
+        val passBundleSearchFragment = SearchFragment()
+
+
+        //edittext 값 넘기기
+//        var searchfragment = SearchFragment()
+//        var bundle = Bundle()
+//        bundle.putString("searchresult",edtInput.text.toString())
+//        searchfragment.arguments = bundle
+
+        //밑에 코드로 fragment이동
+
+        //activity?.supportFragmentManager!!.beginTransaction()
+        //                .replace(R.id.btn_intent, searchfragment)
+        //                .commit()
+
+
+
         //키보드 완료 눌렀을때 숨겨진 버튼을 통해 인텐트
 
         edtInput!!.setOnEditorActionListener(getEditorActionListener(btnDone)) // 키보드에서 done(완료) 클릭 시 , 원하는 뷰 클릭되게 하기
         btnDone.setOnClickListener {
-            (activity as MainActivity?)?.changeFragment(SearchFragment.newInstance())
-            }
+            passBundleSearchFragment.arguments = bundle
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.mainFrameLayout, SearchFragment())
+                .commit()
+
+        }
 
         btnHashtag.setOnClickListener{
             (activity as MainActivity?)?.changeFragment(SearchFragment.newInstance())

@@ -23,6 +23,16 @@
         android:textColor="@color/white"
         android:text="Religo" />
 
+    <ImageView
+        android:id="@+id/search_back_btn"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/search_back"/>
+
 
 
 
@@ -35,5 +45,6 @@
         android:layout_height="match_parent"
         android:layout_marginTop="130dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
 
 </RelativeLayout>
