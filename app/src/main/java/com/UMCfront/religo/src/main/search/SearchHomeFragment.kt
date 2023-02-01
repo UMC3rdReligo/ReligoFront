@@ -28,10 +28,8 @@ class SearchHomeFragment : Fragment() {
         val btnHashtag = view.findViewById<Button>(R.id.btn_hashtag)
 
 
-        
+
         //키보드 완료 눌렀을때 숨겨진 버튼을 통해 인텐트
-
-
 
         edtInput!!.setOnEditorActionListener(getEditorActionListener(btnDone)) // 키보드에서 done(완료) 클릭 시 , 원하는 뷰 클릭되게 하기
         btnDone.setOnClickListener {

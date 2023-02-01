@@ -61,6 +61,12 @@ class SearchFragment : Fragment() {
 
 
 
+
+
+
+
+
+
         courseRVAdapter.notifyDataSetChanged()
         return view
 
@@ -105,6 +111,8 @@ class SearchFragment : Fragment() {
 //            courseRVAdapter.filterList(filteredlist)
 //        }
     }
+
+
 
 
 }

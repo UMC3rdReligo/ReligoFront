@@ -26,6 +26,9 @@
 
 
 
+
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/idRVCourses"
         android:layout_width="match_parent"
