@@ -23,7 +23,7 @@
 
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/menu2_btn1"
+            android:id="@+id/menu3_btn1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
@@ -39,7 +39,7 @@
             app:elevation="8dp" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/menu2_btn2"
+            android:id="@+id/menu3_btn2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
@@ -55,7 +55,7 @@
             app:elevation="8dp" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/menu2_btn3"
+            android:id="@+id/menu3_btn3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
@@ -71,7 +71,7 @@
             app:elevation="8dp" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/menu2_btn4"
+            android:id="@+id/menu3_btn4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
