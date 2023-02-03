@@ -95,7 +95,9 @@ class HomeFragment : Fragment(){
                 }
                 churchViewPagerAdapter.churchItemClick2=object :HomeViewPagerAdapter.ChurchViewMoreItemClick{
                     override fun onClick(view: View, position: Int) {
-                        savedInstanceState!!.putInt("churchId",churchRecommendList.get(position).church2.churchId)
+                        val bundle:Bundle=Bundle()
+                        bundle.putInt("churchId",churchRecommendList[position].church2.churchId)
+                        homechurchinfoFragment.arguments=bundle
                         (activity as MainActivity?)?.changeFragment(homechurchinfoFragment)
                     }
                 }
