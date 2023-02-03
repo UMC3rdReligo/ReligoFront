@@ -1,27 +1,25 @@
 package com.UMCfront.religo.src.menu
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
-import androidx.activity.result.ActivityResult
-import androidx.activity.result.contract.ActivityResultContracts
 import com.UMCfront.religo.R
-import kotlinx.android.synthetic.main.activity_menu1.*
 import kotlinx.android.synthetic.main.activity_menu2.*
 
 class MenuActivity2 : AppCompatActivity() {
-
+    // 주소 검색
     private val search_address_btn: Button by lazy {
         findViewById(R.id.search_address_btn)
     }
-
     private val search_address_view: TextView by lazy {
         findViewById(R.id.search_address_view)
     }
+
+    // shared preference
+    val preference by lazy {getSharedPreferences("MenuActivity2", Context.MODE_PRIVATE)}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,7 +53,13 @@ class MenuActivity2 : AppCompatActivity() {
                 if (resultCode == RESULT_OK) {
                     // 주소를 가져와서 보여주는 부분
                     val addressData = data?.extras?.getString("address")
-                    search_address_view.text = addressData
+                    // search_address_view.text = addressData
+
+                    // 해당 주소를 shared preference로 저장
+                    val address = "유저 주소"
+                    preference.edit().putString(address, addressData).apply()
+                    // shared preference로 저장한 주소 값 search_address_view로 띄우기
+                    search_address_view.setText(preference.getString(address,""))
                 }
             }
         }

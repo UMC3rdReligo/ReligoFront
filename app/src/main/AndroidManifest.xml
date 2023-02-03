@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.UMCfront.religo">
     <!-- 인터넷 사용 권한 설정 -->
-    <uses-permission android:name="android.permission.INTERNET" /> <!-- 인터넷 연결 확인 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 인터넷 연결 확인 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
