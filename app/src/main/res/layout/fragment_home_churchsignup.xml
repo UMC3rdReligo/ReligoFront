@@ -5,9 +5,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/community_background"
-    tools:context=".src.main.home.HomeChurchsignupFragment">
+    tools:context=".src.main.church.HomeChurchsignupFragment">
 
->
+
+    <ImageView
+        android:id="@+id/home_churchnifo_churchsignupback_btn"
+        android:layout_width="15dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="10dp"
+        android:src="@drawable/home_back"
+        app:layout_constraintBottom_toBottomOf="@+id/church_signup_title"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/church_signup_title"
+        app:layout_constraintTop_toTopOf="@+id/church_signup_title" />
+
 
     <TextView
         android:id="@+id/church_signup_title"
@@ -81,14 +92,14 @@
                 android:layout_gravity="center"
                 android:background="@drawable/home_person" />
 
-            <TextView
+            <EditText
                 android:id="@+id/home_username_signup_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="10dp"
                 android:fontFamily="@font/pretendard_regular"
-                android:text="이름을 입력하시오"
+                android:hint="이름을 입력하시오"
                 android:textSize="10sp" />
 
 
@@ -115,7 +126,7 @@
                 android:layout_gravity="center"
                 android:layout_marginStart="10dp"
                 android:fontFamily="@font/pretendard_regular"
-                android:text="생년월일을 입력하시오"
+                android:hint="생년월일을 입력하시오"
                 android:textSize="10sp" />
 
             <View
@@ -147,14 +158,14 @@
                 android:layout_gravity="center"
                 android:background="@drawable/home_call" />
 
-            <TextView
+            <EditText
                 android:id="@+id/home_usernumber_signup_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="10dp"
                 android:fontFamily="@font/pretendard_regular"
-                android:text="전화번호를 - 없이 입력하시오."
+                android:hint="전화번호를 - 없이 입력하시오."
                 android:textSize="10sp" />
 
 
@@ -164,9 +175,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <LinearLayout
                 android:id="@+id/home_location_box"
-
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -179,45 +190,46 @@
                     android:layout_gravity="center"
                     android:background="@drawable/home_address_marker" />
 
-                <TextView
+                <EditText
                     android:id="@+id/home_location_signup_textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginStart="10dp"
                     android:fontFamily="@font/pretendard_regular"
-                    android:text="주소를 입력하시오."
+                    android:hint="주소를 입력하시오."
                     android:textSize="10sp" />
 
 
             </LinearLayout>
 
             <Button
-                android:layout_marginStart="27dp"
                 android:id="@+id/home_findlocate_button"
-                android:layout_marginTop="25dp"
                 android:layout_width="75dp"
-                android:layout_marginBottom="2dp"
                 android:layout_height="match_parent"
-                android:textStyle="bold"
+                android:layout_marginStart="27dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="2dp"
+                android:textSize="10sp"
                 android:background="@drawable/home_sendinfo_tochurch_background"
                 android:fontFamily="@font/pretendard_regular"
                 android:text="주소검색"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <LinearLayout
+                android:layout_marginTop="20dp"
                 android:id="@+id/home_email_box"
-
                 android:layout_width="194dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:background="@drawable/home_usernumber_background"
                 android:orientation="horizontal">
 
@@ -227,18 +239,31 @@
                     android:layout_gravity="center"
                     android:background="@drawable/home_email_outline" />
 
-                <TextView
+                <EditText
                     android:id="@+id/home_email_signup_textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginStart="10dp"
                     android:fontFamily="@font/pretendard_regular"
-                    android:text="이메일 주소를 입력하시오."
+                    android:hint="이메일 주소를 입력하시오."
                     android:textSize="10sp" />
 
 
             </LinearLayout>
+
+            <Spinner
+                android:background="@drawable/home_usernumber_background"
+                android:layout_marginTop="20dp"
+                android:gravity="bottom"
+                android:id="@+id/home_email_signup_emailafter_Spinner"
+                android:layout_marginStart="27dp"
+                android:layout_marginBottom="2dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+
+                />
+
 
 
         </LinearLayout>
@@ -264,14 +289,14 @@
                     android:layout_gravity="center"
                     android:background="@drawable/home_guider_outline" />
 
-                <TextView
+                <EditText
                     android:id="@+id/home_guide_signup_textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginStart="10dp"
                     android:fontFamily="@font/pretendard_regular"
-                    android:text="인도자를 입력하시오(단 없으면 입력x)."
+                    android:hint="인도자를 입력하시오(단 없으면 입력x)."
                     android:textSize="10sp" />
 
 
@@ -301,7 +326,7 @@
                 android:layout_gravity="center"
                 android:layout_marginStart="10dp"
                 android:fontFamily="@font/pretendard_regular"
-                android:text="방문날짜를 선택하시오"
+                android:hint="방문날짜를 선택하시오"
                 android:textSize="10sp" />
 
             <View

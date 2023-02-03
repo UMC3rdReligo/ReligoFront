@@ -7,64 +7,78 @@
     tools:context=".src.menu.MenuActivity2">
 
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="330dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/survey_move_btn"
-        android:text="현재 위치로 검색"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/search_address_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="280dp"
+        android:layout_marginEnd="60dp"
+        android:background="@drawable/next_btn"
         android:fontFamily="@font/pretendard_regular"
+        android:text="주소 검색하기"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- SearchView 커스텀 해야함 -->
-
-    <SearchView
-        android:id="@+id/searchView"
-        android:layout_width="380dp"
-        android:layout_height="50dp"
+    <TextView
+        android:id="@+id/search_address_view"
+        android:layout_width="158dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="26dp"
+        android:hint="주소를 검색해주세요."
         android:iconifiedByDefault="false"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/search_address_btn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="180dp"
-        />
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="36dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginBottom="150dp"
+        android:fontFamily="@font/pretendard_regular"
         android:text="현재 위치는 어디인가요?"
-        android:fontFamily="@font/pretendard_regular"
         android:textColor="#000000"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/searchView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintBottom_toBottomOf="@+id/search_address_btn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="350dp"
-        android:layout_height="55dp"
-        android:layout_marginBottom="80dp"
-        android:background="@drawable/survey_move_btn"
-        android:text="이전으로"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/menu2_next_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="83dp"
+        android:background="@drawable/next_btn"
         android:fontFamily="@font/pretendard_regular"
+        android:text="다음으로"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/menu2_back_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:background="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back_icon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     private val fl: FrameLayout by lazy {
         findViewById(R.id.mainFrameLayout)
     }
+
     private val communityFragment by lazy { CommunityFragment() }
 
     private val homeFragment by lazy { HomeFragment() }
@@ -35,16 +36,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         val bnv_main=findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-
-
-        initNavigationBar(bnv_main)
+        initNavigationBar(savedInstanceState,bnv_main)
 
 
     }
 
-    private fun initNavigationBar(bnv_main:BottomNavigationView) {
+    private fun initNavigationBar(savedInstanceState: Bundle?,bnv_main:BottomNavigationView) {
         bnv_main.run {
             setOnNavigationItemSelectedListener {
                 when(it.itemId) {
@@ -72,6 +70,7 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.mainFrameLayout, fragment)
+            .addToBackStack(null)
             .commit()
     }
 

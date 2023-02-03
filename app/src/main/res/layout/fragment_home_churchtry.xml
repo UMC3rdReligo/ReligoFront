@@ -5,8 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/community_background"
-    tools:context=".src.main.home.HomeChurchtryFragment">
->
+    tools:context=".src.main.church.HomeChurchtryFragment">
+
+
+    <ImageView
+        android:id="@+id/home_churchnifo_churchtryupback_btn"
+        android:layout_width="15dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="10dp"
+        android:src="@drawable/home_back"
+        app:layout_constraintBottom_toBottomOf="@+id/churchtry_title"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/churchtry_title"
+        app:layout_constraintTop_toTopOf="@+id/churchtry_title" />
 
     <TextView
         android:id="@+id/churchtry_title"
@@ -80,14 +91,14 @@
                 android:layout_gravity="center"
                 android:background="@drawable/home_person" />
 
-            <TextView
+            <EditText
                 android:id="@+id/home_username_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="10dp"
                 android:fontFamily="@font/pretendard_regular"
-                android:text="이름을 입력하시오"
+                android:hint="이름을 입력하시오"
                 android:textSize="10sp" />
 
 
@@ -108,14 +119,14 @@
                 android:layout_gravity="center"
                 android:background="@drawable/home_call" />
 
-            <TextView
+            <EditText
                 android:id="@+id/home_usernumber_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="10dp"
                 android:fontFamily="@font/pretendard_regular"
-                android:text="전화번호를 - 없이 입력하시오."
+                android:hint="전화번호를 - 없이 입력하시오."
                 android:textSize="10sp" />
 
 
@@ -143,8 +154,10 @@
                 android:layout_gravity="center"
                 android:layout_marginStart="10dp"
                 android:fontFamily="@font/pretendard_regular"
-                android:text="방문날짜를 선택하시오"
-                android:textSize="10sp" />
+                android:hint="방문 날짜를 선택하시오"
+                android:textSize="10sp" >
+
+            </TextView>
 
             <View
                 android:layout_width="wrap_content"
@@ -161,16 +174,16 @@
 
         </LinearLayout>
 
-        <TextView
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:background="@drawable/home_purposevisit_background"
             android:fontFamily="@font/pretendard_regular"
             android:gravity="center"
-            android:text="방문 목적을 작성하세요\n(선택사항)">
+            android:hint="방문 목적을 작성하세요\n(선택사항)">
 
-        </TextView>
+        </EditText>
 
         <View
             android:layout_width="0dp"

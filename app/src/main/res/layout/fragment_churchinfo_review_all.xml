@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/community_background"
+    tools:context=".src.main.church.ChurchReviewAllFragment">
+
+    <ImageView
+        android:id="@+id/home_churchnifo_reviewback_btn"
+        android:layout_width="15dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="10dp"
+        android:src="@drawable/home_back"
+        app:layout_constraintBottom_toBottomOf="@+id/home_churchinfo_churchname"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/home_churchinfo_churchname"
+        app:layout_constraintTop_toTopOf="@+id/home_churchinfo_churchname" />
+
+    <TextView
+        android:id="@+id/home_churchinfo_churchname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/pretendard_medium"
+        android:gravity="center"
+        android:text="목동 교회"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:fabSize="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/Home_review_add"
+        android:layout_width="56dp"
+        android:layout_height="55dp"
+        android:layout_margin="16dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/home_churchinfo_write"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/home_review_all" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/home_review_all"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="88dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_churchinfo_churchname"
+        tools:layout_editor_absoluteX="10dp">
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/home_review_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </androidx.recyclerview.widget.RecyclerView>
+    </androidx.core.widget.NestedScrollView>
+
+    <TextView
+        android:fontFamily="@font/amaranth_bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+
+        android:text="Review"
+        app:layout_constraintBottom_toTopOf="@+id/home_review_all"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_churchinfo_churchname"
+        app:layout_constraintVertical_bias="0.608" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

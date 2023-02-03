@@ -6,12 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.UMCfront.religo.databinding.FragmentCommunityAllBinding
 import com.UMCfront.religo.src.main.MainActivity
 import com.UMCfront.religo.src.main.community.adapter.CommunityGridAdapter
-import com.UMCfront.religo.src.main.community.adapter.CommunityRVAdapter1
 
 
 class CommunityAllFragment : Fragment() {
@@ -66,8 +64,6 @@ class CommunityAllFragment : Fragment() {
         binding.communityFab.bringToFront()
 
         // 글쓰기 버튼 구현
-
-
         binding.communityFab.setOnClickListener{
 
             Toast.makeText(context,"플로팅 클릭", Toast.LENGTH_LONG).show()
@@ -75,6 +71,7 @@ class CommunityAllFragment : Fragment() {
             (activity as MainActivity?)?.changeFragment(CommunityAllWritingFragment.newInstance())
 
         }
+
 
         // 글 클릭 구현
         communityGridAdapter.itemClick=object: CommunityGridAdapter.GridItemClick{
@@ -84,12 +81,8 @@ class CommunityAllFragment : Fragment() {
 
         }
 
-        //뒤로가기 버튼 구현
-        binding.communityChurchBack.setOnClickListener {
-            (activity as MainActivity?)?.changeFragment(CommunityFragment.newInstance())
-        }
 
-            return binding.root
+        return binding.root
 
     }
 

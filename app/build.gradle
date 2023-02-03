@@ -1,12 +1,19 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-
-
+    id 'kotlin-android-extensions'
 }
 
 android {
+    viewBinding {
+        enabled = true
+    }
 
+
+    buildFeatures {
+        dataBinding = true
+        viewBinding true
+    }
 
     namespace 'com.UMCfront.religo'
     compileSdk 33
@@ -35,9 +42,6 @@ android {
         jvmTarget = '1.8'
     }
 
-    buildFeatures {
-        viewBinding true
-    }
     dataBinding {
         enabled = true
     }
@@ -47,11 +51,21 @@ android {
 
 dependencies {
 
+    //view pager2
+    implementation 'androidx.viewpager2:viewpager2:1.0.0'
 
 
+    // 카카오 소셜 로그인
+    implementation "com.kakao.sdk:v2-user:2.8.5"
+
+    
+    // 네이버 소셜 로그인
+    implementation 'com.navercorp.nid:oauth:5.1.0'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0"
 
     //이미지 둥글게 clipping
-    implementation 'com.google.android.material:material:1.0.0'
+    //version변경
+    implementation 'com.google.android.material:material:1.4.0'
 
 
 
@@ -78,6 +92,7 @@ dependencies {
 
     implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+
 
     annotationProcessor 'com.github.bumptech.glide:compiler:4.14.2'
     testImplementation 'junit:junit:4.13.2'
