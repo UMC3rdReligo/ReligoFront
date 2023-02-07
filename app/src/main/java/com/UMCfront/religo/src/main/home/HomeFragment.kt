@@ -45,7 +45,7 @@ class HomeFragment : Fragment(){
 
         val view=inflater.inflate(R.layout.fragment_home, container, false)
 
-        //
+        //유저 정보 받아오기
 
 
         // home- 교회추천 viewpager
@@ -75,7 +75,7 @@ class HomeFragment : Fragment(){
                     )
 
                 }
-                for(i in 0..churchItemDetailList.size-1 step 2){
+                for(i in 0..churchItemDetailList.size-2 step 2){
                     churchRecommendList.add(HomeChurchViewItem(churchItemDetailList.get(i),churchItemDetailList.get(i+1)))
 
                 }
@@ -109,25 +109,25 @@ class HomeFragment : Fragment(){
         })
 
 
-        val communityService=retrofit.create(HomeCommunityRetrofitService::class.java)
-        communityService.getHomeCommunityAll().enqueue(object :retrofit2.Callback<HomeCommunityResponse>{
-            override fun onResponse(
-                call: Call<HomeCommunityResponse>,
-                response: Response<HomeCommunityResponse>
-            ) {
-                val res=response.body() as HomeCommunityResponse
-                Log.d("home2",res.result.size.toString())
-                homeCommunityItemList.clear()
-
-                for(item in res.result){
-                    homeCommunityItemList.add(item.title)
-                }
-            }
-
-            override fun onFailure(call: Call<HomeCommunityResponse>, t: Throwable) {
-                Toast.makeText(context,"연결 오류",Toast.LENGTH_LONG).show()
-            }
-        })
+//        val communityService=retrofit.create(HomeCommunityRetrofitService::class.java)
+//        communityService.getHomeCommunityAll().enqueue(object :retrofit2.Callback<HomeCommunityResponse>{
+//            override fun onResponse(
+//                call: Call<HomeCommunityResponse>,
+//                response: Response<HomeCommunityResponse>
+//            ) {
+//                val res=response.body() as HomeCommunityResponse
+//                Log.d("home2",res.result.size.toString())
+//                homeCommunityItemList.clear()
+//
+//                for(item in res.result){
+//                    homeCommunityItemList.add(item.title)
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<HomeCommunityResponse>, t: Throwable) {
+//                Toast.makeText(context,"연결 오류",Toast.LENGTH_LONG).show()
+//            }
+//        })
 
         // 커뮤니티 더 알아보기 눌렀을 때 전체 커뮤니티 화면으로 이동되게끔
 

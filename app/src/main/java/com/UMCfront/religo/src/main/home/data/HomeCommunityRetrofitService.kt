@@ -6,6 +6,6 @@ import retrofit2.http.GET
 
 interface HomeCommunityRetrofitService {
 
-    @GET("/community/article/all")
+    @GET("/community/article")
     fun getHomeCommunityAll(): Call<HomeCommunityResponse>
 }
