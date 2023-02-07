@@ -87,6 +87,10 @@ class HomechurchinfoFragment : Fragment() {
 
                 //1회 방문 frag로 이동
                 churchtry!!.setOnClickListener {
+                    val bundle=Bundle()
+                    //jungmin
+                    bundle.putInt("churchId",churchId)
+                    HomeChurchtryFragment().arguments=bundle
                     (activity as MainActivity?)?.changeFragment(HomeChurchtryFragment())
                 }
 

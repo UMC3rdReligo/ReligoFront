@@ -4,12 +4,14 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import com.UMCfront.religo.R
 import kotlinx.android.synthetic.main.activity_menu2.*
 
 class MenuActivity2 : AppCompatActivity() {
+    val address = "address"
     // 주소 검색
     private val search_address_btn: Button by lazy {
         findViewById(R.id.search_address_btn)
@@ -55,10 +57,9 @@ class MenuActivity2 : AppCompatActivity() {
                     val addressData = data?.extras?.getString("address")
                     // search_address_view.text = addressData
 
-                    // 해당 주소를 shared preference로 저장
-                    val address = "유저 주소"
+                    // 해당 주소를 shared preferences 저장
                     preference.edit().putString(address, addressData).apply()
-                    // shared preference로 저장한 주소 값 search_address_view로 띄우기
+                    // shared preferences 저장한 주소 값 search_address_view로 띄우기
                     search_address_view.setText(preference.getString(address,""))
                 }
             }
