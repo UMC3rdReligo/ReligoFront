@@ -9,10 +9,13 @@ data class HomeCommunityResponse(
 
 data class HomeCommunityAllList(
 
+
     val articleId:Int,
     val writer:String,
     val type:String,
     val title:String,
-    val text:String
+    val heartCnt:Int,
+    val text:String,
+    val recently:Boolean
 
 )
