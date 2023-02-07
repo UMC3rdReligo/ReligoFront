@@ -26,30 +26,14 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="25dp"
         android:layout_marginEnd="40dp"
+        android:layout_marginBottom="83dp"
         android:background="@drawable/next_btn"
         android:fontFamily="@font/pretendard_regular"
         android:text="Religo 가입하기"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nickNameField" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/menu9_next_btn"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="83dp"
-        android:background="@drawable/next_btn"
-        android:fontFamily="@font/pretendard_regular"
-        android:text="다음으로"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -70,19 +54,19 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="53dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginEnd="8dp"
         android:ems="10"
         android:inputType="textPersonName"
+        app:layout_constraintBaseline_toBaselineOf="@+id/check_btn"
         app:layout_constraintEnd_toStartOf="@+id/check_btn"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView1" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/check_btn"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
-        android:layout_marginEnd="41dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginBottom="20dp"
         android:layout_weight="1"
         android:background="@drawable/ok_btn"
         android:fontFamily="@font/pretendard_regular"
@@ -92,9 +76,20 @@
         android:textStyle="bold"
         android:translationZ="5dp"
         app:elevation="5dp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/nickNameField"
+        app:layout_constraintBottom_toTopOf="@+id/check_msg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/nickNameField" />
+
+    <TextView
+        android:id="@+id/check_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="290dp"
+        android:layout_marginBottom="291dp"
+        android:text="(중복확인 결과 여부를 알려줄 메시지)"
+        app:layout_constraintBottom_toTopOf="@+id/join_btn"
+        app:layout_constraintStart_toStartOf="@+id/nickNameField"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
