@@ -17,7 +17,7 @@ class AccessTokenInterceptor : Interceptor {
 //        if (jwtToken != null) {
 //
 //        }
-        builder.addHeader("Authorization", "Bearer "+"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWxpZTA5NjQ0QG5hdmVyLmNvbSIsInJvbGUiOiJST0xFX1VTRVIiLCJpZCI6MjcsImV4cCI6MTY3NTc5NDMwMX0.RieQDFUqiPeGPE8aDVnX88SqKyQhve9w39UXUs3KXl0")
+        builder.addHeader("Authorization", "Bearer "+"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOm51bGwsInJvbGUiOiJST0xFX1VTRVIiLCJpZCI6NDEsImV4cCI6MTY3NTgzNjM2Mn0.r5S5335op1o7Juw_xL_RvqTpIAWAlZjOvjWiUK6cbfc")
         return chain.proceed(builder.build())
     }
 }
