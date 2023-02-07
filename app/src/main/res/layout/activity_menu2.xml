@@ -12,13 +12,15 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="280dp"
+        android:layout_marginTop="300dp"
         android:layout_marginEnd="60dp"
+        android:layout_marginBottom="300dp"
         android:background="@drawable/next_btn"
         android:fontFamily="@font/pretendard_regular"
         android:text="주소 검색하기"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/menu2_next_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -43,16 +45,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="150dp"
-        android:layout_marginBottom="150dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginBottom="122dp"
         android:fontFamily="@font/pretendard_regular"
         android:text="현재 위치는 어디인가요?"
         android:textColor="#000000"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/search_address_btn"
+        app:layout_constraintBottom_toTopOf="@+id/search_address_btn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/menu2_back_btn" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/menu2_next_btn"
