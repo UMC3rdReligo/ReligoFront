@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.UMCfront.religo.R
@@ -12,7 +13,7 @@ import kotlinx.android.synthetic.main.activity_menu5.*
 
 class MenuActivity5 : AppCompatActivity() {
     var count = 0 // 태크 선택 수 (5개 이하로 선택하도록 하기 위해 선언)
-    val hastTag = "hastTag"
+    val hashTag = "hashTag"
 
     // 서버에 보낼 hashTage값을 넣을 문자열 배열 선언
     // ★ mutableSetOf사용 ==> 중복 불가, setOf와 다르게 수정(추가 및 삭제) 가능
@@ -207,14 +208,13 @@ class MenuActivity5 : AppCompatActivity() {
         }
 
 
-        // 다음으로 버튼 -> 클릭시 hastTag 배열 shared preference로 저장
+        // 다음으로 버튼 -> 클릭시 hashTag 배열 shared preference로 저장
         menu5_next_btn.setOnClickListener {
-            preference.edit().putString(hastTag, hashTagArray.toString()).apply()
-
             // 5개 초과 선택시 Toast로 사용자에게 메시지 알리기
             if (count > 5) {
                 Toast.makeText(this@MenuActivity5, "최대 5개만 선택해주세요", Toast.LENGTH_LONG).show()
             } else { // 5개 이하로 선택해야 다음 페이지로 넘어갈 수 있게 설정
+                preference.edit().putString(hashTag, hashTagArray.toString()).apply()
                 val intent = Intent(this, MenuActivity6::class.java)
                 startActivity(intent)
             }
@@ -223,7 +223,7 @@ class MenuActivity5 : AppCompatActivity() {
         // 이전으로 버튼 -> 클릭시 저장되어 있던 shared preference값 삭제
         menu5_back_btn.setOnClickListener {
             val editor : SharedPreferences.Editor = preference.edit() // 데이터 기록을 위한 editor
-            editor.remove(hastTag)
+            editor.remove(hashTag)
             editor.commit()
 
             val intent = Intent(this, MenuActivity4::class.java)
