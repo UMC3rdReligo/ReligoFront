@@ -6,7 +6,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <!-- 인터넷 연결 확인 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
     <application
         android:name=".config.ApplicationClass"
         android:allowBackup="true"
@@ -19,14 +18,17 @@
         android:theme="@style/Theme.Religo"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
-
         <!-- (joy/장은세) 처음 splash 화면 -> menu화면 흐름 순서대로 나열 했습니다 -->
-
         <!-- 1. 처음 splash화면 -->
         <activity
             android:name=".src.menu.SplashActivity"
             android:exported="true">
 
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
 
 
@@ -35,14 +37,11 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
-
         <!-- 2. 로그인 화면 (소셜로그인) -->
         <activity
             android:name=".src.menu.LoginActivity"
             android:exported="true">
         </activity>
-
         <!-- Kakao 로그인 -->
         <activity
             android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
@@ -51,7 +50,6 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-
                 <!-- Redirect URI: "kakao{NATIVE_APP_KEY}://oauth" -->
                 <!-- scheme-example: "kakao{NATIVE_APP_KEY}" -->
                 <data
@@ -59,8 +57,6 @@
                     android:scheme="@string/kakao_app_key2" />
             </intent-filter>
         </activity>
-
-
         <!-- 3. 로그인 후, 로딩 페이지 띄움 -->
         <activity
             android:name=".src.menu.LoadingActivity"
@@ -69,12 +65,14 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
-
         <!-- 4. menu 1 ~ 10 페이지 -->
         <activity
             android:name=".src.menu.MenuActivity1"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
 
 
@@ -89,7 +87,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <!-- menu2에 있는 주소 찾는 Acitivity -->
         <activity
             android:name=".src.menu.AddressForKotlin1"
@@ -105,7 +102,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".src.menu.MenuActivity3"
             android:exported="false">
@@ -155,7 +151,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".src.menu.MenuActivity10"
             android:exported="false">
@@ -164,22 +159,20 @@
                 android:value="" />
         </activity>
         <!-- (joy/장은세) ↑ 여기 위에 ↑ 까지 menu 페이지입니다! -->
-
-
         <activity
             android:name=".src.main.MainActivity"
             android:exported="true">
+
+            <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
+            -->
 
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
     </application>
-
 </manifest>
