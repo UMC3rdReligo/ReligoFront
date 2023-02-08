@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
@@ -17,12 +18,16 @@ import com.UMCfront.religo.src.main.MainActivity
 import com.UMCfront.religo.src.main.church.HomechurchinfoFragment
 import com.UMCfront.religo.src.main.community.CommunityAllFragment
 import com.UMCfront.religo.src.main.community.adapter.CommunityRVAdapter1
+import com.UMCfront.religo.src.main.community.data.CommunityArticleRetrofitInterface
+import com.UMCfront.religo.src.main.home.adapter.HomeCommunityRVAdapter
 import com.UMCfront.religo.src.main.home.adapter.HomeViewPagerAdapter
 import com.UMCfront.religo.src.main.home.adapter.HomeViewPagerAdapter2
 import com.UMCfront.religo.src.main.home.data.ChurchRecommendRetrofitService
 import com.UMCfront.religo.src.main.home.data.HomeCommunityRetrofitService
+import com.UMCfront.religo.src.main.home.data.HomeUserInfoRetrofitInterface
 import com.UMCfront.religo.src.main.home.data.model.ChurchRecommendResponse
 import com.UMCfront.religo.src.main.home.data.model.HomeCommunityResponse
+import com.UMCfront.religo.src.main.home.data.model.HomeUserInfoResponse
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.create
@@ -33,7 +38,7 @@ class HomeFragment : Fragment(){
     val homechurchinfoFragment=HomechurchinfoFragment();
     val churchRecommendList= mutableListOf<HomeChurchViewItem>()
     val churchItemDetailList= mutableListOf<HomeChurchItemDetail>()
-    val homeCommunityItemList=ArrayList<String>(10)
+    val homeCommunityItemList=ArrayList<HomeCommunity>(10)
     val homeEventList= mutableListOf<HomeEventDetail>()
 
 
@@ -46,12 +51,28 @@ class HomeFragment : Fragment(){
         val view=inflater.inflate(R.layout.fragment_home, container, false)
 
         //유저 정보 받아오기
+        val retrofit= ApplicationClass.sRetrofit
+        val homeUserService=retrofit.create(HomeUserInfoRetrofitInterface::class.java)
+        homeUserService.getHomeUserInfo().enqueue(object :retrofit2.Callback<HomeUserInfoResponse>{
+            override fun onResponse(
+                call: Call<HomeUserInfoResponse>,
+                response: Response<HomeUserInfoResponse>
+            ) {
+                val res=response.body() as HomeUserInfoResponse
+                val locate=view.findViewById<TextView>(R.id.home_locate_textview)
+                val result=res.result
+                Log.d("address*",result.userAddress2)
+                locate.text=result.userAddress2.toString()
+            }
+
+            override fun onFailure(call: Call<HomeUserInfoResponse>, t: Throwable) {
+                Toast.makeText(context,"연결 오류",Toast.LENGTH_LONG).show()
+            }
+        })
 
 
         // home- 교회추천 viewpager
         val viewPager2Church = view.findViewById<ViewPager2>(R.id.home_churchrecommend_viewpager);
-
-        val retrofit=ApplicationClass.sRetrofit
         val churchService=retrofit.create(ChurchRecommendRetrofitService::class.java)
 
         churchService.getChurchRecommendation().enqueue(object :retrofit2.Callback<ChurchRecommendResponse>{
@@ -109,25 +130,26 @@ class HomeFragment : Fragment(){
         })
 
 
-//        val communityService=retrofit.create(HomeCommunityRetrofitService::class.java)
-//        communityService.getHomeCommunityAll().enqueue(object :retrofit2.Callback<HomeCommunityResponse>{
-//            override fun onResponse(
-//                call: Call<HomeCommunityResponse>,
-//                response: Response<HomeCommunityResponse>
-//            ) {
-//                val res=response.body() as HomeCommunityResponse
-//                Log.d("home2",res.result.size.toString())
-//                homeCommunityItemList.clear()
-//
-//                for(item in res.result){
-//                    homeCommunityItemList.add(item.title)
-//                }
-//            }
-//
-//            override fun onFailure(call: Call<HomeCommunityResponse>, t: Throwable) {
-//                Toast.makeText(context,"연결 오류",Toast.LENGTH_LONG).show()
-//            }
-//        })
+        // 커뮤니티 글 찾아오기
+        val communityService=retrofit.create(HomeCommunityRetrofitService::class.java)
+        communityService.getHomeCommunityAll().enqueue(object :retrofit2.Callback<HomeCommunityResponse>{
+            override fun onResponse(
+                call: Call<HomeCommunityResponse>,
+                response: Response<HomeCommunityResponse>
+            ) {
+                val res=response.body() as HomeCommunityResponse
+                Log.d("home2",res.result.size.toString())
+                homeCommunityItemList.clear()
+
+                for(item in res.result){
+                    homeCommunityItemList.add(HomeCommunity(item.title,item.recently))
+                }
+            }
+
+            override fun onFailure(call: Call<HomeCommunityResponse>, t: Throwable) {
+                Toast.makeText(context,"연결 오류",Toast.LENGTH_LONG).show()
+            }
+        })
 
         // 커뮤니티 더 알아보기 눌렀을 때 전체 커뮤니티 화면으로 이동되게끔
 
@@ -138,7 +160,7 @@ class HomeFragment : Fragment(){
         }
 
         val communityRecyclerView=view.findViewById<RecyclerView>(R.id.home_community_allRV)
-        communityRecyclerView.adapter=CommunityRVAdapter1(homeCommunityItemList)
+        communityRecyclerView.adapter=HomeCommunityRVAdapter(homeCommunityItemList)
 
         homeEventList.add(HomeEventDetail("부활절 행사","서울특별시 양천 목동 중앙본로  51-16","https://mblogthumb-phinf.pstatic.net/MjAxODAzMjlfNDgg/MDAxNTIyMzI2ODE5MTkx.qDy6e-7CD8o7a3bbozdVX3c3X7d4BEuzZ_kHgz3LWTYg.KBcLyTPcBAB0IsetRbUAqkQuKHfLZ2cS0yBFL7BJnCUg.JPEG.myday5676/18-03-29-21-33-04-226_deco.jpg?type=w800"))
         homeEventList.add(HomeEventDetail("부활절 행사","서울특별시 양천 목동 중앙본로  51-16","https://mblogthumb-phinf.pstatic.net/MjAxODAzMjlfNDgg/MDAxNTIyMzI2ODE5MTkx.qDy6e-7CD8o7a3bbozdVX3c3X7d4BEuzZ_kHgz3LWTYg.KBcLyTPcBAB0IsetRbUAqkQuKHfLZ2cS0yBFL7BJnCUg.JPEG.myday5676/18-03-29-21-33-04-226_deco.jpg?type=w800"))
@@ -199,6 +221,17 @@ class HomeFragment : Fragment(){
             this.name=name
             this.location=location
             this.mainImg=mainImg
+        }
+    }
+
+    // 커뮤니티 객체 지정
+
+    inner class HomeCommunity constructor(title:String,recently:Boolean){
+        var title:String=""
+        var recently:Boolean=true
+        init{
+            this.title=title
+            this.recently=recently
         }
     }
 

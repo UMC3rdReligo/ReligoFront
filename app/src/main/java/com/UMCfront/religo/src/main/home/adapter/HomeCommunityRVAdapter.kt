@@ -1,4 +1,4 @@
-package com.UMCfront.religo.src.main.community.adapter
+package com.UMCfront.religo.src.main.home.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,9 +7,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.UMCfront.religo.R
-import com.UMCfront.religo.src.main.community.CommunityFragment
+import com.UMCfront.religo.src.main.home.HomeFragment
 
-class CommunityRVAdapter1(val items:MutableList<CommunityFragment.CommunityItem>):RecyclerView.Adapter<CommunityRVAdapter1.ViewHolder>() {
+class HomeCommunityRVAdapter(val items:MutableList<HomeFragment.HomeCommunity>):RecyclerView.Adapter<HomeCommunityRVAdapter.ViewHolder>() {
 
     // 아이템 클릭
     interface ItemClick{
@@ -20,7 +20,7 @@ class CommunityRVAdapter1(val items:MutableList<CommunityFragment.CommunityItem>
 
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
-        fun bindItem(item: CommunityFragment.CommunityItem){
+        fun bindItem(item: HomeFragment.HomeCommunity){
             // recently가 true이면 new 이미지 넣어주기
 
             val rv_text=itemView.findViewById<TextView>(R.id.community_rv_text)
