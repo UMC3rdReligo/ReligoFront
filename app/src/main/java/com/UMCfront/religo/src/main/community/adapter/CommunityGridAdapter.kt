@@ -1,5 +1,6 @@
 package com.UMCfront.religo.src.main.community.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,9 +24,11 @@ class CommunityGridAdapter(val items:MutableList<CommunityChurchFragment.Communi
             val rv_text_title=itemView.findViewById<TextView>(R.id.community_rv_detail_title)
             val rv_text=itemView.findViewById<TextView>(R.id.community_rv_detail_text)
             val rv_heartCount=itemView.findViewById<TextView>(R.id.community_rv_heart_cnt)
-            rv_text_title.text=item.title
-            rv_text.text=item.text
+
+            rv_text_title.text=item.title.toString()
+            rv_text.text=item.text.toString()
             rv_heartCount.text=item.hearCount.toString()
+            Log.d("ttt",rv_text_title.toString())
 
 
         }

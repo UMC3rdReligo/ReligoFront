@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.UMCfront.religo.R
 import com.UMCfront.religo.config.ApplicationClass
 import com.UMCfront.religo.databinding.FragmentCommunityChurchBinding
 import com.UMCfront.religo.src.main.MainActivity
@@ -20,16 +22,15 @@ import retrofit2.Response
 
 class CommunityChurchFragment : Fragment() {
 
-    private var _binding: FragmentCommunityChurchBinding? = null
-    private val binding get() = _binding!!
     val communityChurchArticleList= mutableListOf<CommunityChurchDetail>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        val churchId=requireArguments().getLong("churchId")
+        val view=inflater.inflate(R.layout.fragment_community_church, container, false)
+        val binding = FragmentCommunityChurchBinding.inflate(inflater, container, false)
+        val churchId=requireArguments().getInt("churchId")
         Log.d("church**",churchId.toString())
 
         // church id를 파라미터로 넣어서 값 받아오기
@@ -42,18 +43,82 @@ class CommunityChurchFragment : Fragment() {
                 response: Response<CommunityArticleResponse>
             ) {
                 val res=response.body() as CommunityArticleResponse
-                Log.d("home2",res.result.size.toString())
+                Log.d("home222",res.result.size.toString())
                 //communityAllArticleList.clear()
 
+
                 for(item in res.result){
+                    System.out.println(item.title)
                     communityChurchArticleList.add(
                         CommunityChurchDetail(
-                            item.title,
-                            item.text.substring(0,20),
+                            item.title.toString(),
+                            item.text.toString(),
                             item.heartCnt
                         )
                     )
                 }
+
+
+
+
+                val communityAdapter= CommunityGridAdapter(communityChurchArticleList)
+
+                System.out.println(communityChurchArticleList.size)
+                //community_grid_rv
+                val rv= binding.communityGridRv
+                rv.adapter=communityAdapter
+
+
+                rv.layoutManager= LinearLayoutManager(context)
+                // 글 클릭 구현
+                communityAdapter.itemClick=object: CommunityGridAdapter.GridItemClick{
+                    override fun onClick(view: View, position: Int) {
+                        (activity as MainActivity?)?.changeFragment(CommunityChurchArticleFragment.newInstance())
+                    }
+
+                }
+                binding.communityFab.bringToFront()
+
+                // 글쓰기 버튼 구현
+
+
+                binding.communityFab.setOnClickListener{
+
+                    Toast.makeText(context,"플로팅 클릭", Toast.LENGTH_LONG).show()
+
+                    (activity as MainActivity?)?.changeFragment(CommunityChurchWritingFragment.newInstance())
+
+                }
+
+
+                //뒤로가기 버튼 구현
+                binding.communityChurchBack.setOnClickListener{
+                    (activity as MainActivity?)?.changeFragment(CommunityFragment.newInstance())
+
+                }
+
+                binding.communityFab.bringToFront()
+
+                // 글쓰기 버튼 구현
+
+
+                binding.communityFab.setOnClickListener{
+
+                    Toast.makeText(context,"플로팅 클릭", Toast.LENGTH_LONG).show()
+
+                    (activity as MainActivity?)?.changeFragment(CommunityChurchWritingFragment.newInstance())
+
+                }
+
+
+                //뒤로가기 버튼 구현
+                binding.communityChurchBack.setOnClickListener{
+                    (activity as MainActivity?)?.changeFragment(CommunityFragment.newInstance())
+
+                }
+
+
+
             }
 
             override fun onFailure(call: Call<CommunityArticleResponse>, t: Throwable) {
@@ -61,45 +126,10 @@ class CommunityChurchFragment : Fragment() {
             }
         })
 
-        val binding = FragmentCommunityChurchBinding.inflate(inflater, container, false)
-
-
-        val communityAdapter= CommunityGridAdapter(communityChurchArticleList)
-
-        //community_grid_rv
-        val rv=binding.communityGridRv
-        rv.adapter=communityAdapter
-
-
-        rv.layoutManager= LinearLayoutManager(this.context)
-
-        binding.communityFab.bringToFront()
-
-        // 글쓰기 버튼 구현
-
-
-        binding.communityFab.setOnClickListener{
-
-            Toast.makeText(context,"플로팅 클릭", Toast.LENGTH_LONG).show()
-
-            (activity as MainActivity?)?.changeFragment(CommunityChurchWritingFragment.newInstance())
-
-        }
-        // 글 클릭 구현
-        communityAdapter.itemClick=object: CommunityGridAdapter.GridItemClick{
-            override fun onClick(view: View, position: Int) {
-                (activity as MainActivity?)?.changeFragment(CommunityChurchArticleFragment.newInstance())
-            }
-
-        }
-
-        //뒤로가기 버튼 구현
-        binding.communityChurchBack.setOnClickListener{
-            (activity as MainActivity?)?.changeFragment(CommunityFragment.newInstance())
-
-        }
-
         return binding.root
+
+
+
 
     }
 

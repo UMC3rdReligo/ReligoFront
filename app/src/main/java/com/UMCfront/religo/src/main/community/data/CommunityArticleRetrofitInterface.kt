@@ -11,7 +11,7 @@ interface CommunityArticleRetrofitInterface {
     fun getCommunityAll(): Call<CommunityArticleResponse>
 
     @GET("/community/article/church/{churchId}")
-    fun getCommunityChurch(@Path("churchId") churchId: Long):Call<CommunityArticleResponse>
+    fun getCommunityChurch(@Path("churchId") churchId: Int):Call<CommunityArticleResponse>
 
     @GET("/community/article/platform/{platformcode}")
     fun getCommunityPlatform(@Path("platformcode") platformcode:String):Call<CommunityArticleResponse>
