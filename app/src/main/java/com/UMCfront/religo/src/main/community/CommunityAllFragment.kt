@@ -60,6 +60,37 @@ class CommunityAllFragment : Fragment() {
                         )
                     )
                 }
+
+                val communityAllAdapter= CommunityAdapterAll(communityAllList)
+
+                //community_grid_rv
+                val rv=binding.communityGridRv
+                rv.adapter=communityAllAdapter
+
+
+                //linear layout으로 변경
+                rv.layoutManager= LinearLayoutManager(context)
+                rv.layoutManager= LinearLayoutManager(context)
+
+                binding.communityFab.bringToFront()
+
+                // 글쓰기 버튼 구현
+                binding.communityFab.setOnClickListener{
+
+                    Toast.makeText(context,"플로팅 클릭", Toast.LENGTH_LONG).show()
+
+                    (activity as MainActivity?)?.changeFragment(CommunityAllWritingFragment.newInstance())
+
+                }
+
+
+                // 글 클릭 구현
+                communityAllAdapter.itemClick=object: CommunityAdapterAll.AllItemClick{
+                    override fun onClick(view: View, position: Int) {
+                        (activity as MainActivity?)?.changeFragment(CommunityAllArticleFragment.newInstance())
+                    }
+
+                }
             }
 
             override fun onFailure(call: Call<CommunityArticleResponse>, t: Throwable) {
@@ -72,35 +103,7 @@ class CommunityAllFragment : Fragment() {
 
 
 
-        val communityAllAdapter= CommunityAdapterAll(communityAllList)
 
-        //community_grid_rv
-        val rv=binding.communityGridRv
-        rv.adapter=communityAllAdapter
-
-
-        //linear layout으로 변경
-        rv.layoutManager= LinearLayoutManager(this.context)
-
-        binding.communityFab.bringToFront()
-
-        // 글쓰기 버튼 구현
-        binding.communityFab.setOnClickListener{
-
-            Toast.makeText(context,"플로팅 클릭", Toast.LENGTH_LONG).show()
-
-            (activity as MainActivity?)?.changeFragment(CommunityAllWritingFragment.newInstance())
-
-        }
-
-
-        // 글 클릭 구현
-        communityAllAdapter.itemClick=object: CommunityAdapterAll.AllItemClick{
-            override fun onClick(view: View, position: Int) {
-                (activity as MainActivity?)?.changeFragment(CommunityAllArticleFragment.newInstance())
-            }
-
-        }
 
 
         return binding.root
