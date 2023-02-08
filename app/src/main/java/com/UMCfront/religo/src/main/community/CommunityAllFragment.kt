@@ -1,20 +1,28 @@
 package com.UMCfront.religo.src.main.community
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.UMCfront.religo.config.ApplicationClass
 import com.UMCfront.religo.databinding.FragmentCommunityAllBinding
 import com.UMCfront.religo.src.main.MainActivity
+import com.UMCfront.religo.src.main.community.adapter.CommunityAdapterAll
 import com.UMCfront.religo.src.main.community.adapter.CommunityGridAdapter
+import com.UMCfront.religo.src.main.community.data.CommunityArticleResponse
+import com.UMCfront.religo.src.main.community.data.CommunityArticleRetrofitInterface
+import retrofit2.Call
+import retrofit2.Response
 
 
 class CommunityAllFragment : Fragment() {
     private var _binding: FragmentCommunityAllBinding? = null
     private val binding get() = _binding!!
+    val communityAllList= mutableListOf<CommunityAllDetail>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,31 +39,44 @@ class CommunityAllFragment : Fragment() {
 
 
         val binding = FragmentCommunityAllBinding.inflate(inflater, container, false)
+        val retrofit= ApplicationClass.sRetrofit
+        val communityChurchService=retrofit.create(CommunityArticleRetrofitInterface::class.java)
 
-        var communityAllList= mutableListOf<String>()
-        communityAllList.add("안녕하세요 이번에 새로 가입했습니다.")
-        communityAllList.add("안녕하세요 이번에 새로 가입했습니다.")
-        communityAllList.add("안녕하세요 이번에 새로 가입했습니다.")
-        communityAllList.add("안녕하세요 이번에 새로 가입했습니다.")
-        communityAllList.add("안녕하세요 이번에 새로 가입했습니다.")
-        communityAllList.add("안녕하세요 이번에 새로 가입했습니다.")
-        communityAllList.add("안녕하세요 이번에 새로 가입했습니다.")
-        communityAllList.add("안녕하세요 이번에 새로 가입했습니다.")
-        communityAllList.add("안녕하세요 이번에 새로 가입했습니다.")
-        communityAllList.add("안녕하세요 이번에 새로 가입했습니다.")
-        communityAllList.add("안녕하세요 이번에 새로 가입했습니다.")
-        communityAllList.add("안녕하세요 이번에 새로 가입했습니다.")
-        communityAllList.add("안녕하세요 이번에 새로 가입했습니다.")
-        communityAllList.add("안녕하세요 이번에 새로 가입했습니다.")
+        communityChurchService.getCommunityAll().enqueue(object :retrofit2.Callback<CommunityArticleResponse>{
+            override fun onResponse(
+                call: Call<CommunityArticleResponse>,
+                response: Response<CommunityArticleResponse>
+            ) {
+                val res=response.body() as CommunityArticleResponse
+                Log.d("home2",res.result.size.toString())
+                //communityAllArticleList.clear()
+
+                for(item in res.result){
+                    communityAllList.add(
+                        CommunityAllDetail(
+                            item.title,
+                            item.text,
+                            item.heartCnt
+                        )
+                    )
+                }
+            }
+
+            override fun onFailure(call: Call<CommunityArticleResponse>, t: Throwable) {
+                Toast.makeText(context,"연결 오류", Toast.LENGTH_LONG).show()
+            }
+        })
 
 
 
 
-        val communityGridAdapter= CommunityGridAdapter(communityAllList)
+
+
+        val communityAllAdapter= CommunityAdapterAll(communityAllList)
 
         //community_grid_rv
         val rv=binding.communityGridRv
-        rv.adapter=communityGridAdapter
+        rv.adapter=communityAllAdapter
 
 
         //linear layout으로 변경
@@ -74,7 +95,7 @@ class CommunityAllFragment : Fragment() {
 
 
         // 글 클릭 구현
-        communityGridAdapter.itemClick=object: CommunityGridAdapter.GridItemClick{
+        communityAllAdapter.itemClick=object: CommunityAdapterAll.AllItemClick{
             override fun onClick(view: View, position: Int) {
                 (activity as MainActivity?)?.changeFragment(CommunityAllArticleFragment.newInstance())
             }
@@ -89,6 +110,18 @@ class CommunityAllFragment : Fragment() {
     companion object {
         fun newInstance(): CommunityAllFragment {
             return CommunityAllFragment()
+        }
+    }
+
+    inner class CommunityAllDetail(title: String, text: String, heartCnt: Int) {
+        var title: String = ""
+        var text: String = ""
+        var hearCount: Int = 0
+
+        init {
+            this.title = title
+            this.text = text
+            this.hearCount = hearCount
         }
     }
 }

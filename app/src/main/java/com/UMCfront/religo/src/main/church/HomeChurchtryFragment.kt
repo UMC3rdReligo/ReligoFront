@@ -30,6 +30,10 @@ class HomeChurchtryFragment :Fragment(){
         savedInstanceState: Bundle?
     ): View? {
 
+        //jungmin
+        //번들에서 교회 이름가져오기
+        val churchId=requireArguments().getInt("churchId")
+
 
 
         val view=inflater.inflate(R.layout.fragment_home_churchtry, container, false)
@@ -53,7 +57,7 @@ class HomeChurchtryFragment :Fragment(){
         val trydate = view!!.findViewById<TextView>(R.id.home_date_textView)
 
 
-//2001.07.04 AD at 12:08:56 PDT
+
 
 
 

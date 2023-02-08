@@ -19,7 +19,7 @@ class ApplicationClass : Application() {
         lateinit var SharedPreferences: SharedPreferences
         lateinit var SPEditor: SharedPreferences.Editor
         // JWT Token Header 키 값
-        //val X_ACCESS_TOKEN = "X-ACCESS-TOKEN"
+        // val X_ACCESS_TOKEN = "X-ACCESS-TOKEN"
 
         // Retrofit 인스턴스, 앱 실행시 한번만 생성하여 사용합니다.
         lateinit var sRetrofit: Retrofit
@@ -30,7 +30,7 @@ class ApplicationClass : Application() {
 
 
         // 카카오 소셜로그인
-        KakaoSdk.init(this, "6b4c422835c948c8624f39254f00aa31")
+        //KakaoSdk.init(this, "6b4c422835c948c8624f39254f00aa31")
 
         SharedPreferences =
             applicationContext.getSharedPreferences("JWT", MODE_PRIVATE)
