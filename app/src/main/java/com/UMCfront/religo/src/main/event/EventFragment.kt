@@ -38,11 +38,21 @@ class EventFragment : Fragment() {
         viewPager2Event.adapter= eventViewPagerAdapter
         // 더 알아보기 클릭
 
-        eventViewPagerAdapter.EventItemClick=object : EventViewPagerAdapter.EventViewMoreItemClick{
+        eventViewPagerAdapter.EventItemClick1=object : EventViewPagerAdapter.EventViewMoreItemClick{
             override fun onClick(view: View, position: Int) {
                 (activity as MainActivity?)?.changeFragment(EventDetailFragment())
             }
         }
+
+        eventViewPagerAdapter.EventItemClick2=object : EventViewPagerAdapter.EventViewMoreItemClick{
+            override fun onClick(view: View, position: Int) {
+                (activity as MainActivity?)?.changeFragment(EventDetailFragment())
+            }
+        }
+
+
+
+
 
         return view
     }

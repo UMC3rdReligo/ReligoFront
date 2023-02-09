@@ -51,10 +51,44 @@ class CommunityPlatformFragment : Fragment() {
                     communityPlatformList.add(
                         CommunityPlatformDetail(
                             item.title,
-                            item.text.substring(0,20),
+                            item.text,
                             item.heartCnt
                         )
                     )
+                }
+                val communityAdapter= CommunityAdapterPlatform(communityPlatformList)
+
+                //community_grid_rv
+                val rv=binding.communityGridRv
+                rv.adapter=communityAdapter
+
+
+                rv.layoutManager= LinearLayoutManager(context)
+
+                binding.communityFab.bringToFront()
+
+                // 글쓰기 버튼 구현
+
+
+                binding.communityFab.setOnClickListener{
+
+                    Toast.makeText(context,"플로팅 클릭", Toast.LENGTH_LONG).show()
+
+                    (activity as MainActivity?)?.changeFragment(CommunityPlatformWritingFragment())
+
+                }
+
+                // 글 클릭 구현
+                communityAdapter.itemClick=object: CommunityAdapterPlatform.PlatformItemClick{
+                    override fun onClick(view: View, position: Int) {
+                        (activity as MainActivity?)?.changeFragment(CommunityPlatformArticleFragment.newInstance())
+                    }
+
+                }
+
+                //뒤로가기 버튼 구현
+                binding.communityChurchBack.setOnClickListener {
+                    (activity as MainActivity?)?.changeFragment(CommunityFragment.newInstance())
                 }
             }
 
@@ -63,40 +97,7 @@ class CommunityPlatformFragment : Fragment() {
             }
         })
 
-        val communityAdapter= CommunityAdapterPlatform(communityPlatformList)
 
-        //community_grid_rv
-        val rv=binding.communityGridRv
-        rv.adapter=communityAdapter
-
-
-        rv.layoutManager= LinearLayoutManager(this.context)
-
-        binding.communityFab.bringToFront()
-
-        // 글쓰기 버튼 구현
-
-
-        binding.communityFab.setOnClickListener{
-
-            Toast.makeText(context,"플로팅 클릭", Toast.LENGTH_LONG).show()
-
-            (activity as MainActivity?)?.changeFragment(CommunityPlatformWritingFragment())
-
-        }
-
-        // 글 클릭 구현
-        communityAdapter.itemClick=object: CommunityAdapterPlatform.PlatformItemClick{
-            override fun onClick(view: View, position: Int) {
-                (activity as MainActivity?)?.changeFragment(CommunityPlatformArticleFragment.newInstance())
-            }
-
-        }
-
-        //뒤로가기 버튼 구현
-        binding.communityChurchBack.setOnClickListener {
-            (activity as MainActivity?)?.changeFragment(CommunityFragment.newInstance())
-        }
 
             return binding.root
     }

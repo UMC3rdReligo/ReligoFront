@@ -30,6 +30,7 @@ class CommunityFragment : Fragment() {
 
     val communityAllArticleList= mutableListOf<CommunityItem>()
     val communityPlatformArticleList= mutableListOf<CommunityItem>()
+    val communityChurchFragment:CommunityChurchFragment= CommunityChurchFragment()
 
 
     override fun onCreateView(
@@ -50,7 +51,7 @@ class CommunityFragment : Fragment() {
         // 내 교회 정보
         val retrofit= ApplicationClass.sRetrofit
         val communityService=retrofit.create(CommunityArticleRetrofitInterface::class.java)
-        var churchId:Long=1;
+        var churchId:Int=1;
         val platformCode:String=""
 
         communityService.getUserInfo().enqueue(object :retrofit2.Callback<CommunityUserInfoResponse>{
@@ -65,8 +66,21 @@ class CommunityFragment : Fragment() {
                 userName.text=res.result.name
                 churchName.text=res.result.churchName
                 churchAddress.text=res.result.churchAddress
-                churchId= res.result.churchId
+                churchId= res.result.churchId.toInt()
                 //교단코드
+
+                churchEntrance!!.setOnClickListener {
+
+                    // fragment간 이동
+
+                    val bundle:Bundle=Bundle()
+                    bundle.putInt("churchId",churchId)
+                    communityChurchFragment.arguments=bundle
+                    (activity as MainActivity?)?.changeFragment(communityChurchFragment)
+
+
+
+                }
 
             }
 
@@ -76,18 +90,7 @@ class CommunityFragment : Fragment() {
         })
 
 
-        churchEntrance!!.setOnClickListener {
 
-            // fragment간 이동
-
-            val bundle:Bundle=Bundle()
-            bundle.putLong("churchId",churchId)
-            CommunityChurchFragment.newInstance().arguments=bundle
-            (activity as MainActivity?)?.changeFragment(CommunityChurchFragment.newInstance())
-
-
-
-        }
 
         // 커뮤니티 글 찾아오기
 
@@ -103,6 +106,38 @@ class CommunityFragment : Fragment() {
                 for(item in res.result){
                     communityAllArticleList.add(CommunityItem(item.title,item.recently))
                 }
+
+                val allViewMore=view.findViewById<ImageView>(R.id.community_all_viewmore)
+
+                allViewMore.setOnClickListener{
+                    val bundle:Bundle=Bundle()
+                    bundle.putInt("churchId",churchId)
+                    Log.d("ccc",churchId.toString())
+                    CommunityAllFragment.newInstance().arguments=bundle
+
+                    (activity as MainActivity?)?.changeFragment(CommunityAllFragment.newInstance())
+
+//            activity?.let{
+//                val intent = Intent(context, CommunityAllActivity::class.java)
+//                startActivity(intent)
+//
+//            }
+                }
+
+                val rv=view.findViewById<RecyclerView>(R.id.allRV)
+
+                val communityAdapter= CommunityRVAdapter1(communityAllArticleList)
+                rv.adapter=communityAdapter
+                rv.layoutManager= LinearLayoutManager(context)
+
+                // 글 클릭 구현
+                communityAdapter.itemClick=object:CommunityRVAdapter1.ItemClick{
+                    override fun onClick(view: View, position: Int) {
+                        (activity as MainActivity?)?.changeFragment(CommunityAllArticleFragment.newInstance())
+                    }
+
+                }
+
             }
 
             override fun onFailure(call: Call<CommunityArticleResponse>, t: Throwable) {
@@ -111,36 +146,7 @@ class CommunityFragment : Fragment() {
         })
 
 
-        val allViewMore=view.findViewById<ImageView>(R.id.community_all_viewmore)
 
-        allViewMore.setOnClickListener{
-            val bundle:Bundle=Bundle()
-            bundle.putLong("churchId",churchId)
-            Log.d("ccc",churchId.toString())
-            CommunityAllFragment.newInstance().arguments=bundle
-
-            (activity as MainActivity?)?.changeFragment(CommunityAllFragment.newInstance())
-            
-//            activity?.let{
-//                val intent = Intent(context, CommunityAllActivity::class.java)
-//                startActivity(intent)
-//
-//            }
-        }
-
-        val rv=view.findViewById<RecyclerView>(R.id.allRV)
-
-        val communityAdapter= CommunityRVAdapter1(communityAllArticleList)
-        rv.adapter=communityAdapter
-        rv.layoutManager= LinearLayoutManager(this.context)
-
-        // 글 클릭 구현
-        communityAdapter.itemClick=object:CommunityRVAdapter1.ItemClick{
-            override fun onClick(view: View, position: Int) {
-                (activity as MainActivity?)?.changeFragment(CommunityAllArticleFragment.newInstance())
-            }
-
-        }
 
         //교단 보기
         communityService.getCommunityPlatform("PA1").enqueue(object :retrofit2.Callback<CommunityArticleResponse>{
@@ -149,12 +155,38 @@ class CommunityFragment : Fragment() {
                 response: Response<CommunityArticleResponse>
             ) {
                 val res=response.body() as CommunityArticleResponse
-                Log.d("home2",res.result.size.toString())
-                communityPlatformArticleList.clear()
+                System.out.println(res)
+                Log.d("home2", res.result.size.toString())
+                //communityPlatformArticleList.clear()
 
                 for(item in res.result){
                     communityPlatformArticleList.add(CommunityItem(item.title,item.recently))
                 }
+
+                val platformMore=view.findViewById<ImageView>(R.id.community_platform_viewmore)
+
+                platformMore.setOnClickListener {
+                    (activity as MainActivity?)?.changeFragment(CommunityPlatformFragment.newInstance())
+                }
+
+
+
+
+
+
+                val platformAdapter= CommunityRVAdapter1(communityPlatformArticleList)
+                val platRv=view.findViewById<RecyclerView>(R.id.platformRV)
+
+                platRv.adapter=platformAdapter
+
+                // 글 클릭 구현
+                platformAdapter.itemClick=object:CommunityRVAdapter1.ItemClick{
+                    override fun onClick(view: View, position: Int) {
+                        (activity as MainActivity?)?.changeFragment(CommunityPlatformFragment.newInstance())
+                    }
+
+                }
+
             }
 
             override fun onFailure(call: Call<CommunityArticleResponse>, t: Throwable) {
@@ -162,29 +194,8 @@ class CommunityFragment : Fragment() {
             }
         })
 
-        val platformMore=view.findViewById<ImageView>(R.id.community_platform_viewmore)
-
-        platformMore.setOnClickListener {
-            (activity as MainActivity?)?.changeFragment(CommunityPlatformFragment.newInstance())
-        }
 
 
-
-
-
-
-        val platformAdapter= CommunityRVAdapter1(communityPlatformArticleList)
-        val platRv=view.findViewById<RecyclerView>(R.id.platformRV)
-
-        platRv.adapter=platformAdapter
-
-        // 글 클릭 구현
-        platformAdapter.itemClick=object:CommunityRVAdapter1.ItemClick{
-            override fun onClick(view: View, position: Int) {
-                (activity as MainActivity?)?.changeFragment(CommunityPlatformFragment.newInstance())
-            }
-
-        }
 
     }
 
