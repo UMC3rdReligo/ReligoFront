@@ -41,6 +41,9 @@ class EventViewPagerAdapter(val items:MutableList<EventFragment.MyEventItem>): R
             rv_text2.text=item.event2.name
             rv_date1.text=item.event1.date
             rv_date2.text=item.event2.date
+            rv_location1.text=item.event1.location
+            rv_location2.text=item.event2.location
+
             //glide에서 호출
             Glide.with(itemView.context)
                 .load(item.event1.mainImg) // 불러올 이미지 url
