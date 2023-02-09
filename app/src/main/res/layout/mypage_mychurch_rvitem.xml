@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:orientation="horizontal"
+    android:background="@drawable/home_dateformeeting_background"
+    >
+    <ImageView
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/application_complete_church_icon"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/mypage_mychurch_churchname_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="목동교회"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="서울특별시 양천구 목동 중안본로 51-16"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="가입승인:2023년 01월 25일"
+            android:layout_gravity="end"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

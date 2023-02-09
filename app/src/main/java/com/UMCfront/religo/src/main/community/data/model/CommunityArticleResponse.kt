@@ -9,7 +9,8 @@ public data class CommunityArticleResponse(
     val isSuccess: Boolean,
     val message: String,
     val result: List<CommunityArticleResult>
-)
+
+    )
 
 
 
