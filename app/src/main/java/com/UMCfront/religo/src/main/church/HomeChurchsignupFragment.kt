@@ -7,6 +7,7 @@ import android.graphics.Color
 import android.icu.util.Calendar
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +15,14 @@ import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import com.UMCfront.religo.R
+import com.UMCfront.religo.config.ApplicationClass
 import com.UMCfront.religo.src.main.MainActivity
+import com.UMCfront.religo.src.main.church.data.HomeSignupRetorfitInterface
+import com.UMCfront.religo.src.main.church.data.model.ChurchSignup
+import com.UMCfront.religo.src.main.church.data.model.ChurchSignupResult
+import retrofit2.Call
+import retrofit2.Response
+import javax.security.auth.callback.Callback
 
 class HomeChurchsignupFragment:Fragment() {
 
@@ -27,6 +35,10 @@ class HomeChurchsignupFragment:Fragment() {
         // Inflate the layout for this fragment
 
 
+
+
+
+
         return inflater.inflate(R.layout.fragment_home_churchsignup, container, false)
     }
 
@@ -34,7 +46,6 @@ class HomeChurchsignupFragment:Fragment() {
     private fun signupsavepref(){
         val SharedPreferences = context!!.getSharedPreferences("try_settiongs", Context.MODE_PRIVATE)
         val editor = SharedPreferences.edit()
-
 
 
         val signname = view!!.findViewById<EditText>(R.id.home_username_signup_textView)
@@ -47,25 +58,35 @@ class HomeChurchsignupFragment:Fragment() {
         val signdate = view!!.findViewById<EditText>(R.id.home_date_textView)
 
 
-        editor.putString("name",signname.text.toString())
-        editor.putString("number",signnumber.text.toString())
-        editor.putString("birth",signbirth.text.toString())
-        editor.putString("locate",signlocate.text.toString())
-        editor.putString("email",signemail.text.toString()+"@"+signemaillast.selectedItem.toString())
-        editor.putString("guide",signguid.text.toString())
-        editor.putString("date",signdate.text.toString())
+        val churchSignupinfo = ChurchSignupResult(
+            signname.text.toString(),
+            signbirth.text.toString(),
+            signnumber.text.toString(),
+            signlocate.text.toString(),
+            signemail.text.toString()+"@"+signemaillast.selectedItem.toString(),
+            signguid.text.toString(),
+            signguid.text.toString(),
+            signdate.text.toString(),
+        )
 
 
-        editor.apply()
+        val retrofit = ApplicationClass.sRetrofit
+        val churchSignupService = retrofit.create(HomeSignupRetorfitInterface::class.java)
+        churchSignupService.sendUserSignup(churchSignupinfo).enqueue(object : retrofit2.Callback<ChurchSignup> {
+            override fun onResponse(call: Call<ChurchSignup>, response: Response<ChurchSignup>) {
+                if (response.isSuccessful) {
+//                    Toast.makeText(getActivity(),response.body().toString(),Toast.LENGTH_SHORT).show()
+                    Log.d("test", response.body().toString())
+                       var data = response.body() // GsonConverter를 사용해 데이터매핑
+                }
+            }
 
-        Toast.makeText(getActivity(),signname.text, Toast.LENGTH_SHORT).show();
-        Toast.makeText(getActivity(),signnumber.text, Toast.LENGTH_SHORT).show();
-        Toast.makeText(getActivity(),signbirth.text, Toast.LENGTH_SHORT).show();
-        Toast.makeText(getActivity(),signlocate.text, Toast.LENGTH_SHORT).show();
-        Toast.makeText(getActivity(),signemail.text, Toast.LENGTH_SHORT).show();
-        Toast.makeText(getActivity(),signguid.text, Toast.LENGTH_SHORT).show();
-        Toast.makeText(getActivity(),signdate.text, Toast.LENGTH_SHORT).show();
+            override fun onFailure(call: Call<ChurchSignup>, t: Throwable) {
+//                Toast.makeText(getActivity(),"fail",Toast.LENGTH_SHORT).show()
+                Log.d("test", "실패$t")
+            }
 
+        })
 
     }
 
@@ -109,13 +130,13 @@ class HomeChurchsignupFragment:Fragment() {
 
         val signupputdata = view.findViewById<Button>(R.id.home_sendinfo_tochurch)
 
-        /*
+
 
         signupputdata!!.setOnClickListener {
             signupsavepref()
         }
 
-         */
+
 
         val signupbtnDatetext = view.findViewById<TextView>(R.id.home_date_textView)
         val signupbtnStartDate = view.findViewById<LinearLayout>(R.id.home_userdate_box)

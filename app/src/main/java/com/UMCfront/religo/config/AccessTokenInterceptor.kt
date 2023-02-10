@@ -12,7 +12,7 @@ class AccessTokenInterceptor : Interceptor {
 //        if (jwtToken != null) {
 //
 //        }
-        builder.addHeader("Authorization","Bearer "+"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWxpZTA5NjQ0QG5hdmVyLmNvbSIsInJvbGUiOiJST0xFX1VTRVIiLCJpZCI6MjcsImV4cCI6MTY3NTM1MTI4NX0.ZUSyKidVvRFhmBKEdTE_SPoeKZAATnK9SXi2m_xq2jo")
+        builder.addHeader("Authorization","Bearer "+"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOm51bGwsInJvbGUiOiJST0xFX1VTRVIiLCJpZCI6NDQsImV4cCI6MTY3NjA3MDM4NH0.22pngGc7TC8P84PixWIcrS1eBNho3GCxKN0i4oYj6t8")
 
         return chain.proceed(builder.build())
     }
