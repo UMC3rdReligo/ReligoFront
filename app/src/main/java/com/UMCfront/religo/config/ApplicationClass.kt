@@ -34,7 +34,7 @@ class ApplicationClass : Application() {
         super.onCreate()
 
         // 카카오 소셜로그인
-        //KakaoSdk.init(this, "6b4c422835c948c8624f39254f00aa31")
+        KakaoSdk.init(this, "6b4c422835c948c8624f39254f00aa31")
 
         SharedPreferences =
             applicationContext.getSharedPreferences("JWT", MODE_PRIVATE)

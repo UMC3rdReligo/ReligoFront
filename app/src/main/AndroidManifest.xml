@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.UMCfront.religo">
+    package="com.UMCfront.religo" >
     <!-- 인터넷 사용 권한 설정 -->
     <uses-permission android:name="android.permission.INTERNET" /> <!-- 인터넷 연결 확인 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:name=".config.ApplicationClass"
         android:allowBackup="true"
@@ -16,26 +17,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Religo"
         android:usesCleartextTraffic="true"
-        tools:targetApi="31">
-
-        <activity
-            android:name=".src.menu.test.KakaoAccessTokenTest"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+        tools:targetApi="31" >
 
         <!-- splash화면 -->
         <activity
             android:name=".src.menu.SplashActivity"
-            android:exported="true">
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
 
-        <!-- Kakao 로그인 (수정 예정)
+        <!-- Kakao 로그인 (수정 예정) -->
         <activity
             android:name=".src.menu.LoginActivity"
             android:exported="true">
@@ -46,36 +43,33 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data
                     android:host="oauth"
                     android:scheme="@string/kakao_app_key2" />
             </intent-filter>
-        </activity> -->
-
+        </activity>
 
         <!-- 로그인 후, 로딩 페이지 띄움 -->
         <activity
             android:name=".src.menu.LoadingActivity"
-            android:exported="false">
+            android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
+        </activity> <!-- menu 1 ~ 10 페이지 -->
 
-        </activity>
-
-        <!-- menu 1 ~ 10 페이지 -->
         <activity
             android:name=".src.menu.MenuActivity1"
-            android:exported="true">
+            android:exported="true" >
+            <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
+            -->
 
             <meta-data
                 android:name="android.app.lib_name"
@@ -83,100 +77,99 @@
         </activity>
         <activity
             android:name=".src.menu.MenuActivity2"
-            android:exported="false">
+            android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
+        </activity>
 
-        </activity> <!-- menu2에 있는 주소 찾는 Acitivity -->
-
+        <!-- menu2에 있는 주소 찾는 Acitivity -->
         <activity
             android:name=".src.menu.AddressForKotlin1"
-            android:exported="true">
+            android:exported="true" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".src.menu.AddressForKotlin2"
-            android:exported="false">
+            android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".src.menu.MenuActivity3"
-            android:exported="false">
+            android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".src.menu.MenuActivity4"
-            android:exported="false">
+            android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".src.menu.MenuActivity5"
-            android:exported="false">
+            android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".src.menu.MenuActivity6"
-            android:exported="false">
+            android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".src.menu.MenuActivity7"
-            android:exported="false">
+            android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".src.menu.MenuActivity8"
-            android:exported="false">
+            android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".src.menu.MenuActivity9"
-            android:exported="false">
+            android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".src.menu.MenuActivity10"
-            android:exported="false">
+            android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-
         </activity>
         <!-- (joy/장은세) ↑ 여기 위에 ↑ 까지 menu 페이지입니다! -->
 
+
         <activity
             android:name=".src.main.MainActivity"
-            android:exported="true">
-
-
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
 
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
     </application>
+
 </manifest>
