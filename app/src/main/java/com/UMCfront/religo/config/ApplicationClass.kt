@@ -21,13 +21,17 @@ class ApplicationClass : Application() {
         // JWT Token Header 키 값
         // val X_ACCESS_TOKEN = "X-ACCESS-TOKEN"
 
+        // sharedPreferences에 저장된 값 가져오는 함수
+        fun getString(key: String, defValue: String):String{
+            return SharedPreferences.getString(key,defValue).toString()
+        }
+
         // Retrofit 인스턴스, 앱 실행시 한번만 생성하여 사용합니다.
         lateinit var sRetrofit: Retrofit
     }
     // 앱이 처음 생성되는 순간, SP를 새로 만들어주고, 레트로핏 인스턴스를 생성합니다.
     override fun onCreate() {
         super.onCreate()
-
 
         // 카카오 소셜로그인
         KakaoSdk.init(this, "6b4c422835c948c8624f39254f00aa31")
