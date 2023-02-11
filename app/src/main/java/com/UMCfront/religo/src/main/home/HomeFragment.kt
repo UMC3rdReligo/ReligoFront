@@ -15,6 +15,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.UMCfront.religo.R
 import com.UMCfront.religo.config.ApplicationClass
 import com.UMCfront.religo.src.main.MainActivity
+import com.UMCfront.religo.src.main.church.HomeChurchsignupFragment
 import com.UMCfront.religo.src.main.church.HomechurchinfoFragment
 import com.UMCfront.religo.src.main.community.CommunityAllFragment
 import com.UMCfront.religo.src.main.community.adapter.CommunityRVAdapter1

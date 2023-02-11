@@ -20,9 +20,10 @@ import com.UMCfront.religo.src.main.MainActivity
 import com.UMCfront.religo.src.main.church.data.HomeSignupRetorfitInterface
 import com.UMCfront.religo.src.main.church.data.model.ChurchSignup
 import com.UMCfront.religo.src.main.church.data.model.ChurchSignupResult
+import com.UMCfront.religo.src.main.home.HomeFragment
 import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.Response
-import javax.security.auth.callback.Callback
 
 class HomeChurchsignupFragment:Fragment() {
 
@@ -35,27 +36,31 @@ class HomeChurchsignupFragment:Fragment() {
         // Inflate the layout for this fragment
 
 
-
-
-
+//        val churchId2= requireArguments().getInt("churchId")
+//
+//        Log.d("p101test", "$churchId2")
+        Log.d("p101test","123")
 
         return inflater.inflate(R.layout.fragment_home_churchsignup, container, false)
     }
 
     @SuppressLint("UseRequireInsteadOfGet")
     private fun signupsavepref(){
-        val SharedPreferences = context!!.getSharedPreferences("try_settiongs", Context.MODE_PRIVATE)
-        val editor = SharedPreferences.edit()
+
+        Log.d("p101test", "1")
+
 
 
         val signname = view!!.findViewById<EditText>(R.id.home_username_signup_textView)
         val signnumber = view!!.findViewById<EditText>(R.id.home_usernumber_signup_textView)
-        val signbirth = view!!.findViewById<EditText>(R.id.home_birth_signup_textView)
+        val signbirth = view!!.findViewById<TextView>(R.id.home_birth_signup_textView)
         val signlocate = view!!.findViewById<EditText>(R.id.home_location_signup_textView)
         val signemail = view!!.findViewById<EditText>(R.id.home_email_signup_textView)
         val signemaillast = view!!.findViewById<Spinner>(R.id.home_email_signup_emailafter_Spinner)
         val signguid = view!!.findViewById<EditText>(R.id.home_guide_signup_textView)
-        val signdate = view!!.findViewById<EditText>(R.id.home_date_textView)
+        val signdate = view!!.findViewById<TextView>(R.id.home_date_textView)
+
+        Log.d("p101test", "2")
 
 
         val churchSignupinfo = ChurchSignupResult(
@@ -69,21 +74,36 @@ class HomeChurchsignupFragment:Fragment() {
             signdate.text.toString(),
         )
 
+        Log.d("p101test", "3")
+
+
 
         val retrofit = ApplicationClass.sRetrofit
+        Log.d("p101test", "4")
+
         val churchSignupService = retrofit.create(HomeSignupRetorfitInterface::class.java)
-        churchSignupService.sendUserSignup(churchSignupinfo).enqueue(object : retrofit2.Callback<ChurchSignup> {
+        Log.d("p101test", "5")
+
+
+        val churchId=43
+        Log.d("p101test", "6")
+
+
+        churchSignupService.sendUserSignup(churchId,churchSignupinfo).enqueue(object :
+            Callback<ChurchSignup> {
             override fun onResponse(call: Call<ChurchSignup>, response: Response<ChurchSignup>) {
+                Log.d("p101test", "5")
+
                 if (response.isSuccessful) {
 //                    Toast.makeText(getActivity(),response.body().toString(),Toast.LENGTH_SHORT).show()
-                    Log.d("test", response.body().toString())
+                    Log.d("p101test", response.body().toString())
                        var data = response.body() // GsonConverter를 사용해 데이터매핑
                 }
             }
 
             override fun onFailure(call: Call<ChurchSignup>, t: Throwable) {
 //                Toast.makeText(getActivity(),"fail",Toast.LENGTH_SHORT).show()
-                Log.d("test", "실패$t")
+                Log.d("p102test", "실패$t")
             }
 
         })
@@ -91,9 +111,18 @@ class HomeChurchsignupFragment:Fragment() {
     }
 
 
+    companion object {
+        fun newInstance(): HomeChurchsignupFragment {
+            return HomeChurchsignupFragment()
+        }
+    }
+
+
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
 
 
         val churchninfosignupback = requireView().findViewById<ImageView>(R.id.home_churchnifo_churchsignupback_btn)
@@ -129,8 +158,6 @@ class HomeChurchsignupFragment:Fragment() {
 
 
         val signupputdata = view.findViewById<Button>(R.id.home_sendinfo_tochurch)
-
-
 
         signupputdata!!.setOnClickListener {
             signupsavepref()
@@ -177,5 +204,5 @@ class HomeChurchsignupFragment:Fragment() {
 
     }
 
-
 }
+

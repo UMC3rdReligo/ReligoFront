@@ -1,5 +1,6 @@
 package com.UMCfront.religo.src.main.church
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -7,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.UMCfront.religo.R
@@ -31,9 +33,6 @@ class HomechurchinfoFragment : Fragment() {
     ): View? {
 
 
-
-
-
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home_churchinfo, container, false)
     }
@@ -51,6 +50,7 @@ class HomechurchinfoFragment : Fragment() {
 
         churchService.getChurchDetail(churchId).enqueue(object :retrofit2.Callback<ChurchDetailResponse> {
 
+            @SuppressLint("ResourceType")
             override fun onResponse(
                 call: Call<ChurchDetailResponse>,
                 response: Response<ChurchDetailResponse>
@@ -80,10 +80,12 @@ class HomechurchinfoFragment : Fragment() {
                 val churchsignup = view.findViewById<Button>(R.id.home_churchsignup_button)
                 val gotohomefromchurchinfo = view.findViewById<ImageView>(R.id.churchinfo_backbtn_imageView)
 
-                //homefrag로 이동
+                    //homefrag로 이동
                 gotohomefromchurchinfo.setOnClickListener {
                     (activity as MainActivity?)?.changeFragment(HomeFragment())
                 }
+
+
 
                 //1회 방문 frag로 이동
                 churchtry!!.setOnClickListener {
@@ -91,11 +93,16 @@ class HomechurchinfoFragment : Fragment() {
                     //jungmin
                     bundle.putInt("churchId",churchId)
                     HomeChurchtryFragment().arguments=bundle
+
                     (activity as MainActivity?)?.changeFragment(HomeChurchtryFragment())
                 }
 
                 //가입하기 frag로 이동
                 churchsignup!!.setOnClickListener {
+                    val bundle=Bundle()
+                    //jungmin
+                    bundle.putInt("churchId",churchId)
+                    HomeChurchtryFragment().arguments=bundle
                     (activity as MainActivity?)?.changeFragment(HomeChurchsignupFragment())
                 }
 
