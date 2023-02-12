@@ -1,5 +1,8 @@
 package com.UMCfront.religo.src.main.church
 
+import android.annotation.SuppressLint
+import android.content.Context.MODE_PRIVATE
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -7,15 +10,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.UMCfront.religo.R
 import com.UMCfront.religo.config.ApplicationClass
+import com.UMCfront.religo.config.ApplicationClass.Companion.SPEditor
+import com.UMCfront.religo.config.ApplicationClass.Companion.SharedPreferences
 import com.UMCfront.religo.src.main.MainActivity
 import com.UMCfront.religo.src.main.church.adapter.ChurchDetailAdapter
 import com.UMCfront.religo.src.main.church.data.ChurchDetailRetrofitService
 import com.UMCfront.religo.src.main.church.data.model.ChurchDetailResponse
 import com.UMCfront.religo.src.main.home.HomeFragment
+import com.navercorp.nid.NaverIdLoginSDK.applicationContext
 import retrofit2.Call
 import retrofit2.Response
 
@@ -29,9 +36,6 @@ class HomechurchinfoFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-
-
 
 
         // Inflate the layout for this fragment
@@ -51,6 +55,7 @@ class HomechurchinfoFragment : Fragment() {
 
         churchService.getChurchDetail(churchId).enqueue(object :retrofit2.Callback<ChurchDetailResponse> {
 
+            @SuppressLint("ResourceType")
             override fun onResponse(
                 call: Call<ChurchDetailResponse>,
                 response: Response<ChurchDetailResponse>
@@ -80,22 +85,43 @@ class HomechurchinfoFragment : Fragment() {
                 val churchsignup = view.findViewById<Button>(R.id.home_churchsignup_button)
                 val gotohomefromchurchinfo = view.findViewById<ImageView>(R.id.churchinfo_backbtn_imageView)
 
-                //homefrag로 이동
+                    //homefrag로 이동
                 gotohomefromchurchinfo.setOnClickListener {
                     (activity as MainActivity?)?.changeFragment(HomeFragment())
                 }
+
+
+
+               SPEditor.putInt("churchId",churchId).apply()
+                SPEditor.putString("purchname",churchName.text.toString()).apply()
+                val editor : SharedPreferences.Editor = SPEditor // 데이터 기록을 위한 editor
+                editor.commit()
+//
+                val value1 = SharedPreferences.getInt("churchId",0)
+                val value2 = SharedPreferences.getString("purchname",null)
+                Log.d("p101test",value1.toString())
+                Log.d("p101test",value2.toString())
+
+//
+
 
                 //1회 방문 frag로 이동
                 churchtry!!.setOnClickListener {
                     val bundle=Bundle()
                     //jungmin
-                    bundle.putInt("churchId",churchId)
-                    HomeChurchtryFragment().arguments=bundle
+//                    bundle.putInt("churchId",churchId)
+//                    HomeChurchtryFragment().arguments = bundle
+
                     (activity as MainActivity?)?.changeFragment(HomeChurchtryFragment())
                 }
 
                 //가입하기 frag로 이동
                 churchsignup!!.setOnClickListener {
+                    val bundle=Bundle()
+                    //jungmin
+//                    bundle.putInt("churchId",churchId)
+//                    Log.d("p101test","$churchId")
+//                    HomeChurchtryFragment().arguments= bundle
                     (activity as MainActivity?)?.changeFragment(HomeChurchsignupFragment())
                 }
 

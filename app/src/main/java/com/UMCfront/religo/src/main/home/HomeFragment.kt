@@ -15,6 +15,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.UMCfront.religo.R
 import com.UMCfront.religo.config.ApplicationClass
 import com.UMCfront.religo.src.main.MainActivity
+import com.UMCfront.religo.src.main.church.HomeChurchsignupFragment
 import com.UMCfront.religo.src.main.church.HomechurchinfoFragment
 import com.UMCfront.religo.src.main.community.CommunityAllFragment
 import com.UMCfront.religo.src.main.community.adapter.CommunityRVAdapter1
@@ -110,6 +111,8 @@ class HomeFragment : Fragment(){
                         val bundle:Bundle=Bundle()
                         bundle.putInt("churchId",churchRecommendList[position].church1.churchId)
                         homechurchinfoFragment.arguments=bundle
+                        HomeChurchsignupFragment().arguments=bundle
+
                         Log.d("home3.5","dd")
                         (activity as MainActivity?)?.changeFragment(homechurchinfoFragment)
                     }
@@ -119,6 +122,7 @@ class HomeFragment : Fragment(){
                         val bundle:Bundle=Bundle()
                         bundle.putInt("churchId",churchRecommendList[position].church2.churchId)
                         homechurchinfoFragment.arguments=bundle
+                        HomeChurchsignupFragment().arguments=bundle
                         (activity as MainActivity?)?.changeFragment(homechurchinfoFragment)
                     }
                 }
