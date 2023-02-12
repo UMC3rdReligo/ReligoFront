@@ -9,6 +9,12 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.UMCfront.religo.R
+import com.UMCfront.religo.config.ApplicationClass
+import com.UMCfront.religo.src.main.church.data.ChurchDetailRetrofitService
+import com.UMCfront.religo.src.main.church.data.model.ChurchDetailResponse
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MypageMychurchtry : Fragment() {
 
@@ -27,17 +33,67 @@ class MypageMychurchtry : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        Log.d("p101test","1")
-        var MypageMychurchAdapter= mutableListOf<String>()
-        MypageMychurchAdapter.add("church1")
-        MypageMychurchAdapter.add("church2")
-        MypageMychurchAdapter.add("church3")
+        val retrofit = ApplicationClass.sRetrofit
+        val mychurchtryService = retrofit.create(MypageChurchtryResposeRetrofitInterface::class.java)
+        val churchService=retrofit.create(ChurchDetailRetrofitService::class.java)
+        var MypageMychurchtryAdapter= mutableListOf<String>()
 
-        val mychurchsignup= view.findViewById<RecyclerView>(R.id.mypage_churchtry_recyclerview)
-        val mychurchsignupAdapter= MypageMychurchAdapter(MypageMychurchAdapter)
-        mychurchsignup.adapter=mychurchsignupAdapter
-        mychurchsignup.layoutManager= LinearLayoutManager(this.context)
-        Log.d("p101test","1011")
+
+        mychurchtryService.getMypageChurchtry().enqueue(
+            object : Callback<MypageChurchtryResopnse> {
+                override fun onResponse(
+                    call: Call<MypageChurchtryResopnse>,
+                    response: Response<MypageChurchtryResopnse>
+                ) {
+                    if (response.isSuccessful) {
+//                    Toast.makeText(getActivity(),response.body().toString(),Toast.LENGTH_SHORT).show()
+
+                        Log.d("p1011test", response.body().toString())
+                        var data = response.body() as MypageChurchtryResopnse// GsonConverter를 사용해 데이터매핑
+                        Log.d("p1011test", data.result.count().toString())
+                        for(i in 0 .. (data.result.count()-1))with(churchService){
+
+                            getChurchDetail(data.result[i].churchId).enqueue(object :retrofit2.Callback<ChurchDetailResponse> {
+
+                                override fun onResponse(
+                                    call: Call<ChurchDetailResponse>,
+                                    response: Response<ChurchDetailResponse>
+                                ) {
+
+                                    val res = response.body() as ChurchDetailResponse
+                                    var info = res.result.info.name
+                                    MypageMychurchtryAdapter.add(info)
+                                    Log.d("p1011test",MypageMychurchtryAdapter.toString()+i)
+
+                                    if(i==data.result.count()-1){
+                                        Log.d("p1011test",MypageMychurchtryAdapter.toString())
+                                        val mychurchtry = view.findViewById<RecyclerView>(R.id.mypage_churchtry_recyclerview)
+                                        val mychurchtryAdapter = MypageMychurchAdapter(MypageMychurchtryAdapter)
+                                        mychurchtry.adapter = mychurchtryAdapter
+                                        mychurchtry.layoutManager = LinearLayoutManager(getActivity())
+                                    }
+
+                                }
+                                override fun onFailure(
+                                    call: Call<ChurchDetailResponse>,
+                                    t: Throwable
+                                ) {
+                                    Log.d("p1011test", "실패$t")
+                                }
+                            })
+
+                        }
+
+                    }
+                }
+                override fun onFailure(call: Call<MypageChurchtryResopnse>, t: Throwable) {
+                    Log.d("p103test", "실패$t")
+                }
+
+            }
+        )
+
+
 
     }
 

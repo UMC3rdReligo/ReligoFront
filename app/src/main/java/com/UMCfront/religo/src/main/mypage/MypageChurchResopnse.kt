@@ -4,13 +4,36 @@ import com.UMCfront.religo.src.main.church.data.model.ChurchDetailResult
 
 data class MypageChurchResopnse(
 
-
     val isSuccess: Boolean,
     val code: Int,
     val message: String,
     val result: MypageChurchRegister
 
 )
+
+
+data class MypageChurchtryResopnse(
+
+
+    val isSuccess: Boolean,
+    val code: Int,
+    val message: String,
+    val result: List<MypageChurchtryRegister>
+
+)
+
+data class MypageChurchtryRegister(
+    val id: Int,
+    val userId: Int,
+    val churchId: Int,
+    val name: String,
+    val phoneNum: String,
+    val message: String,
+    val scheduledDateTime: String,
+    val createdAt : String
+
+    )
+
 
 data class MypageChurchRegister(
 
