@@ -75,8 +75,7 @@ class MypageMychurchsignup: Fragment() {
                                     val mychurchsignupAdapter =
                                         MypageMychurchAdapter(MypageMychurchAdapter)
                                     mychurchsignup.adapter = mychurchsignupAdapter
-                                    mychurchsignup.layoutManager =
-                                        LinearLayoutManager(getActivity())
+                                    mychurchsignup.layoutManager = LinearLayoutManager(getActivity())
                                 }
 
                                 override fun onFailure(

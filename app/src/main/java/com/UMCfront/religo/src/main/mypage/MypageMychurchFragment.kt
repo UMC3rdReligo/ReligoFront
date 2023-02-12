@@ -11,6 +11,8 @@ import androidx.viewpager2.widget.ViewPager2
 import com.UMCfront.religo.R
 import com.UMCfront.religo.config.ApplicationClass
 import com.UMCfront.religo.src.main.church.data.ChurchDetailRetrofitService
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 
 class MypageMychurchFragment: Fragment() {
 
@@ -38,6 +40,14 @@ class MypageMychurchFragment: Fragment() {
         mypagerAdapter.addFragment(MypageMychurchsigned())
         mychurch_viewpager.adapter = mypagerAdapter
 
+        TabLayoutMediator(view.findViewById<TabLayout>(R.id.tl_navigation_view),mychurch_viewpager) { tab, position ->
+            Log.e("p101test", "ViewPager position: ${position}")
+            when (position) {
+                0 -> tab.text = "1회 체험"
+                1 -> tab.text = "승인 대기"
+                2 -> tab.text = "가입한 교회"
+            }
+        }.attach()
 
     }
 
