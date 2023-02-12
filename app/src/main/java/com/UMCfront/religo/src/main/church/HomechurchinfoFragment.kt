@@ -1,6 +1,8 @@
 package com.UMCfront.religo.src.main.church
 
 import android.annotation.SuppressLint
+import android.content.Context.MODE_PRIVATE
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -13,11 +15,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.UMCfront.religo.R
 import com.UMCfront.religo.config.ApplicationClass
+import com.UMCfront.religo.config.ApplicationClass.Companion.SPEditor
+import com.UMCfront.religo.config.ApplicationClass.Companion.SharedPreferences
 import com.UMCfront.religo.src.main.MainActivity
 import com.UMCfront.religo.src.main.church.adapter.ChurchDetailAdapter
 import com.UMCfront.religo.src.main.church.data.ChurchDetailRetrofitService
 import com.UMCfront.religo.src.main.church.data.model.ChurchDetailResponse
 import com.UMCfront.religo.src.main.home.HomeFragment
+import com.navercorp.nid.NaverIdLoginSDK.applicationContext
 import retrofit2.Call
 import retrofit2.Response
 
@@ -87,12 +92,25 @@ class HomechurchinfoFragment : Fragment() {
 
 
 
+               SPEditor.putInt("churchId",churchId).apply()
+                SPEditor.putString("purchname",churchName.text.toString()).apply()
+                val editor : SharedPreferences.Editor = SPEditor // 데이터 기록을 위한 editor
+                editor.commit()
+//
+                val value1 = SharedPreferences.getInt("churchId",0)
+                val value2 = SharedPreferences.getString("purchname",null)
+                Log.d("p101test",value1.toString())
+                Log.d("p101test",value2.toString())
+
+//
+
+
                 //1회 방문 frag로 이동
                 churchtry!!.setOnClickListener {
                     val bundle=Bundle()
                     //jungmin
-                    bundle.putInt("churchId",churchId)
-                    HomeChurchtryFragment().arguments=bundle
+//                    bundle.putInt("churchId",churchId)
+//                    HomeChurchtryFragment().arguments = bundle
 
                     (activity as MainActivity?)?.changeFragment(HomeChurchtryFragment())
                 }
@@ -101,8 +119,9 @@ class HomechurchinfoFragment : Fragment() {
                 churchsignup!!.setOnClickListener {
                     val bundle=Bundle()
                     //jungmin
-                    bundle.putInt("churchId",churchId)
-                    HomeChurchtryFragment().arguments=bundle
+//                    bundle.putInt("churchId",churchId)
+//                    Log.d("p101test","$churchId")
+//                    HomeChurchtryFragment().arguments= bundle
                     (activity as MainActivity?)?.changeFragment(HomeChurchsignupFragment())
                 }
 

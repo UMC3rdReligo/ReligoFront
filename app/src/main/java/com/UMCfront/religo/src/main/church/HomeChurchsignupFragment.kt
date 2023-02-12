@@ -2,7 +2,8 @@ package com.UMCfront.religo.src.main.church
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
-import android.content.Context
+import android.content.Context.MODE_PRIVATE
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.icu.util.Calendar
 import android.os.Build
@@ -20,10 +21,11 @@ import com.UMCfront.religo.src.main.MainActivity
 import com.UMCfront.religo.src.main.church.data.HomeSignupRetorfitInterface
 import com.UMCfront.religo.src.main.church.data.model.ChurchSignup
 import com.UMCfront.religo.src.main.church.data.model.ChurchSignupResult
-import com.UMCfront.religo.src.main.home.HomeFragment
+import com.navercorp.nid.NaverIdLoginSDK.applicationContext
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+
 
 class HomeChurchsignupFragment:Fragment() {
 
@@ -33,21 +35,13 @@ class HomeChurchsignupFragment:Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
 
-
-//        val churchId2= requireArguments().getInt("churchId")
-//
-//        Log.d("p101test", "$churchId2")
-        Log.d("p101test","123")
 
         return inflater.inflate(R.layout.fragment_home_churchsignup, container, false)
     }
 
     @SuppressLint("UseRequireInsteadOfGet")
     private fun signupsavepref(){
-
-        Log.d("p101test", "1")
 
 
 
@@ -60,7 +54,6 @@ class HomeChurchsignupFragment:Fragment() {
         val signguid = view!!.findViewById<EditText>(R.id.home_guide_signup_textView)
         val signdate = view!!.findViewById<TextView>(R.id.home_date_textView)
 
-        Log.d("p101test", "2")
 
 
         val churchSignupinfo = ChurchSignupResult(
@@ -74,19 +67,14 @@ class HomeChurchsignupFragment:Fragment() {
             signdate.text.toString(),
         )
 
-        Log.d("p101test", "3")
 
 
 
         val retrofit = ApplicationClass.sRetrofit
-        Log.d("p101test", "4")
-
         val churchSignupService = retrofit.create(HomeSignupRetorfitInterface::class.java)
-        Log.d("p101test", "5")
+        val churchId = ApplicationClass.SharedPreferences.getInt("churchId",0)
 
 
-        val churchId=43
-        Log.d("p101test", "6")
 
 
         churchSignupService.sendUserSignup(churchId,churchSignupinfo).enqueue(object :
@@ -111,11 +99,6 @@ class HomeChurchsignupFragment:Fragment() {
     }
 
 
-    companion object {
-        fun newInstance(): HomeChurchsignupFragment {
-            return HomeChurchsignupFragment()
-        }
-    }
 
 
     @RequiresApi(Build.VERSION_CODES.N)
@@ -123,17 +106,21 @@ class HomeChurchsignupFragment:Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
+//        val value1 = ApplicationClass.SharedPreferences.getInt("churchId",0)
+//        val value2 = ApplicationClass.SharedPreferences.getString("purchname",null)
+//        Log.d("p101test",value1.toString())
+//        Log.d("p101test",value2.toString())
 
+//        val churchname = requireView().findViewById<TextView>(R.id.church_signup_title)
+//        churchname.text  = value2.toString()
 
         val churchninfosignupback = requireView().findViewById<ImageView>(R.id.home_churchnifo_churchsignupback_btn)
         churchninfosignupback.setOnClickListener {
             (activity as MainActivity?)?.changeFragment(HomechurchinfoFragment())
-
         }
 
         val spinner = requireView().findViewById<Spinner>(R.id.home_email_signup_emailafter_Spinner)
         spinner?.adapter = ArrayAdapter(activity?.applicationContext!!, R.layout.churchinfo_spinner_text, emailitems) as SpinnerAdapter
-
 
 
         spinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
@@ -204,5 +191,10 @@ class HomeChurchsignupFragment:Fragment() {
 
     }
 
+    companion object {
+        fun newInstance(): HomeChurchsignupFragment {
+            return HomeChurchsignupFragment()
+        }
+    }
 }
 

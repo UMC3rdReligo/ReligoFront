@@ -111,6 +111,8 @@ class HomeFragment : Fragment(){
                         val bundle:Bundle=Bundle()
                         bundle.putInt("churchId",churchRecommendList[position].church1.churchId)
                         homechurchinfoFragment.arguments=bundle
+                        HomeChurchsignupFragment().arguments=bundle
+
                         Log.d("home3.5","dd")
                         (activity as MainActivity?)?.changeFragment(homechurchinfoFragment)
                     }
@@ -120,6 +122,7 @@ class HomeFragment : Fragment(){
                         val bundle:Bundle=Bundle()
                         bundle.putInt("churchId",churchRecommendList[position].church2.churchId)
                         homechurchinfoFragment.arguments=bundle
+                        HomeChurchsignupFragment().arguments=bundle
                         (activity as MainActivity?)?.changeFragment(homechurchinfoFragment)
                     }
                 }

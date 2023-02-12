@@ -17,14 +17,13 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import com.UMCfront.religo.R
 import com.UMCfront.religo.src.main.MainActivity
+import com.UMCfront.religo.src.main.home.HomeFragment
 
 
 class HomeChurchtryFragment :Fragment(){
 
 
-    var dateString = ""
 
-    @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -32,13 +31,13 @@ class HomeChurchtryFragment :Fragment(){
 
         //jungmin
         //번들에서 교회 이름가져오기
-        val churchId=requireArguments().getInt("churchId")
-
-        Log.d("p101test", "$churchId")
-
-
-
-        val view=inflater.inflate(R.layout.fragment_home_churchtry, container, false)
+//        val churchId=requireArguments().getInt("churchId")
+//
+//        Log.d("p101test", "$churchId")
+//
+//
+//
+//        val view=inflater.inflate(R.layout.fragment_home_churchtry, container, false)
 
 
             // Inflate the layout for this fragment
@@ -59,7 +58,6 @@ class HomeChurchtryFragment :Fragment(){
 
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
 
         //뒤로가기 버튼
         val churchninfotryback = view.findViewById<ImageView>(R.id.home_churchnifo_churchtryupback_btn)
@@ -90,9 +88,15 @@ class HomeChurchtryFragment :Fragment(){
             },year,month,day)
             datePickerDialog.show()
         }
-
+        super.onViewCreated(view, savedInstanceState)
     }
 
+
+    companion object {
+        fun newInstance(): HomeChurchtryFragment {
+            return HomeChurchtryFragment()
+        }
+    }
 
 
 
