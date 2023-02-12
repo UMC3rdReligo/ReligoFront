@@ -92,7 +92,7 @@ class HomechurchinfoFragment : Fragment() {
 
 
 
-               SPEditor.putInt("churchId",churchId).apply()
+                SPEditor.putInt("churchId",churchId).apply()
                 SPEditor.putString("purchname",churchName.text.toString()).apply()
                 val editor : SharedPreferences.Editor = SPEditor // 데이터 기록을 위한 editor
                 editor.commit()

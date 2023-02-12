@@ -31,8 +31,13 @@
             android:layout_height="wrap_content"
             android:text="서울특별시 양천구 목동 중안본로 51-16"
             />
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="10dp"
+            android:layout_weight="1"/>
 
         <TextView
+            android:textSize="10sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="가입승인:2023년 01월 25일"

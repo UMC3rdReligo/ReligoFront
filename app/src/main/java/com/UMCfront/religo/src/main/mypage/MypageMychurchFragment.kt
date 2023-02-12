@@ -1,12 +1,16 @@
 package com.UMCfront.religo.src.main.mypage
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.UMCfront.religo.R
+import com.UMCfront.religo.config.ApplicationClass
+import com.UMCfront.religo.src.main.church.data.ChurchDetailRetrofitService
 
 class MypageMychurchFragment: Fragment() {
 
@@ -26,13 +30,14 @@ class MypageMychurchFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val mychurch_viewpager = view.findViewById<ViewPager2>(R.id.mypage_mychurch_viewpager)
         val mypagerAdapter = MypageMychurchPagerAdapter(this)
-        mypagerAdapter.addFragment(MypageFragment())
-        mypagerAdapter.addFragment(MypageFragment())
-        mypagerAdapter.addFragment(MypageFragment())
-
+        mypagerAdapter.addFragment(MypageMychurchtry())
+        mypagerAdapter.addFragment(MypageMychurchsignup())
+        mypagerAdapter.addFragment(MypageMychurchsigned())
         mychurch_viewpager.adapter = mypagerAdapter
+
 
     }
 
