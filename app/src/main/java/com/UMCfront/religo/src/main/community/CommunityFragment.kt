@@ -100,7 +100,7 @@ class CommunityFragment : Fragment() {
                 response: Response<CommunityArticleResponse>
             ) {
                 val res=response.body() as CommunityArticleResponse
-                Log.d("home2",res.result.size.toString())
+                System.out.println(res)
                 communityAllArticleList.clear()
 
                 for(item in res.result){

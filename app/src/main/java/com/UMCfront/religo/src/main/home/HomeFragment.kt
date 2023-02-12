@@ -25,9 +25,11 @@ import com.UMCfront.religo.src.main.home.adapter.HomeViewPagerAdapter
 import com.UMCfront.religo.src.main.home.adapter.HomeViewPagerAdapter2
 import com.UMCfront.religo.src.main.home.data.ChurchRecommendRetrofitService
 import com.UMCfront.religo.src.main.home.data.HomeCommunityRetrofitService
+import com.UMCfront.religo.src.main.home.data.HomeEventRetrofitService
 import com.UMCfront.religo.src.main.home.data.HomeUserInfoRetrofitInterface
 import com.UMCfront.religo.src.main.home.data.model.ChurchRecommendResponse
 import com.UMCfront.religo.src.main.home.data.model.HomeCommunityResponse
+import com.UMCfront.religo.src.main.home.data.model.HomeEventResponse
 import com.UMCfront.religo.src.main.home.data.model.HomeUserInfoResponse
 import retrofit2.Call
 import retrofit2.Response
@@ -171,9 +173,30 @@ class HomeFragment : Fragment(){
         homeEventList.add(HomeEventDetail("부활절 행사","서울특별시 양천 목동 중앙본로  51-16","https://mblogthumb-phinf.pstatic.net/MjAxODAzMjlfNDgg/MDAxNTIyMzI2ODE5MTkx.qDy6e-7CD8o7a3bbozdVX3c3X7d4BEuzZ_kHgz3LWTYg.KBcLyTPcBAB0IsetRbUAqkQuKHfLZ2cS0yBFL7BJnCUg.JPEG.myday5676/18-03-29-21-33-04-226_deco.jpg?type=w800"))
 
 
+        // 이벤트
+        val eventService=retrofit.create(HomeEventRetrofitService::class.java)
+        eventService.getHomeEvent().enqueue(object :retrofit2.Callback<HomeEventResponse>{
+            override fun onResponse(
+                call: Call<HomeEventResponse>,
+                response: Response<HomeEventResponse>
+            ) {
+                val res=response.body() as HomeEventResponse
 
-        val eventViewPager=view.findViewById<ViewPager2>(R.id.home_event_all_view_pager)
-        eventViewPager.adapter=HomeViewPagerAdapter2(homeEventList)
+                homeEventList.clear()
+
+                for(item in res.result.infos){
+                    homeEventList.add(HomeEventDetail(item.eventName,item.location,item.eventImage[0]))
+                }
+                val eventViewPager=view.findViewById<ViewPager2>(R.id.home_event_all_view_pager)
+                eventViewPager.adapter=HomeViewPagerAdapter2(homeEventList)
+            }
+
+            override fun onFailure(call: Call<HomeEventResponse>, t: Throwable) {
+                Toast.makeText(context,"연결 오류",Toast.LENGTH_LONG).show()
+            }
+        })
+
+
 
 
         return view
