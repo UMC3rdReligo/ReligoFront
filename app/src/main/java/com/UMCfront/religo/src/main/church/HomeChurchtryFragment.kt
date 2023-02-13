@@ -16,15 +16,23 @@ import androidx.annotation.RequiresApi
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import com.UMCfront.religo.R
+import com.UMCfront.religo.config.ApplicationClass
 import com.UMCfront.religo.src.main.MainActivity
+import com.UMCfront.religo.src.main.church.data.HomeSignupRetorfitInterface
+import com.UMCfront.religo.src.main.church.data.HometryRetrofitInterface
+import com.UMCfront.religo.src.main.church.data.model.ChurchSignup
+import com.UMCfront.religo.src.main.church.data.model.ChurchSignupResult
+import com.UMCfront.religo.src.main.church.data.model.ChurchtryResult
+import com.UMCfront.religo.src.main.home.HomeFragment
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class HomeChurchtryFragment :Fragment(){
 
 
-    var dateString = ""
 
-    @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -32,11 +40,13 @@ class HomeChurchtryFragment :Fragment(){
 
         //jungmin
         //번들에서 교회 이름가져오기
-        val churchId=requireArguments().getInt("churchId")
-
-
-
-        val view=inflater.inflate(R.layout.fragment_home_churchtry, container, false)
+//        val churchId=requireArguments().getInt("churchId")
+//
+//        Log.d("p101test", "$churchId")
+//
+//
+//
+//        val view=inflater.inflate(R.layout.fragment_home_churchtry, container, false)
 
 
             // Inflate the layout for this fragment
@@ -49,30 +59,42 @@ class HomeChurchtryFragment :Fragment(){
     @RequiresApi(Build.VERSION_CODES.N)
     @SuppressLint("UseRequireInsteadOfGet")
     private fun savepref(){
-        val SharedPreferences = context!!.getSharedPreferences("try_settiongs",Context.MODE_PRIVATE)
-        val editor = SharedPreferences.edit()
-
-        val tryname = view!!.findViewById<EditText>(R.id.home_username_textView)
-        val trynumber = view!!.findViewById<EditText>(R.id.home_usernumber_textView)
-        val trydate = view!!.findViewById<TextView>(R.id.home_date_textView)
 
 
+        val retrofit = ApplicationClass.sRetrofit
+        val churchtryService = retrofit.create(HometryRetrofitInterface::class.java)
+        val churchId = ApplicationClass.SharedPreferences.getInt("churchId",0)
+
+        val signname = view!!.findViewById<EditText>(R.id.home_username_textView)
+        val signnumber = view!!.findViewById<EditText>(R.id.home_usernumber_textView)
+        val signdate = view!!.findViewById<TextView>(R.id.home_date_textView)
 
 
+        val churchtryinfo = ChurchtryResult(
+            signname.text.toString(),
+            signnumber.text.toString(),
+            "새로가입하였습니다",
+            signdate.toString(),
+        )
 
+        churchtryService.sendUsertry(churchId,churchtryinfo).enqueue(object :
+            Callback<ChurchSignup> {
+            override fun onResponse(call: Call<ChurchSignup>, response: Response<ChurchSignup>) {
+                Log.d("p101test", "5")
 
+                if (response.isSuccessful) {
+//                    Toast.makeText(getActivity(),response.body().toString(),Toast.LENGTH_SHORT).show()
+                    Log.d("p101test", response.body().toString())
+                    var data = response.body() // GsonConverter를 사용해 데이터매핑
+                }
+            }
 
+            override fun onFailure(call: Call<ChurchSignup>, t: Throwable) {
+//                Toast.makeText(getActivity(),"fail",Toast.LENGTH_SHORT).show()
+                Log.d("p102test", "실패$t")
+            }
 
-        editor.putString("name",tryname.text.toString())
-        editor.putString("number",trynumber.text.toString())
-        editor.putString("date",trydate.toString())
-
-
-        editor.apply()
-
-        Toast.makeText(getActivity(),tryname.text,Toast.LENGTH_SHORT).show();
-        Toast.makeText(getActivity(),trynumber.text,Toast.LENGTH_SHORT).show();
-        Toast.makeText(getActivity(),trydate.text,Toast.LENGTH_SHORT).show();
+        })
 
 
     }
@@ -81,7 +103,6 @@ class HomeChurchtryFragment :Fragment(){
 
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
 
         //뒤로가기 버튼
         val churchninfotryback = view.findViewById<ImageView>(R.id.home_churchnifo_churchtryupback_btn)
@@ -112,9 +133,15 @@ class HomeChurchtryFragment :Fragment(){
             },year,month,day)
             datePickerDialog.show()
         }
-
+        super.onViewCreated(view, savedInstanceState)
     }
 
+
+    companion object {
+        fun newInstance(): HomeChurchtryFragment {
+            return HomeChurchtryFragment()
+        }
+    }
 
 
 

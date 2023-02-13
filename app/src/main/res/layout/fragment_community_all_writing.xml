@@ -65,7 +65,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/c_writing_top">
 
                 <EditText
-                    android:id="@+id/community_title_input"
+                    android:id="@+id/community_all_title_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
@@ -88,10 +88,10 @@
                     app:layout_constraintTop_toBottomOf="@id/community_title_input">
 
                     <EditText
+                        android:id="@+id/community_all_text_input"
                         android:textSize="10sp"
                         android:inputType="textMultiLine"
                         android:fontFamily="@font/pretendard_regular"
-                        android:id="@+id/community_text_input"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@null"

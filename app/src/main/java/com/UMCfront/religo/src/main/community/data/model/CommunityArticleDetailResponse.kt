@@ -10,5 +10,17 @@ data class CommunityArticleDetailResponse(
 )
 
 data class CommunityArticleDetail(
-    val title:String
+    val title:String,
+    val text:String,
+    val heartCnt:Int,
+    val createdAt:String,
+    val writer:String,
+    val commentCnt:Int,
+    val comments:List<Comments>
+)
+
+data class Comments(
+    val name:String,
+    val text:String,
+    val createdAt: String
 )

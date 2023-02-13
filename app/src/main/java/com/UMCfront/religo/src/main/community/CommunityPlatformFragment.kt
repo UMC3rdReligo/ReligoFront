@@ -12,7 +12,6 @@ import com.UMCfront.religo.config.ApplicationClass
 import com.UMCfront.religo.databinding.FragmentCommunityPlatformBinding
 import com.UMCfront.religo.src.main.MainActivity
 import com.UMCfront.religo.src.main.community.adapter.CommunityAdapterPlatform
-import com.UMCfront.religo.src.main.community.adapter.CommunityGridAdapter
 import com.UMCfront.religo.src.main.community.data.CommunityArticleResponse
 import com.UMCfront.religo.src.main.community.data.CommunityArticleRetrofitInterface
 import retrofit2.Call
@@ -23,6 +22,8 @@ class CommunityPlatformFragment : Fragment() {
     private var _binding: FragmentCommunityPlatformBinding? = null
     private val binding get() = _binding!!
     var communityPlatformList= mutableListOf<CommunityPlatformDetail>()
+
+
 
 
     override fun onCreateView(
@@ -38,6 +39,8 @@ class CommunityPlatformFragment : Fragment() {
         val retrofit= ApplicationClass.sRetrofit
         val communityChurchService=retrofit.create(CommunityArticleRetrofitInterface::class.java)
 
+        //val platformCode=requireArguments().getString("platformCode")
+
         communityChurchService.getCommunityPlatform("PA1").enqueue(object :retrofit2.Callback<CommunityArticleResponse>{
             override fun onResponse(
                 call: Call<CommunityArticleResponse>,
@@ -50,6 +53,7 @@ class CommunityPlatformFragment : Fragment() {
                 for(item in res.result){
                     communityPlatformList.add(
                         CommunityPlatformDetail(
+                            item.articleId,
                             item.title,
                             item.text,
                             item.heartCnt
@@ -81,7 +85,11 @@ class CommunityPlatformFragment : Fragment() {
                 // 글 클릭 구현
                 communityAdapter.itemClick=object: CommunityAdapterPlatform.PlatformItemClick{
                     override fun onClick(view: View, position: Int) {
-                        (activity as MainActivity?)?.changeFragment(CommunityPlatformArticleFragment.newInstance())
+                        val communityPlatformArticleFragment=CommunityPlatformArticleFragment()
+                        val bundle:Bundle=Bundle()
+                        bundle.putInt("articleId",communityPlatformList[position].articleId)
+                        communityPlatformArticleFragment.arguments=bundle
+                        (activity as MainActivity?)?.changeFragment(communityPlatformArticleFragment)
                     }
 
                 }
@@ -99,7 +107,7 @@ class CommunityPlatformFragment : Fragment() {
 
 
 
-            return binding.root
+        return binding.root
     }
 
     companion object {
@@ -108,15 +116,19 @@ class CommunityPlatformFragment : Fragment() {
         }
     }
 
-    inner class CommunityPlatformDetail(title: String, text: String, heartCnt: Int) {
+    inner class CommunityPlatformDetail(articleId:Int,title: String, text: String, heartCnt: Int) {
+        var articleId:Int=0
         var title: String = ""
         var text: String = ""
         var hearCount: Int = 0
 
         init {
+            this.articleId=articleId
             this.title = title
             this.text = text
             this.hearCount = hearCount
         }
     }
+
+
 }

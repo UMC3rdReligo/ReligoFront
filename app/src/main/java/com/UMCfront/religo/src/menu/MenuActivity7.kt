@@ -6,51 +6,54 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.UMCfront.religo.R
+import com.UMCfront.religo.config.ApplicationClass.Companion.SPEditor
 import kotlinx.android.synthetic.main.activity_menu7.*
 
 class MenuActivity7 : AppCompatActivity() {
     val question_6 = "question_6"
     val question_7 = "question_7"
-    val preference by lazy {getSharedPreferences("MenuActivity7", Context.MODE_PRIVATE)}
+    // val preference by lazy {getSharedPreferences("MenuActivity7", Context.MODE_PRIVATE)}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu7)
 
+        applicationContext.getSharedPreferences("MenuActivity7", MODE_PRIVATE)
+
         // 다음으로 버튼
         menu7_next_btn.setOnClickListener {
             // question_6
             if (radio1_1.isChecked==true){
-                preference.edit().putString(question_6, "0").apply()
+                SPEditor.putString(question_6, "0").apply()
             }
             else if(radio1_2.isChecked==true){
-                preference.edit().putString(question_6, "1").apply()
+                SPEditor.putString(question_6, "1").apply()
             }
             else if(radio1_3.isChecked==true){
-                preference.edit().putString(question_6, "2").apply()
+                SPEditor.putString(question_6, "2").apply()
             }
             else if(radio1_4.isChecked==true){
-                preference.edit().putString(question_6, "3").apply()
+                SPEditor.putString(question_6, "3").apply()
             }
             else if(radio1_5.isChecked==true){
-                preference.edit().putString(question_6, "4").apply()
+                SPEditor.putString(question_6, "4").apply()
             }
 
             // question_7
             if (radio2_1.isChecked==true){
-                preference.edit().putString(question_7, "0").apply()
+                SPEditor.putString(question_7, "0").apply()
             }
             else if(radio2_2.isChecked==true){
-                preference.edit().putString(question_7, "1").apply()
+                SPEditor.putString(question_7, "1").apply()
             }
             else if(radio2_3.isChecked==true){
-                preference.edit().putString(question_7, "2").apply()
+                SPEditor.putString(question_7, "2").apply()
             }
             else if(radio2_4.isChecked==true){
-                preference.edit().putString(question_7, "3").apply()
+                SPEditor.putString(question_7, "3").apply()
             }
             else if(radio2_5.isChecked==true){
-                preference.edit().putString(question_7, "4").apply()
+                SPEditor.putString(question_7, "4").apply()
             }
 
             // 다음 페이지로 이동
@@ -61,7 +64,7 @@ class MenuActivity7 : AppCompatActivity() {
         // 이전으로 버튼
         menu7_back_btn.setOnClickListener {
             // 이전으로 돌아가면 현재 페이지에서 저장했던 shared preference 삭제
-            val editor : SharedPreferences.Editor = preference.edit() // 데이터 기록을 위한 editor
+            val editor : SharedPreferences.Editor = SPEditor // 데이터 기록을 위한 editor
             editor.remove(question_6)
             editor.remove(question_7)
             editor.commit()

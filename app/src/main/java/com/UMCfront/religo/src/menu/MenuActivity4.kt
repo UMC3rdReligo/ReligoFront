@@ -6,36 +6,38 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.UMCfront.religo.R
+import com.UMCfront.religo.config.ApplicationClass.Companion.SPEditor
 import kotlinx.android.synthetic.main.activity_menu3.*
 import kotlinx.android.synthetic.main.activity_menu4.*
 
 class MenuActivity4 : AppCompatActivity() {
     val question_3 = "question_3"
-    val preference by lazy {getSharedPreferences("MenuActivity4", Context.MODE_PRIVATE)}
+    // val preference by lazy {getSharedPreferences("MenuActivity4", Context.MODE_PRIVATE)}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu4)
 
-        // 반복문 써서 코드 짧게 줄이기..
+        applicationContext.getSharedPreferences("MenuActivity4", MODE_PRIVATE)
+
         // 다음으로 버튼
         menu4_next_btn.setOnClickListener {
             if (menu4_btn1.isSelected == true) {
-                preference.edit().putString(question_3, "PA1").apply()
+                SPEditor.putString(question_3, "PA1").apply()
             } else if (menu4_btn2.isSelected == true) {
-                preference.edit().putString(question_3, "PA2").apply()
+                SPEditor.putString(question_3, "PA2").apply()
             } else if (menu4_btn3.isSelected == true) {
-                preference.edit().putString(question_3, "PA3").apply()
+                SPEditor.putString(question_3, "PA3").apply()
             } else if (menu4_btn4.isSelected == true) {
-                preference.edit().putString(question_3, "PA4").apply()
+                SPEditor.putString(question_3, "PA4").apply()
             } else if (menu4_btn5.isSelected == true) {
-                preference.edit().putString(question_3, "PA5").apply()
+                SPEditor.putString(question_3, "PA5").apply()
             } else if (menu4_btn6.isSelected == true) {
-                preference.edit().putString(question_3, "PA6").apply()
+                SPEditor.putString(question_3, "PA6").apply()
             } else if (menu4_btn7.isSelected == true) {
-                preference.edit().putString(question_3, "PA7").apply()
+                SPEditor.putString(question_3, "PA7").apply()
             } else if (menu4_btn8.isSelected == true) {
-                preference.edit().putString(question_3, "PA8").apply()
+                SPEditor.putString(question_3, "PA8").apply()
             }
 
             // 다음 페이지로 이동
@@ -46,7 +48,7 @@ class MenuActivity4 : AppCompatActivity() {
         // 이전으로 버튼
         menu4_back_btn.setOnClickListener {
             // 이전으로 돌아가면 현재 페이지에서 저장했던 shared preference 삭제
-            val editor : SharedPreferences.Editor = preference.edit() // 데이터 기록을 위한 editor
+            val editor : SharedPreferences.Editor = SPEditor // 데이터 기록을 위한 editor
             editor.remove(question_3)
             editor.commit()
 

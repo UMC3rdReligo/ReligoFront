@@ -9,7 +9,8 @@ public data class CommunityArticleResponse(
     val isSuccess: Boolean,
     val message: String,
     val result: List<CommunityArticleResult>
-)
+
+    )
 
 
 
@@ -20,6 +21,7 @@ data class CommunityArticleResult(
     val writer:String,
     val type:String,
     val title:String,
+    val commentCnt:Int,
     val heartCnt:Int,
     val text:String,
     val recently:Boolean
