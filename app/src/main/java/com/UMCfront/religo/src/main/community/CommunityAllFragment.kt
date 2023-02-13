@@ -54,6 +54,7 @@ class CommunityAllFragment : Fragment() {
                 for(item in res.result){
                     communityAllList.add(
                         CommunityAllDetail(
+                            0,
                             item.articleId,
                             item.title,
                             item.text,
@@ -90,6 +91,7 @@ class CommunityAllFragment : Fragment() {
                     override fun onClick(view: View, position: Int) {
                         val bundle:Bundle=Bundle()
                         bundle.putInt("articleId",communityAllList[position].articleId)
+                        bundle.putInt("churchId",communityAllList[position].churchId)
                         communityAllArticleFragment.arguments=bundle
                         (activity as MainActivity?)?.changeFragment(communityAllArticleFragment)
                     }
@@ -120,13 +122,15 @@ class CommunityAllFragment : Fragment() {
         }
     }
 
-    inner class CommunityAllDetail(articleId:Int,title: String, text: String, heartCnt: Int) {
+    inner class CommunityAllDetail(churchId:Int,articleId:Int,title: String, text: String, heartCnt: Int) {
+        var churchId:Int=0
         var articleId:Int=0
         var title: String = ""
         var text: String = ""
         var hearCount: Int = 0
 
         init {
+            this.churchId=churchId
             this.articleId=articleId
             this.title = title
             this.text = text
