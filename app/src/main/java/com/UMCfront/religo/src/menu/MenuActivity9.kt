@@ -2,10 +2,14 @@ package com.UMCfront.religo.src.menu
 
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.UMCfront.religo.R
+import com.UMCfront.religo.config.ApplicationClass
+import com.UMCfront.religo.config.ApplicationClass.Companion.SPEditor
+import com.UMCfront.religo.config.ApplicationClass.Companion.getString
 import com.UMCfront.religo.src.menu.data.SurveyInfo
 import com.UMCfront.religo.src.menu.data.SurveyResponse
 import com.UMCfront.religo.src.menu.retrofit.SignUp
@@ -17,14 +21,13 @@ import retrofit2.Response
 
 class MenuActivity9 : AppCompatActivity() {
     val nickname = "nickname"
-    val preference by lazy {getSharedPreferences("MenuActivity9", Context.MODE_PRIVATE)}
-
-    // 서버
-    val api= SignUp.create()
+    // val preference by lazy {getSharedPreferences("MenuActivity9", Context.MODE_PRIVATE)}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu9)
+
+        applicationContext.getSharedPreferences("MenuActivity9", MODE_PRIVATE)
 
         // ★ menu1~8에서 저장했던 shared preference 값 불러오기
         val menu1 = getSharedPreferences("MenuActivity1", MODE_PRIVATE)
@@ -44,10 +47,10 @@ class MenuActivity9 : AppCompatActivity() {
         }
 
         // shared preferences
-        // ★★★ menu 1~9에서 shared preference에 저장해둔 값 서버로 POST 하기
+        // ★★★ menu 1~9에서 shared preferences에 저장해둔 값 서버로 POST 하기
         join_btn.setOnClickListener {
-            preference.edit().putString(nickname, nickNameField.text.toString()).apply()
-            // ★ ↑ (중복확인) 버튼 누르고 확인 되면 그때 자동으로 shared preference에 저장되게 하기
+            SPEditor.putString(nickname, nickNameField.text.toString()).apply()
+            // ★ ↑ (중복확인) 버튼 누르고 확인 되면 그때 자동으로 shared preferences에 저장되게 하기
 
             val question_1 = menu1.getString("question_1","")
             val address = menu2.getString("address","")
@@ -60,7 +63,9 @@ class MenuActivity9 : AppCompatActivity() {
             val question_7 = menu7.getString("question_7","")
             val question_8 = menu8.getString("question_8","")
             val question_9 = menu8.getString("question_9","")
-            val nickname = preference.getString("nickname","")
+            // ApplicationClass에서 getString 함수 생성 후 사용 ↓
+            val nickname = ApplicationClass.SharedPreferences.getString("nickname","")
+
 
             // 값 확인용
             Log.d("q1", question_1.toString())
@@ -91,7 +96,10 @@ class MenuActivity9 : AppCompatActivity() {
                 question_9.toString(),
                 nickname.toString())
 
-            api.signup(data).enqueue(object : Callback<SurveyResponse> {
+            val retrofit = ApplicationClass.sRetrofit
+            val SignUpService = retrofit.create(SignUp::class.java)
+
+            SignUpService.signup(data).enqueue(object : Callback<SurveyResponse> {
                 override fun onResponse(
                     call: Call<SurveyResponse>,
                     response: Response<SurveyResponse>
@@ -108,8 +116,8 @@ class MenuActivity9 : AppCompatActivity() {
             })
 
             // menu10 페이지로 이동
-            // val intent = Intent(this, MenuActivity10::class.java)
-            // startActivity(intent)
+            val intent = Intent(this, MenuActivity10::class.java)
+            startActivity(intent)
         }
     }
 }

@@ -12,7 +12,12 @@ class AccessTokenInterceptor : Interceptor {
 //        if (jwtToken != null) {
 //
 //        }
+
         builder.addHeader("Authorization", "Bearer "+"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOm51bGwsInJvbGUiOiJST0xFX1VTRVIiLCJpZCI6NDUsImV4cCI6MTY3NjA2MTU5M30.tdytaDdyngijC0rMqGohCsgZZWOVSMpYuLGzd0vw-DM")
+
+        builder.addHeader("Authorization","Bearer "+"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWxpZTA5NjQ0QG5hdmVyLmNvbSIsInJvbGUiOiJST0xFX1VTRVIiLCJpZCI6MjcsImV4cCI6MTY3NTM1MTI4NX0.ZUSyKidVvRFhmBKEdTE_SPoeKZAATnK9SXi2m_xq2jo")
+
+        builder.addHeader("Authorization", "Bearer" + "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOm51bGwsInJvbGUiOiJST0xFX1VTRVIiLCJpZCI6NDUsImV4cCI6MTY3NjA2MTU3OH0.KNsF_hJLbrqsdrsO4-1WGLY0-b6fAaLUNcm-1hcpAMU")
 
         return chain.proceed(builder.build())
     }

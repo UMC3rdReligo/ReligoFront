@@ -14,6 +14,7 @@ data class ChurchDetailResult(
     val mainImage:String,
     val detailImage:List<String>
 )
+
 data class InfoResult(
     val id:Int,
     val info:PlatformList,

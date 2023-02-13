@@ -54,9 +54,7 @@ class EventFragment : Fragment() {
 
         val eventVPA = EventViewPagerAdapter(myEventList)
 
-        viewpager_myevent.apply {
-            adapter = eventVPA
-        }
+
 
         val eventViewPagerAdapter= EventViewPagerAdapter(myEventList)
         viewPager2Event.adapter= eventViewPagerAdapter

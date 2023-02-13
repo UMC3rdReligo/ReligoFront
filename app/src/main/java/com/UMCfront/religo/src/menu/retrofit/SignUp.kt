@@ -18,9 +18,11 @@ interface SignUp {
         @Body jsonparams: SurveyInfo
     ): Call<SurveyResponse>
 
-    // 공유 객체로 사용 가능 (static과 유사) -> 모든 인스턴스가 공유하는 객체로서 동작함
+    
+    /* ApplicationClass에 작성된 전역변수 사용
+
     companion object{
-        private const val BASE_URL = "(서버 주소)" // 서버 주소
+        private const val BASE_URL = "https://jmlee.shop/"
 
         fun create(): SignUp {
             val gson: Gson = GsonBuilder().setLenient().create()
@@ -33,4 +35,6 @@ interface SignUp {
                 .create(SignUp::class.java)
         }
     }
+
+   */
 }
