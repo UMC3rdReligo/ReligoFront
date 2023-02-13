@@ -39,77 +39,75 @@ class CommunityPlatformFragment : Fragment() {
         val retrofit= ApplicationClass.sRetrofit
         val communityChurchService=retrofit.create(CommunityArticleRetrofitInterface::class.java)
 
-        val platformCode=requireArguments().getString("platformCode")
+        //val platformCode=requireArguments().getString("platformCode")
 
-        if (platformCode != null) {
-            communityChurchService.getCommunityPlatform(platformCode).enqueue(object :retrofit2.Callback<CommunityArticleResponse>{
-                override fun onResponse(
-                    call: Call<CommunityArticleResponse>,
-                    response: Response<CommunityArticleResponse>
-                ) {
-                    val res=response.body() as CommunityArticleResponse
-                    Log.d("home2",res.result.size.toString())
-                    //communityAllArticleList.clear()
+        communityChurchService.getCommunityPlatform("PA1").enqueue(object :retrofit2.Callback<CommunityArticleResponse>{
+            override fun onResponse(
+                call: Call<CommunityArticleResponse>,
+                response: Response<CommunityArticleResponse>
+            ) {
+                val res=response.body() as CommunityArticleResponse
+                Log.d("home2",res.result.size.toString())
+                //communityAllArticleList.clear()
 
-                    for(item in res.result){
-                        communityPlatformList.add(
-                            CommunityPlatformDetail(
-                                item.articleId,
-                                item.title,
-                                item.text,
-                                item.heartCnt
-                            )
+                for(item in res.result){
+                    communityPlatformList.add(
+                        CommunityPlatformDetail(
+                            item.articleId,
+                            item.title,
+                            item.text,
+                            item.heartCnt
                         )
-                    }
-                    val communityAdapter= CommunityAdapterPlatform(communityPlatformList)
+                    )
+                }
+                val communityAdapter= CommunityAdapterPlatform(communityPlatformList)
 
-                    //community_grid_rv
-                    val rv=binding.communityGridRv
-                    rv.adapter=communityAdapter
-
-
-                    rv.layoutManager= LinearLayoutManager(context)
-
-                    binding.communityFab.bringToFront()
-
-                    // 글쓰기 버튼 구현
+                //community_grid_rv
+                val rv=binding.communityGridRv
+                rv.adapter=communityAdapter
 
 
-                    binding.communityFab.setOnClickListener{
+                rv.layoutManager= LinearLayoutManager(context)
 
-                        Toast.makeText(context,"플로팅 클릭", Toast.LENGTH_LONG).show()
+                binding.communityFab.bringToFront()
 
-                        (activity as MainActivity?)?.changeFragment(CommunityPlatformWritingFragment())
+                // 글쓰기 버튼 구현
 
-                    }
 
-                    // 글 클릭 구현
-                    communityAdapter.itemClick=object: CommunityAdapterPlatform.PlatformItemClick{
-                        override fun onClick(view: View, position: Int) {
-                            val communityPlatformArticleFragment=CommunityPlatformArticleFragment()
-                            val bundle:Bundle=Bundle()
-                            bundle.putInt("articleId",communityPlatformList[position].articleId)
-                            communityPlatformArticleFragment.arguments=bundle
-                            (activity as MainActivity?)?.changeFragment(communityPlatformArticleFragment)
-                        }
+                binding.communityFab.setOnClickListener{
 
-                    }
+                    Toast.makeText(context,"플로팅 클릭", Toast.LENGTH_LONG).show()
 
-                    //뒤로가기 버튼 구현
-                    binding.communityChurchBack.setOnClickListener {
-                        (activity as MainActivity?)?.changeFragment(CommunityFragment.newInstance())
-                    }
+                    (activity as MainActivity?)?.changeFragment(CommunityPlatformWritingFragment())
+
                 }
 
-                override fun onFailure(call: Call<CommunityArticleResponse>, t: Throwable) {
-                    Toast.makeText(context,"연결 오류", Toast.LENGTH_LONG).show()
+                // 글 클릭 구현
+                communityAdapter.itemClick=object: CommunityAdapterPlatform.PlatformItemClick{
+                    override fun onClick(view: View, position: Int) {
+                        val communityPlatformArticleFragment=CommunityPlatformArticleFragment()
+                        val bundle:Bundle=Bundle()
+                        bundle.putInt("articleId",communityPlatformList[position].articleId)
+                        communityPlatformArticleFragment.arguments=bundle
+                        (activity as MainActivity?)?.changeFragment(communityPlatformArticleFragment)
+                    }
+
                 }
-            })
-        }
+
+                //뒤로가기 버튼 구현
+                binding.communityChurchBack.setOnClickListener {
+                    (activity as MainActivity?)?.changeFragment(CommunityFragment.newInstance())
+                }
+            }
+
+            override fun onFailure(call: Call<CommunityArticleResponse>, t: Throwable) {
+                Toast.makeText(context,"연결 오류", Toast.LENGTH_LONG).show()
+            }
+        })
 
 
 
-            return binding.root
+        return binding.root
     }
 
     companion object {

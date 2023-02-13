@@ -13,7 +13,7 @@ interface CommunityArticleDetailRetrofitService{
     @GET("/community/article/{articleId}")
     fun getCommunityDetail(@Path("articleId") articleId: Int): Call<CommunityArticleDetailResponse>
 
-    @POST("/community/article/comment")
+    @POST("/community/comment/new")
     fun postComment(@Body comment:CommunityCommentRequest):Call<CommunityCommentResponse>
 
 

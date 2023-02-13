@@ -6,5 +6,6 @@ data class CommunityArticlePostRequest(
 
     @SerializedName("type") val type:String="",
     @SerializedName("churchId") val churchId: Int=0,
+    @SerializedName("title") val title:String="",
     @SerializedName("text") val text: String=""
 )
