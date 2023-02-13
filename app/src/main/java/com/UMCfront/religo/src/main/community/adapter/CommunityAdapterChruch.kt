@@ -9,13 +9,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.UMCfront.religo.R
 import com.UMCfront.religo.src.main.community.CommunityChurchFragment
 
-class CommunityGridAdapter(val items:MutableList<CommunityChurchFragment.CommunityChurchDetail>):RecyclerView.Adapter<CommunityGridAdapter.ViewHolder>() {
+class CommunityAdapterChruch(val items:MutableList<CommunityChurchFragment.CommunityChurchDetail>):RecyclerView.Adapter<CommunityAdapterChruch.ViewHolder>() {
 
     interface GridItemClick{
         fun onClick(view:View,position:Int)
     }
 
-    var itemClick: CommunityGridAdapter.GridItemClick?=null
+    var itemClick: CommunityAdapterChruch.GridItemClick?=null
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
         //아이템 클릭

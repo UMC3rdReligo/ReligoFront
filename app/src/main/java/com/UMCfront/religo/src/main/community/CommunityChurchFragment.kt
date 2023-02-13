@@ -8,12 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.UMCfront.religo.R
 import com.UMCfront.religo.config.ApplicationClass
 import com.UMCfront.religo.databinding.FragmentCommunityChurchBinding
 import com.UMCfront.religo.src.main.MainActivity
-import com.UMCfront.religo.src.main.community.adapter.CommunityGridAdapter
+import com.UMCfront.religo.src.main.community.adapter.CommunityAdapterChruch
 import com.UMCfront.religo.src.main.community.data.CommunityArticleResponse
 import com.UMCfront.religo.src.main.community.data.CommunityArticleRetrofitInterface
 import retrofit2.Call
@@ -23,6 +22,7 @@ import retrofit2.Response
 class CommunityChurchFragment : Fragment() {
 
     val communityChurchArticleList= mutableListOf<CommunityChurchDetail>()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -51,6 +51,7 @@ class CommunityChurchFragment : Fragment() {
                     System.out.println(item.title)
                     communityChurchArticleList.add(
                         CommunityChurchDetail(
+                            item.articleId,
                             item.title.toString(),
                             item.text.toString(),
                             item.heartCnt
@@ -61,7 +62,7 @@ class CommunityChurchFragment : Fragment() {
 
 
 
-                val communityAdapter= CommunityGridAdapter(communityChurchArticleList)
+                val communityAdapter= CommunityAdapterChruch(communityChurchArticleList)
 
                 System.out.println(communityChurchArticleList.size)
                 //community_grid_rv
@@ -71,9 +72,13 @@ class CommunityChurchFragment : Fragment() {
 
                 rv.layoutManager= LinearLayoutManager(context)
                 // 글 클릭 구현
-                communityAdapter.itemClick=object: CommunityGridAdapter.GridItemClick{
+                communityAdapter.itemClick=object: CommunityAdapterChruch.GridItemClick{
                     override fun onClick(view: View, position: Int) {
-                        (activity as MainActivity?)?.changeFragment(CommunityChurchArticleFragment.newInstance())
+                        val communityChurchArticleFragment=CommunityChurchArticleFragment()
+                        val bundle:Bundle=Bundle()
+                        bundle.putInt("articleId",communityChurchArticleList[position].articleId)
+                        communityChurchArticleFragment.arguments=bundle
+                        (activity as MainActivity?)?.changeFragment(communityChurchArticleFragment)
                     }
 
                 }
@@ -139,12 +144,14 @@ class CommunityChurchFragment : Fragment() {
         }
     }
 
-    inner class CommunityChurchDetail(title: String, text: String, heartCnt: Int){
+    inner class CommunityChurchDetail(articleId:Int,title: String, text: String, heartCnt: Int){
+        var articleId:Int=0
         var title:String = ""
         var text:String=""
         var hearCount:Int=0
 
         init{
+            this.articleId=articleId
             this.title=title
             this.text=text
             this.hearCount=hearCount

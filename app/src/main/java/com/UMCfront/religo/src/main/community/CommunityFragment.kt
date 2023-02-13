@@ -30,7 +30,6 @@ class CommunityFragment : Fragment() {
 
     val communityAllArticleList= mutableListOf<CommunityItem>()
     val communityPlatformArticleList= mutableListOf<CommunityItem>()
-    val communityChurchFragment:CommunityChurchFragment= CommunityChurchFragment()
 
 
     override fun onCreateView(
@@ -46,13 +45,13 @@ class CommunityFragment : Fragment() {
 
 
 
-        val churchEntrance=view.findViewById<ImageView>(R.id.community_entrance)
+
 
         // 내 교회 정보
         val retrofit= ApplicationClass.sRetrofit
         val communityService=retrofit.create(CommunityArticleRetrofitInterface::class.java)
         var churchId:Int=1;
-        val platformCode:String=""
+        var platformCode:String="PA1"
 
         communityService.getUserInfo().enqueue(object :retrofit2.Callback<CommunityUserInfoResponse>{
             override fun onResponse(
@@ -68,10 +67,14 @@ class CommunityFragment : Fragment() {
                 churchAddress.text=res.result.churchAddress
                 churchId= res.result.churchId.toInt()
                 //교단코드
+                platformCode=res.result.platform.toString()
 
-                churchEntrance!!.setOnClickListener {
+                val churchEntrance=view.findViewById<ImageView>(R.id.community_entrance)
+                churchEntrance.setOnClickListener {
+                    Toast.makeText(context,"click",Toast.LENGTH_LONG).show()
 
                     // fragment간 이동
+                    val communityChurchFragment=CommunityChurchFragment()
 
                     val bundle:Bundle=Bundle()
                     bundle.putInt("churchId",churchId)
@@ -81,6 +84,8 @@ class CommunityFragment : Fragment() {
 
 
                 }
+
+
 
             }
 
@@ -92,7 +97,9 @@ class CommunityFragment : Fragment() {
 
 
 
-        // 커뮤니티 글 찾아오기
+
+
+        // 커뮤니티 전체 글 찾아오기
 
         communityService.getCommunityAll().enqueue(object :retrofit2.Callback<CommunityArticleResponse>{
             override fun onResponse(
@@ -100,11 +107,10 @@ class CommunityFragment : Fragment() {
                 response: Response<CommunityArticleResponse>
             ) {
                 val res=response.body() as CommunityArticleResponse
-                Log.d("home2",res.result.size.toString())
                 communityAllArticleList.clear()
 
                 for(item in res.result){
-                    communityAllArticleList.add(CommunityItem(item.title,item.recently))
+                    communityAllArticleList.add(CommunityItem(item.articleId,item.title,item.recently))
                 }
 
                 val allViewMore=view.findViewById<ImageView>(R.id.community_all_viewmore)
@@ -112,7 +118,6 @@ class CommunityFragment : Fragment() {
                 allViewMore.setOnClickListener{
                     val bundle:Bundle=Bundle()
                     bundle.putInt("churchId",churchId)
-                    Log.d("ccc",churchId.toString())
                     CommunityAllFragment.newInstance().arguments=bundle
 
                     (activity as MainActivity?)?.changeFragment(CommunityAllFragment.newInstance())
@@ -130,13 +135,7 @@ class CommunityFragment : Fragment() {
                 rv.adapter=communityAdapter
                 rv.layoutManager= LinearLayoutManager(context)
 
-                // 글 클릭 구현
-                communityAdapter.itemClick=object:CommunityRVAdapter1.ItemClick{
-                    override fun onClick(view: View, position: Int) {
-                        (activity as MainActivity?)?.changeFragment(CommunityAllArticleFragment.newInstance())
-                    }
 
-                }
 
             }
 
@@ -149,7 +148,7 @@ class CommunityFragment : Fragment() {
 
 
         //교단 보기
-        communityService.getCommunityPlatform("PA1").enqueue(object :retrofit2.Callback<CommunityArticleResponse>{
+        communityService.getCommunityPlatform(platformCode).enqueue(object :retrofit2.Callback<CommunityArticleResponse>{
             override fun onResponse(
                 call: Call<CommunityArticleResponse>,
                 response: Response<CommunityArticleResponse>
@@ -160,13 +159,17 @@ class CommunityFragment : Fragment() {
                 //communityPlatformArticleList.clear()
 
                 for(item in res.result){
-                    communityPlatformArticleList.add(CommunityItem(item.title,item.recently))
+                    communityPlatformArticleList.add(CommunityItem(item.articleId,item.title,item.recently))
                 }
 
                 val platformMore=view.findViewById<ImageView>(R.id.community_platform_viewmore)
 
                 platformMore.setOnClickListener {
-                    (activity as MainActivity?)?.changeFragment(CommunityPlatformFragment.newInstance())
+                    val communityPlatformFragment=CommunityPlatformFragment()
+                    val bundle:Bundle=Bundle()
+                    bundle.putString("platformCode",platformCode)
+                    communityPlatformFragment.arguments=bundle
+                    (activity as MainActivity?)?.changeFragment(communityPlatformFragment)
                 }
 
 
@@ -179,13 +182,7 @@ class CommunityFragment : Fragment() {
 
                 platRv.adapter=platformAdapter
 
-                // 글 클릭 구현
-                platformAdapter.itemClick=object:CommunityRVAdapter1.ItemClick{
-                    override fun onClick(view: View, position: Int) {
-                        (activity as MainActivity?)?.changeFragment(CommunityPlatformFragment.newInstance())
-                    }
 
-                }
 
             }
 
@@ -210,21 +207,25 @@ class CommunityFragment : Fragment() {
         super.onDestroyView()
     }
 
-    inner class CommunityDetail constructor(title:String,text:String){
+    inner class CommunityDetail constructor(articleId: Int,title:String,text:String){
+        var articleId:Int=0
         var title:String = ""
         var text:String=""
         var hearCount:Int=0
 
         init{
+            this.articleId=articleId
             this.title=title
             this.text=text
         }
 
     }
-    inner class CommunityItem constructor(title:String,recently:Boolean){
+    inner class CommunityItem constructor(articleId:Int,title:String,recently:Boolean){
+        var articleId:Int=0
         var title:String=""
         var recently:Boolean=true
         init{
+            this.articleId=articleId
             this.title=title
             this.recently=recently
         }
