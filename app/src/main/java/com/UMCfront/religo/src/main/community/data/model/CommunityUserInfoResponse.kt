@@ -11,6 +11,7 @@ data class UserInfo(
     val name:String,
     val churchId:Long,
     val churchName:String,
-    val churchAddress:String
+    val churchAddress:String,
+    val platform:String
 
 )

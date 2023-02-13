@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.UMCfront.religo.R
-import com.UMCfront.religo.src.main.community.adapter.CommunityCommentRVAdapter
 
 class ChurchDetailAdapter(val items:MutableList<String>):RecyclerView.Adapter<ChurchDetailAdapter.ViewHolder>() {
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {

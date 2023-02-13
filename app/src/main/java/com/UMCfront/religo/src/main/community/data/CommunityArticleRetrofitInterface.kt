@@ -1,8 +1,10 @@
 package com.UMCfront.religo.src.main.community.data
 
-import com.UMCfront.religo.src.main.community.data.model.CommunityUserInfoResponse
+import com.UMCfront.religo.src.main.community.data.model.*
 import retrofit2.Call
+import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.POST
 import retrofit2.http.Path
 
 interface CommunityArticleRetrofitInterface {
@@ -18,6 +20,9 @@ interface CommunityArticleRetrofitInterface {
 
     @GET("/user/info")
     fun getUserInfo():Call<CommunityUserInfoResponse>
+
+    @POST("/community/article/new")
+    fun postArticle(@Body comment: CommunityArticlePostRequest):Call<CommunityArticlePostResponse>
 
 
 
