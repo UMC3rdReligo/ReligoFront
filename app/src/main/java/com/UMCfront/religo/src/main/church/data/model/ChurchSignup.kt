@@ -22,3 +22,12 @@ data class ChurchSignupResult(
     @SerializedName("message")val message: String,
     @SerializedName("scheduleDate")val scheduledDate: String
 )
+
+data class ChurchtryResult(
+
+    @SerializedName("name") val name: String,
+    @SerializedName("phoneNum")val phoneNum: String,
+    @SerializedName("message")val message: String,
+    @SerializedName("scheduleDate")val scheduledDate: String
+
+    )

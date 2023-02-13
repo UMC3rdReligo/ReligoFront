@@ -29,15 +29,15 @@ import retrofit2.Response
 
 class HomeChurchsignupFragment:Fragment() {
 
-    val emailitems = arrayOf("example.com","gmail.com","naver.com")
+    val emailitems = arrayOf("naver.com","gmail.com","hotmail.com")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-
         return inflater.inflate(R.layout.fragment_home_churchsignup, container, false)
+
     }
 
     @SuppressLint("UseRequireInsteadOfGet")
