@@ -6,16 +6,19 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.UMCfront.religo.R
+import com.UMCfront.religo.src.main.community.CommunityChurchArticleFragment
 
-class CommunityCommentRVAdapter(val items:MutableList<String>):
-    RecyclerView.Adapter<CommunityCommentRVAdapter.ViewHolder>() {
-
+class CommunityChurchCommentRVAdapter(val items:MutableList<CommunityChurchArticleFragment.CommunityComment>):
+    RecyclerView.Adapter<CommunityChurchCommentRVAdapter.ViewHolder>() {
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
-        fun bindItem(item:String){
+        fun bindItem(item: CommunityChurchArticleFragment.CommunityComment){
             val rv_text=itemView.findViewById<TextView>(R.id.community_comment_text)
-            rv_text.text=item
-
+            val rv_date=itemView.findViewById<TextView>(R.id.community_comment_date)
+            val rv_writer=itemView.findViewById<TextView>(R.id.community_comment_writer)
+            rv_text.text=item.text
+            rv_date.text=item.date
+            rv_writer.text=item.name
         }
 
     }

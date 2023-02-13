@@ -12,7 +12,6 @@ import com.UMCfront.religo.config.ApplicationClass
 import com.UMCfront.religo.databinding.FragmentCommunityAllBinding
 import com.UMCfront.religo.src.main.MainActivity
 import com.UMCfront.religo.src.main.community.adapter.CommunityAdapterAll
-import com.UMCfront.religo.src.main.community.adapter.CommunityGridAdapter
 import com.UMCfront.religo.src.main.community.data.CommunityArticleResponse
 import com.UMCfront.religo.src.main.community.data.CommunityArticleRetrofitInterface
 import retrofit2.Call
@@ -23,6 +22,7 @@ class CommunityAllFragment : Fragment() {
     private var _binding: FragmentCommunityAllBinding? = null
     private val binding get() = _binding!!
     val communityAllList= mutableListOf<CommunityAllDetail>()
+    val communityAllArticleFragment=CommunityAllArticleFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,6 +54,8 @@ class CommunityAllFragment : Fragment() {
                 for(item in res.result){
                     communityAllList.add(
                         CommunityAllDetail(
+                            0,
+                            item.articleId,
                             item.title,
                             item.text,
                             item.heartCnt
@@ -87,7 +89,11 @@ class CommunityAllFragment : Fragment() {
                 // 글 클릭 구현
                 communityAllAdapter.itemClick=object: CommunityAdapterAll.AllItemClick{
                     override fun onClick(view: View, position: Int) {
-                        (activity as MainActivity?)?.changeFragment(CommunityAllArticleFragment.newInstance())
+                        val bundle:Bundle=Bundle()
+                        bundle.putInt("articleId",communityAllList[position].articleId)
+                        bundle.putInt("churchId",communityAllList[position].churchId)
+                        communityAllArticleFragment.arguments=bundle
+                        (activity as MainActivity?)?.changeFragment(communityAllArticleFragment)
                     }
 
                 }
@@ -116,15 +122,21 @@ class CommunityAllFragment : Fragment() {
         }
     }
 
-    inner class CommunityAllDetail(title: String, text: String, heartCnt: Int) {
+    inner class CommunityAllDetail(churchId:Int,articleId:Int,title: String, text: String, heartCnt: Int) {
+        var churchId:Int=0
+        var articleId:Int=0
         var title: String = ""
         var text: String = ""
         var hearCount: Int = 0
 
         init {
+            this.churchId=churchId
+            this.articleId=articleId
             this.title = title
             this.text = text
             this.hearCount = hearCount
         }
     }
+
+
 }

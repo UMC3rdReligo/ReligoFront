@@ -56,7 +56,7 @@ class LoginActivity : AppCompatActivity() {
                     // val refreshToken = KaKaoAccessToken(token.refreshToken.toString())
                     // 토큰값 확인
                     Log.d("accessToken 값: ", token.accessToken.toString())
-                    
+
                     LoginService.login(accessToken).enqueue(object : retrofit2.Callback<KakaoResponse> {
                         override fun onResponse(
                             call: retrofit2.Call<KakaoResponse>,
@@ -72,10 +72,10 @@ class LoginActivity : AppCompatActivity() {
                             Log.d("response", "fail")
                         }
                     })
-                    
+
                     val intent= Intent(this, LoadingActivity::class.java)
                     startActivity(intent)
-                    
+
                 }
             }
         }

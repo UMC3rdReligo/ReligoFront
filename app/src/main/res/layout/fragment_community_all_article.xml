@@ -55,6 +55,7 @@
 
 
             <TextView
+                android:id="@+id/community_all_article_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="안녕하세요 이번에 새로 가입했습니다"
@@ -78,6 +79,7 @@
                 </LinearLayout>
 
                 <TextView
+                    android:id="@+id/community_all_article_writer"
                     android:layout_marginTop="4sp"
                     android:layout_marginLeft="10dp"
                     android:layout_width="wrap_content"
@@ -94,6 +96,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
+                    android:id="@+id/community_all_article_created"
                     android:textSize="10sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -105,6 +108,7 @@
                     android:layout_marginLeft="10dp"
                     android:src="@drawable/noto_left_speech_bubble"/>
                 <TextView
+                    android:id="@+id/community_all_article_commentCnt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
@@ -119,6 +123,7 @@
                     android:src="@drawable/mdi_cards_heart_outline"
                     android:layout_marginTop="3dp"/>
                 <TextView
+                    android:id="@+id/community_all_article_heartCnt"
                     android:layout_marginLeft="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -135,6 +140,7 @@
                 android:background="#D3D3D3"/>
 
             <TextView
+                android:id="@+id/community_all_article_text"
                 android:textSize="12sp"
                 android:layout_marginTop="25dp"
                 android:layout_width="match_parent"

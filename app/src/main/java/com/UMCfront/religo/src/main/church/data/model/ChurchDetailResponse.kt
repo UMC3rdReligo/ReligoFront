@@ -8,6 +8,7 @@ data class ChurchDetailResponse(
     val message: String,
     val result: ChurchDetailResult
 )
+
 data class ChurchDetailResult(
     val info: com.UMCfront.religo.src.main.church.data.model.InfoResult,
     val hashtags:List<String>,

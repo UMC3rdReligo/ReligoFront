@@ -8,7 +8,9 @@ import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.UMCfront.religo.R
+import com.UMCfront.religo.src.main.MainActivity
 import com.UMCfront.religo.src.main.church.ChurchinfoWriteFragment
+import com.UMCfront.religo.src.main.home.HomeFragment
 
 class MypageFragment: Fragment() {
 
@@ -31,6 +33,12 @@ class MypageFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val mychurchbtn = view.findViewById<LinearLayout>(R.id.mypage_mychurch_block)
+
+        mychurchbtn.setOnClickListener {
+            (activity as MainActivity?)?.changeFragment(MypageMychurchFragment())
+        }
+
+
 
 
     }

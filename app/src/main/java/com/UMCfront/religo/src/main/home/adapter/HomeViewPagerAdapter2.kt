@@ -18,7 +18,7 @@ class HomeViewPagerAdapter2(val items:MutableList<HomeFragment.HomeEventDetail>)
         fun onClick(view: View, position:Int)
     }
 
-    var eventItemClick: HomeViewPagerAdapter.ChurchViewMoreItemClick?=null
+    var eventItemClick: HomeViewPagerAdapter2.EventViewMoreItemClick?=null
 
 
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
